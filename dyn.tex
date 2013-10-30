@@ -1,0 +1,377 @@
+\documentclass[a4paper, 13pt]{scrreprt}
+\usepackage[utf8]{inputenc} 
+\usepackage{amssymb}
+\usepackage[ngerman]{babel}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{graphicx}
+%\usepackage{pstricks}
+\usepackage{color}
+\usepackage[pdfborder={0 0 0}]{hyperref}
+
+\pagestyle{headings}
+
+\newtheorem{satz}{Satz}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollar}[theorem]{Corollar}
+\theoremstyle{definition} \newtheorem{definition}{Definition}[section]
+
+\newenvironment{beweis}[1][Beweis]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{beispiel}[1][Beispiel]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{bemerkung}[1][Bemerkung]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+\newcommand{\RR}{\mathbb{R}}
+
+\begin{document}
+\title{Nichtlineare Dynamik}
+\publishers{\small{Fehler in der Mitschrift an
+\url{alexander.book@gmx.de}} oder 
+\url{dominik.o@gmx.net}}
+\maketitle
+\tableofcontents
+
+
+\chapter{Grundlagen}
+\section{Dynamische Systeme}
+\begin{definition}[dynamische Systeme]
+Wir behandeln zwei Arten von dynamischen Systemen:
+\begin{enumerate}
+\item \emph{kontinuierliches dynamisches System}: Es gibt eine kontinulierliche Zeitvariable $t\in\mathbb{R}$
+\item \emph{diskretes dynamisches System}: Es gibt eine kontinulierliche Zeitvariable $t\in\mathbb{Z}$
+\end{enumerate}
+Im folgenden bezeichnet $T$ entweder $\mathbb{R}$ oder $\mathbb{Z}$, je nachdem, welches dynamische System im Kontext verwendet wird.
+
+Es gibt einen \emph{(Zustands-)Phasenraum} $X$, der den Zustand eines Systems mit verschiedenen Gr"o"sen beschreibt $(X\subseteq \mathbb{R}^n, n\in \mathbb{N})$. $x\in X$ beschreibt somit einen m"oglichen Zustand eines \emph{dynamischen Systems}. Falls $\operatorname{dim}(X) < \infty$, so nennt man es \emph{endlich dimensionales dynamisches System}. Andernfalls ($\operatorname{dim}(X) = \infty$) nennt man es \emph{unendlich dimensionales dynamisches System}. Mit \emph{Dynamik} bezeichnet man die zeitliche Ver"anderung des Zustands eines dynamischen Systems.
+\end{definition}
+
+
+Generell beginnt ein dynamisches System bei einer Anfangszeit $t_o$ und einem Zustand $x(t_0) = x_0 \in X$. Anhand dieses Punktes wird jedem andern Zeitpunkt ein eindeutiger Zustand zugewiesen ($x(t_0) = x_0 \Rightarrow \forall t\in T\  \exists! x_t\in\mathbb{R}^n: x(t) = x_t$)
+Diese Zuordnung wird durch die \emph{Flussabbildung} definiert:
+$$\phi\colon \mathbb{R}\times X\to X, \ \forall t \in T: x(t):= \phi(t-t_0, x_0) $$
+
+
+\begin{definition}[Klassifikation von dynamischen Systemen]
+Man unterscheidet dynamische Systeme in lineare und nicht-lineare Systeme:
+\begin{enumerate}
+\item \emph{Lineares dynamisches System}: $\phi(t, \cdot)\colon X \to X$ ist linear. Man schreibt dann auch $\phi(t, x) = \phi(t)x$. Dabei ist $\phi(t)$ ein linearer Operator f"ur alle $t\in T$
+\item \emph{Nichtlineares dynamisches System}: $\phi(t, \cdot)\colon X \to X$ ist nicht linear.
+\end{enumerate}
+\end{definition}
+\begin{definition}[Phasendiagramm]
+Durch ein dynamischen Systems $(X,\phi)$ wird jedem Zustand $x\in X$ ein \emph{Orbit} zugeordnet:
+$$\Gamma_x := \left \{\left. y \in X \right | \exists t\in T: \phi(t,x) = y\right \}$$ 
+Ein \emph{Phasendiagramm} ist die Skizze des Orbits $\Gamma_x$ f"ur einige $x \in X$.
+\begin{description}
+\item[Bemerkung]Durch jeden Punkt $x\in X$ verl"auft genau ein Orbit $\Gamma_x$. Insbesondere k"onnen sich Orbits nicht traversal (selbst) schneiden.
+\end{description}
+\end{definition}
+\subsection{Eigenschaften der Flussabbildung $\phi$}
+Die Flussabbildung gen"ugt folgenden Eigenschaften:
+\begin{enumerate}
+\item $\forall x\in X: \phi(0,x) = x$
+\item $\phi(\cdot, x)$ ist stetig f"ur alle $x\in X$.
+\item $\phi(t, \cdot)$ ist stetig f"ur alle $t\in T$.
+\item $\phi(t, \cdot)\colon X \to X$ ist ein Hom"oomorphismus (d.h. bijektiv und Umkehrabbildung ist stetig)
+\item $\phi(s+t, x) = \phi\left(s, \phi(t,x)\right)$ f"ur alle $s,t \in T,\  x\in X$
+\end{enumerate}
+
+\section{Elementarste Typen von dynamischen Systemen}
+Dynamische Systeme k"onnen auch implizit angegeben werden. Im Folgenden werden die zwei wichtigsten dynamischen Systeme f"ur diese Vorlesung vorgestellt.
+\subsection{Gew"ohnliche Differentialgleichungs Systeme (GDG-Systeme)}
+GDG-Systeme sind ein Beispiel f"ur kontinuierliche dynamische Systeme. Betrachtet man eine autonome gew"ohnliche Differentialgleichung 1. Ordnung
+$$\dot x= v(x)$$
+wobei $v\colon\mathbb{R}^n\to\mathbb{R}^n$ ein Vektorfeld ist. Durch das zugeh"orige AWP $x(0) = x_0$ wird die L"osung $x(t) = \phi(t, x_0)$ festgelegt, falls $v$ hinreichende Struktur besitzt. Falls $v$ beispielsweise lokal Lipschitz-stetig ist, liefert Picard-Lindel"of eine lokal eindeutige L"osung. 
+Dies induziert ein dynamisches System $(X, \phi)$, wobei $X = \mathbb{R}^n$, bzw. $X$ das Definitionsgebiet des Vektorfeldes ist.
+\begin{lemma}
+Die durch dieses AWP induziert $\phi$ gen"ugt den Eigenschaften einer Flussabbildung
+\end{lemma}
+\begin{beweis}
+Sei $\phi(t, x)$ die \emph{Fundamentall"osung} der Differentialgleichung
+$$\dot x = v(x)$$
+wobei $v\in C^1(\mathbb{R}^n)$. D.h. $x(t) = \phi(t,x)$ ist die eindeutige L"osung des zugeh"origen AWP $x(0) = x_0$.
+Folglich ist $\phi(t+s, x)$ eine L"osung der Differentialgleichung f"ur alle $s\in \mathbb{R}$, denn:
+$$\frac{\mathrm d}{\mathrm dt} \phi(t+s, x_0) = v\bigl(\phi(t+s, x_0)\bigr)$$
+Aber $\left . \phi(t+s, x_0) \right |_{t=0} = \phi(s, x_0)$ ist die Anfangsbedingung dieser L"osung. Also l"ost $\phi(t+s, x_0)$ das AWP $x(0) = \phi(s, x_0)$.
+Deswegen gilt $\phi(t+s, x_0) = \phi\left(t, (\phi(s, x_0)\right)$
+\end{beweis}
+
+\subsection{Hom"oomorphismus Systeme (Hom-Systeme)}
+Betrachte einen Hom"oomorphismus $\psi\colon X \to X$. Dieser induziert ein diskretes dynamisches System wie folgt:
+\begin{align*}
+\phi(k, x) := \begin{cases}
+\psi^k(x), &\mbox{ falls } k \in \mathbb{N} \\
+\psi^0(x) = x,& \mbox{ falls } k = 0 \\
+\psi^{-k}(x) := (\psi^{-1})^{-k}(x), &\mbox{ falls } k \in \mathbb{Z}\setminus\mathbb{N}_0
+\end{cases}
+\end{align*}
+$\phi$ ist damit die Flussabbildung eines diskreten dynamischen Systems $(X, \phi)$.
+\section{Gleichgewichtspunkte}
+\begin{definition}
+Ein Punkt $x_G \in X$ hei"st \emph{Gleichgewichtszustand(-punkt)} des dynamischen Systems $(X,\phi)$, falls gilt
+$$ \forall t \in T: \phi(t, x_G) = x_G$$
+\end{definition}
+
+\subsection{Gleichgewichtspunkte in GDG-Systemen}
+Sei $x_G$ ein Gleichgewichtspunkt des durch die Differentialgleichung $\dot x = v(x)$ induzierte dynamischen Systems. Dann gilt:
+$$ \forall t\in \mathbb{R}: \phi(t, x_G) = x_G $$
+Differenzieren liefert 
+$$ \frac{\mathrm d}{\mathrm dt} \phi(t, x_G) = 0 $$
+Somit liegt jeder Gleichgewichtspunkt des dynamischen Systems in der Nullstellenmenge des Vektorfeldes $v$.
+$$ x_G \mbox{ Gleichgewichtspunkt } \Leftrightarrow x_G \in v^{-1}(\{0\}) $$
+
+\subsection{Gleichgewichtspunkte in Hom-Systemen}
+Sei $\psi$ ein Hom"oomorphismus. Sei $(X, \phi)$ das durch $\psi$ induzierte dynamische System. Somit muss f"ur jeden Gleichgewichtspunkt $x_G$ des dynamischen Systems gelten:
+$$ \forall k\in\mathbb{Z}: \phi(k, x_G) = \psi^k(x_G) = x_G$$
+F"ur $k=1$ folgt $x_G= \psi(x_G)$. Also sind alle Gleichgewichtspunkte des dynamischen Systems Fixpunkte von $\psi$. 
+$$ x_G \mbox{ Gleichgewichtspunkt } \Leftrightarrow x_G \mbox{ Fixpunkt von } \psi $$
+
+\subsection{Gleichgewichtspunkte von linearen dynamischen Systemen}
+Im linearen Fall ist f"ur beide Typen GDG- bzw. Hom-Systeme ein trivialer Gleichgewichtspunkt $x_G = 0$ gegeben.
+\begin{enumerate}
+\item GDG-System: Gegeben sei die Differentialgleichung $$\dot x = v(x) = Ax, \ A \in \mathbb{R}^{n\times n}, \ x\in \mathbb{R}^n$$
+Dann ist die Flussabbildung gegeben durch $\phi(t, x) = \exp{(tA)}x$. Zur Wiederholung: Die exponential Matrix ist definiert durch 
+$\exp{(A)} = \sum_{k=0}^{\infty} \frac{A^k}{k!}$ und konvergiert f"ur jedes $A\in\mathbb{R}^{n\times n}$ gleichm"a"sig.
+
+Die Bedingung ein Gleichgewichtspunkt zu sein ist $\phi(t, x) = 0$. Also erf"ullt $x_G = 0$ trivialer weise dieser Bedingung.
+
+\item Hom-System: Sei $\psi$ eine lineare Funktion, also 
+$$\psi( x) = Ax, \ A\in\mathbb{R}^{n \times }, \ x\in \mathbb{R}^n$$
+Damit $\psi$ ein Hom"oomorphismus wird, muss $\det{(A)} \not = 0$ gelten. Die Bedingung f"ur ein Gleichgewichtspunkt ist diesesmal 
+$$ \psi(x) = x $$
+$x_G = 0$ erf"ullt dies Bedingung und ist daher ein Gleichgewichtspunkt.
+
+\end{enumerate}
+
+\subsection{Beispiele von Gleichgewichtspunkten}
+\begin{beispiel}[Gleichgewichtspunkte des DGD-Systems]
+Betrachte die Differentialgleichung $\dot x = x - x^3 = v(x), \ x \in \mathbb{R} = X$
+Die Gleichgewichtspunkte sind also gegeben durch 
+\begin{align*}
+v(x) &= x - x^3 = 0 \\
+& = x(1-x^2) = 0\\
+\Rightarrow x_G^1 = 0, x_G^{2/3} = \pm 1
+\end{align*}
+\end{beispiel}
+
+\begin{beispiel}[Gleichgewichtspunkte des Hom-Systems]
+Betrachten den Hom"oomorphismus $\psi(x) = x^3,\ x\in \mathbb{R}$. Die Gleichgewichtspunkte des von $\psi$ induzierten dynamischen Systems sind gegeben durch
+\begin{align*}
+\psi(x) = x \Leftrightarrow x^3 = x &\Leftrightarrow x^3- x = 0\\
+& x_G^1 = 0, x_G^{2/3} = \pm 1
+\end{align*}
+
+\end{beispiel}
+
+\section{Dynamische Stabilit"at von Gleichgewichtspunkten im Sinne von Lyapunov}
+Sei $(X, \phi)$ ein dynamisches System, $x_G\in X$ ein Gleichgewichtspunkt, $(X, d)$ ein metrischer Raum.
+
+Wiederholung: $d$ hei"st Metrik auf $X$, falls $d\colon X \times X \to \mathbb{R}$ und f"ur beliebige Elemente $x, y, z\in X$ gilt:
+\begin{enumerate}
+\item $d(x,y) \geq 0, \ d(x, y) = 0 \Leftrightarrow x = y$ (Definitheit)
+\item $d(x,y) = d(y, x)$ (Symmetrie)
+\item $d(x, y) \leq d(x,z) + d(z, y) $ (Dreiecksungleichung)
+\end{enumerate}
+
+\begin{definition}
+Ein Gleichgewichtspunkt $x_G$ hei"st
+\begin{itemize}
+\item \emph{stabil (im Sinne von Lyapunov)}, falls 
+$$ \forall \varepsilon > 0 \ \exists \delta > 0 \ \forall x \in X, t \in T, t > 0: d(x, x_G) < \delta \Rightarrow d\left(\phi(t, x), x_G\right) < \varepsilon$$
+\item \emph{instabil (im Sinne von Lyapunov)}, falls $x_G$ nicht stabil ist.
+\item \emph{asymptotisch stabil (im Sinne von Lyapunov)}, falls $x_G$ stabil ist und gilt
+$$ \exists b > 0\ \forall x \in X: d(x, x_G) < b \Rightarrow \lim_{t\to\infty}{d\left(\phi(t, x), x_G\right)} = 0$$
+\end{itemize}
+\end{definition}
+
+\subsection{Indirekte Methode von Lyapunov}
+\subsubsection{Indirekte Methode von Lyapunov f"ur GDG-Systeme}
+Sei $v$ ein $C^1$-Vektorfeld ($v\in C^1(\mathbb{R}^n, \mathbb{R}^n)$), $x_G$ ein Gleichgewichtspunkt des von $v$ erzeugten GDG-Systems. Es bezeichne $\sigma(A)$ die Menge aller Eigenwerte der Matrix $A$.
+\begin{lemma}
+Betrachte die Jacobi-Matrix $J_v(x)$ an der Stelle $x = x_G$.
+\begin{itemize}
+\item Falls $\forall \lambda \in \sigma(J_v(x_G)): \operatorname{Re} \lambda < 0$, dann ist $x_G$ asymptotisch stabil.
+\item Falls $\exists \lambda \in \sigma(J_v(x_G)): \operatorname{Re} \lambda > 0$, dann ist $x_G$ instabil.
+\item Falls $v$ ein lineares dynamisches System induziert und es gilt 
+$$ \forall \lambda \in \sigma(J_v(x_G)): \operatorname{Re} \leq 0 \mbox { und } \lambda \mbox{ halb einfach, falls } \operatorname{Re} \lambda = 0$$
+dann ist $x_G$ stabil. Dabei ist ein Eigenwert $\lambda$ \emph{halb einfach}, falls seine geometrische Vielfachheit, seiner algebraischen Vielfachheit entspricht.
+\end{itemize}
+\end{lemma}
+\subsubsection{Indirekt Methode von Lyapunov f"ur Hom-Systeme}
+Sei $\psi $ ein $C^1$-Hom"oomorphismus ($C^1$-Diffeomorphismus), $x_G$ ein Gleichgewichtspunkt des von $\psi$ erzeugten Hom-Systems.
+\begin{lemma}
+Betrachte die Jacobi-Matrix von $\psi$ an der Stelle $x_G$
+\begin{itemize}
+\item Falls $\forall \lambda \in \sigma(J_\psi(x_G)): |\lambda| < 1$, dann ist $x_G$ asymptotisch stabil
+\item Falls $\exists \lambda \in \sigma(J_\psi(x_G)): |\lambda| > 1$, dann ist $x_G$ instabil.
+\item Falls $\psi$ ein lineares dynamisches System erzeugt und gilt 
+$$\forall \lambda \in \sigma(J_\psi(x_G)): |\lambda| \leq 1 \mbox{ und } \lambda \mbox{ halbeinfach, falls } |\lambda| = 1$$
+dann ist $x_G$ stabil.
+\end{itemize}
+\end{lemma}
+\subsection{Direkte Methode von Lyapunov}
+\subsubsection{Direkte Methode von Lyapunov f"ur GDG-Systeme}
+Sei $v$ ein $C^1$-Vektorfeld, $x_G$ ein Gleichgewichtspunkt.
+\begin{definition}
+Eine \emph{(strikte) Lyapunov-Funktion} $V$ ist eine Funktion $V \in C^1(U, \mathbb{R})$, sodass $x_G \in U, \ U\subset \mathbb{R}^n$ offen und 
+\begin{enumerate}
+\item $V(x_G) = 0$
+\item $\forall x \in U\setminus \{x_G\}: V(x) > 0$
+\item $\forall x \in U: \langle \nabla V(x), v(x) \rangle \stackrel{(<)}\leq 0$ \\
+				\(( \Rightarrow \partial_t V(\phi(t,x)) = \langle \nabla V(\phi(t,x)), v(\phi(t,x)) \rangle \stackrel{(<)}\leq 0 )\)
+\end{enumerate}
+\end{definition}
+
+\begin{lemma}
+Falls eine Lyapunov-Funktion f"ur $v$ um $x_G$ existiert dann ist $x_G$ stabil. Gilt strikte Ungleichheit in $(3)$, dann ist $x_G$ sogar asymptotisch stabil.
+\end{lemma}
+
+\begin{description}
+\item[Bemerkung]
+Falls \( U = \RR^2 \) und \(V\) eine strikte Lyapunov-Funktion zu \(x_G\), dann ist \(x_G\) global asymptotisch stabil.
+\end{description}
+
+\begin{beweis} 
+Fall \("\leq" : \) \newline
+Sei \(\varepsilon > 0\) hinreichend klein, sodass \(\overline{B_{\varepsilon} (x_G)} \subset U\). Sei \(m\) das Minimum von \(V\) auf \(\partial B_{\varepsilon} (x_G) \). Dies existiert, da \(\partial B_{\varepsilon} (x_G) \) kompakt und \(V\) stetig (Satz von Weierstra"s). Dann folgt mit Bedingung 1), 2) : \(m > 0\). \\
+Definiere \( \tilde{U} := \{ x \in B_{\varepsilon} (x_G)\ |\ V(x) < m \} \not= \emptyset \) offen. (\(x_G \in \tilde{U}\) und insbesondere ex. \(\delta > 0 \) mit \(B_{\delta} (x_G) \subset \tilde{U} \), wie auch in jedem anderen Punkt von \(\tilde{U})\). \\
+\(x_0 \in \tilde{U} \Rightarrow V(x_0) < m \) und damit \(V(\Phi(t,x_0)) \leq V(x_0) < m \)
+\begin{addmargin}[38pt]{0pt}
+	\(\Rightarrow \Phi(t,x_0) \notin \partial B_{\varepsilon} (x_G)\  \forall t \geq 0 \) \\
+	\(\Rightarrow \Phi(t,x_0) \in B_{\varepsilon} (x_G) \) \\
+	\(\Rightarrow x_G  \) ist Lyapunov-stabil
+\end {addmargin}
+\end{beweis}
+
+\begin{beispiel} \(X = \RR^2\) 
+	\[ \begin{cases} \dot{x} = y \\
+			\dot{y} = x - x^3 \end {cases} 
+	\]
+\begin{itemize}
+	\item Gleichgewichtspunkte: 
+		\[v(x,y) = \left( \begin{array}{c} y \\ x-x^3 \end{array} \right) = \left(\begin{array}{c} 0 \\ 0 \end{array} \right) \]
+		\[ \Leftrightarrow y = 0, x = 0 \ \lor x = \pm 1\]
+		\[ \Rightarrow x_G^1 = \left(\begin{array}{c} 0 \\ 0 \end{array} \right),\  
+			x_G^{2/3} = \left( \begin{array}{c} \pm 1 \\ 0 \end{array} \right ) 
+		\]
+	\item Konstruktion einer Lyapunov Funktion\\
+		\( II \cdot y - I \cdot x \)
+		\begin{align*}
+			-x\dot{y} + y \dot{y} = -x^3y & = -x^3\dot{x} \\
+			\Leftrightarrow \frac {d}{dt} \left( -0,5 x(t)^2 + 0,5 y(t)^2 + 0,25 x(t)^4 \right) & = 0 \\
+			\Leftrightarrow -0,5 x(t)^2 + 0,5 y(t)^2 + 0,25 x(t)^4 & = C
+		\end{align*}
+		Dann ist 
+			\[V(x,y) = -0,5 x(t)^2 + 0,5 y(t)^2 + 0,25 x(t)^4 - C\]
+		eine Lyapunov-Funktion f"ur jedes \(x_G^i, (i = 1,2,3) \) bei geeigneter Wahl von \(C\), denn
+		\begin{itemize}
+			\item \(V(x_G^i) = 0 \) mit \( C = 0\) f"ur \( x_G^1\) und \( C = -0,25\) f"ur \(x_G^{2/3}\)
+			\item \(\langle \nabla V(x,y), v(x,y) \rangle = 0\)\\
+						\(\nabla V(x,y) = \left( \begin{array}{c} -x+x^3 \\ y \end{array} \right) = 
+							\left( \begin{array}{c} 0 \\ 0 \end{array} \right) \)
+			\item \(HV(x,y) = \left(\begin{array}{cc} -1+3x^2 & 0 \\ 0 & 1 \end{array}\right) \) \\
+						\(HV(x_G^1) = \left(\begin{array}{cc} -1 & 0 \\ 0 & 1 \end{array} \right)\) indefinit \(\Rightarrow x_G^1\) ist Sattelpunkt von \(V\) \\
+						\(HV(x_G^{2/3}) = \left(\begin{array}{cc} 2 & 0 \\ 0 & 1 \end{array}\right) \) pos. definit \(\Rightarrow x_G^{2/3} \) sind strikte lokale Minima von \(V \Rightarrow V > 0\) f"ur alle \( x \not= x_G^{2/3}\) in einer gewissen Umgebung von \(x_G^{2/3}\).\\
+						\(\Rightarrow x_G^{2/3} \) sind Lyapunov-stabil.\\
+						\(Jv(x,y) = \left( \begin{array}{cc} 0 & 1 \\ 1-3x^2 & 0 \end{array}\right)
+						\Rightarrow Jv(x_G^1) = \left( \begin{array}{cc} 0 & 1 \\ 1 & 0 \end{array}\right) \Rightarrow \lambda_{1/2} = \pm 1 \) \\
+						\( \Rightarrow Re(\lambda_{1/2}) > 0 \Rightarrow \) indirekte Methode: \(x_G^1\) ist instabil
+			\end{itemize}
+	
+\end{itemize}
+\end{beispiel}
+
+\subsubsection{Direkte Methode f"ur Hom-Systeme} 
+Direkte Methode von Lyapunov funktioniert entsprechend des GDG-Falls wobei in der Definition einer Lyapunov-Funktion die Bedingng 3) zu ersetzen ist durch: 
+	\[\forall x \in U: V(\Psi(x)) \stackrel{(<)} \leq V(x)\  \]
+wobei \(\Psi\) der erzeugende Hom"oomorphismus des Hom-Systems sei.
+
+
+%-----------------------------------------------------------------------------------------------
+
+\chapter{Lineare Systeme}
+
+\section{GDG-Fall}
+Betrachte die Differentialgleichung
+	\[\dot{x} = Ax =: v(x)\]
+wobei $x\in\RR^n, A \in \RR^{n\times n}$ \emph{Systemmatrix}
+\begin{satz}[Jordannormalform von A]
+Es exisitiert eine invertierbare lineare Transformation $T:\RR^n \to \RR^n $, sodass 
+$$ J = T ^{-1} A T$$
+in Jordan-Normalform ist. Es gilt au"serdem
+	\begin{align*}
+	& e^{Jt} = e^{T^{-1}AT} = \sum_{j=1}^{\infty} \frac{t^j}{j!} (T^{-1}AT)^j = T^{-1} \sum_{j=1}^{\infty} \frac{t^j}{j!} A^j T = T^{-1} e^{At} T
+	\end{align*}
+	Dabei ist \(J\) die Matrix der Flu"sabbildung des \emph{J-Systems} \(\dot{\xi} = J\xi\), \(A\) die Matrix des \emph{A-Systems} \(\dot{x} = Ax\)
+\end{satz}
+	
+\begin{description}
+\item[Terminologie]
+Man sagt, dass das \(J\)- und das \emph{A-System} bez"uglich der linearen Transformation \(T\) zueinander \emph{konjugiert} oder \emph{"aquivalent} sind.
+\end{description}
+
+\begin{description}
+\item[Bemerkung]
+ \(T\) bildet die Orbits des J-Systems bijektiv auf die Orbits des A-Systems ab. Sei dazu \(\xi \in \RR^n\). Dann gilt f"ur die Orbits durch $\xi$
+\begin{align*}
+	 & e^{Jt} \xi  = T^{-1}e^{At} T \xi \\
+	\Leftrightarrow & Te^{Jt} \xi = e^{At}T\xi = e^{At}x
+\end{align*}
+\(T\) bildet den Orbit durch \(\xi\) des J-Systems  auf den Orbit durch \(x = T\xi\) des A-Systems  ab.
+Daher klassifiziert man lineare Differentialgleichungen modulo einer linearen Transformation $T$.
+
+\end{description}
+
+
+\subsubsection{Beispiele von Phasendiagrammen}
+
+\paragraph{\(n=1\)}
+	\[ \dot{x} = ax, \qquad a \in \RR \]
+	3 Typen in Abh"anigkeit von a:
+	\begin{itemize}
+		\item \( a = 0 \Rightarrow \) alle Punkte sind Gleichgewichtspunkte
+		\item \(a > 0 \Rightarrow x = 0 \) ist eine Quelle
+		\item \(a > 0 \Rightarrow x = 0 \) ist eine Senke
+	\end{itemize}
+\paragraph{\(n=2\)}
+	\[\dot{x} = Ax, \qquad A \in \RR^{2\times 2} \]
+	\begin{itemize}
+		\item \(A\) habe EW \(\lambda_1, \lambda_2 \in \RR\) halbeinfach und Jordannormalform \(J = \left(\begin{array}{cc} \lambda_1 & 0 \\ 0 & \lambda_2 \end{array} \right) \)
+			\[ \begin{cases} \dot{\xi_1} = \lambda_1 \xi_1 \\
+				\dot{\xi_2} = \lambda_2 \xi_2 \end {cases} 
+			\]
+			\begin{itemize}
+				\item \(0<\lambda_1 < \lambda_2\) 
+				\begin{align*}
+					\Rightarrow \xi_1(t)   = \xi_{10} e^{\lambda_1 t} \\
+					\xi_2(t)   = \xi_{20} e^{\lambda_2 t} 
+				\end{align*}
+				\(\xi_{10}, \xi_{20} \in \RR \) beliebig \\
+				\underline{Elimination von t:}\\
+				\((\xi_{10} \not= 0)\) 
+				\begin{align*}
+&\frac{\xi_1}{\xi_{10}} = e^{\lambda_1t} \\
+\Leftrightarrow &\ln{\left(\frac{\xi_1}{\xi_{10}}\right)} = \lambda_1 t 		
+\Leftrightarrow t = 	
+\frac {1}{\lambda_1} \ln \left(\frac{\xi_1}{\xi_{10}} \right) \\
+					\Rightarrow \xi_2 &  = \xi_{20} \exp\left( \frac{\lambda_2}{\lambda_1} \ln\left(\frac{\xi_1}{\xi_{10}} \right) \right) = \xi_{20} \left(\frac{\xi_1}{\xi_{10}}\right)^{\frac{\lambda_2}{\lambda_1}}  					
+				\end{align*}
+				\( x = 0 \) ist instabiler Knoten 2. Art
+			
+			\item \(\lambda_2 < \lambda_1 < 0\) \\
+				\( x = 0\) ist stabiler Knoten 2. Art
+			\item \( 0 < \lambda_1 = \lambda_2\) \\	
+				\( x= 0\) ist instabiler Knoten 1. Art
+			\item \( \lambda_1 = \lambda_2 < \) \\
+				\( x = 0\) ist stabiler Knoten 1. Art
+			\item \(\lambda_1 < 0 \lambda_2\)
+				\(x = 0\) ist Sattelpunkt
+				
+		\end{itemize}
+	\end{itemize}
+
+\end{document}
