@@ -6,6 +6,7 @@
 \usepackage{amsmath}
 \usepackage{graphicx}
 %\usepackage{pstricks}
+\usepackage[T1]{fontenc}
 \usepackage{color}
 \usepackage[pdfborder={0 0 0}]{hyperref}
 
@@ -187,6 +188,12 @@ $$ \forall \varepsilon > 0 \ \exists \delta > 0 \ \forall x \in X, t \in T, t > 
 $$ \exists b > 0\ \forall x \in X: d(x, x_G) < b \Rightarrow \lim_{t\to\infty}{d\left(\phi(t, x), x_G\right)} = 0$$
 \end{itemize}
 \end{definition}
+\begin{figure}[htpb]
+\centering
+\includegraphics[width=0.45\textwidth]{img/stabilitaet/stabilitaet_lypunov.pdf}
+\includegraphics[width=0.45\textwidth]{img/stabilitaet/instabilitaet_lypunov.pdf}
+\caption{Stabilität(links); Instabilität (rechts)}
+\end{figure}
 
 \subsection{Indirekte Methode von Lyapunov}
 \subsubsection{Indirekte Methode von Lyapunov f"ur GDG-Systeme}
@@ -366,11 +373,17 @@ Daher klassifiziert man lineare Differentialgleichungen modulo einer linearen Tr
 				\( x = 0\) ist stabiler Knoten 2. Art
 			\item \( 0 < \lambda_1 = \lambda_2\) \\	
 				\( x= 0\) ist instabiler Knoten 1. Art
-			\item \( \lambda_1 = \lambda_2 < \) \\
+			\item \( \lambda_1 = \lambda_2 < 0 \) \\
 				\( x = 0\) ist stabiler Knoten 1. Art
-			\item \(\lambda_1 < 0 \lambda_2\)
+			\item \(\lambda_1 < 0 < \lambda_2\) \\
 				\(x = 0\) ist Sattelpunkt
-				
+					
+\begin{figure}[htpb]
+\centering
+\includegraphics[width=0.45\textwidth]{img/lin_sys/lin_sys_1.pdf}
+\includegraphics[width=0.45\textwidth]{img/lin_sys/lin_sys_2.pdf}
+\caption{$\lambda_1, \lambda_2 > 0$ (links); $\lambda_2, \lambda 1 < 0$ (rechts) }
+\end{figure}
 		\end{itemize}
 	\end{itemize}
 
