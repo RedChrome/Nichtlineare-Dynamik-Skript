@@ -302,7 +302,7 @@ wobei \(\Psi\) der erzeugende Hom"oomorphismus des Hom-Systems sei.
 
 \chapter{Lineare Systeme}
 
-\section{GDG-Fall}
+\section{GDG-Systeme}
 Betrachte die Differentialgleichung
 	\[\dot{x} = Ax =: v(x)\]
 wobei $x\in\RR^n, A \in \RR^{n\times n}$ \emph{Systemmatrix}
@@ -334,57 +334,226 @@ Daher klassifiziert man lineare Differentialgleichungen modulo einer linearen Tr
 \end{description}
 
 
-\subsubsection{Beispiele von Phasendiagrammen}
-
-\paragraph{\(n=1\)}
+\section{Klassifikation von Phasendiagrammen von GDG-Systemen f"ur $n=1$}
+Die erzeugende Differentialgleichung lautet
 	\[ \dot{x} = ax, \qquad a \in \RR \]
-	3 Typen in Abh"anigkeit von a:
-	\begin{itemize}
-		\item \( a = 0 \Rightarrow \) alle Punkte sind Gleichgewichtspunkte
-		\item \(a > 0 \Rightarrow x = 0 \) ist eine Quelle
-		\item \(a > 0 \Rightarrow x = 0 \) ist eine Senke
-	\end{itemize}
-\paragraph{\(n=2\)}
+Man erh"alt dann folgende Klassifikation in Abh"anigkeit von a:
+	\begin{enumerate}
+		\item $a=0: $ alle Punkte sind Gleichgewichtspunkte
+		\item $a > 0: x = 0$ ist eine Quelle
+		\item $a > 0: x = 0 $ ist eine Senke
+	\end{enumerate}
+\section{Klassifikation von Phasendiagrammen von GDG-Systemen f"ur $n=2$}
 	\[\dot{x} = Ax, \qquad A \in \RR^{2\times 2} \]
-	\begin{itemize}
-		\item \(A\) habe EW \(\lambda_1, \lambda_2 \in \RR\) halbeinfach und Jordannormalform \(J = \left(\begin{array}{cc} \lambda_1 & 0 \\ 0 & \lambda_2 \end{array} \right) \)
-			\[ \begin{cases} \dot{\xi_1} = \lambda_1 \xi_1 \\
-				\dot{\xi_2} = \lambda_2 \xi_2 \end {cases} 
+Die Jordannormalform von $A$ kann dann folgende $3$ Typen annehmen
+\subsection{Jordannormalform ist in Diagonalform}
+\(A\) habe Eigenwerte \(\lambda_1, \lambda_2 \in \RR\) halbeinfach. Die Jordannormalform von $A$ ist gegeben durch $$J = \left(\begin{array}{cc} \lambda_1 & 0 \\ 0 & \lambda_2 \end{array} \right) $$ Das dazugeh"orige Anfangswertproblem lautet dann 
+			\[ \begin{cases} \dot{\xi_1} = \lambda_1 \xi_1 , \ \xi_1(0) = \xi_{10}\in\RR \\
+				\dot{\xi_2} = \lambda_2 \xi_2 , \ \xi_2(0) = \xi_{20}\in \RR \end {cases} 
 			\]
-			\begin{itemize}
-				\item \(0<\lambda_1 < \lambda_2\) 
-				\begin{align*}
-					\Rightarrow \xi_1(t)   = \xi_{10} e^{\lambda_1 t} \\
-					\xi_2(t)   = \xi_{20} e^{\lambda_2 t} 
+Die L"osung der obigen Differentialgleichung ist offensichtlich 
+			\begin{align*}
+						\xi_1(t)   = \xi_{10} e^{\lambda_1 t} \\
+						\xi_2(t)   = \xi_{20} e^{\lambda_2 t} 
+			\end{align*}
+Nun wollen wir $\xi_2$ in Abh"anigkeit von $\xi_1$ angeben, falls alle Rechnungen so durchf"uhrbar sind:
+					\begin{align*}
+						&\frac{\xi_1}{\xi_{10}} = e^{\lambda_1t} \\
+						\Leftrightarrow &\ln{\left(\frac{\xi_1}{\xi_{10}}\right)} = \lambda_1 t 		
+						\Leftrightarrow t = 	
+						\frac {1}{\lambda_1} \ln \left(\frac{\xi_1}{\xi_{10}} \right) \\
+						\Rightarrow \xi_2 &  = \xi_{20} \exp\left( \frac{\lambda_2}{\lambda_1} \ln\left(	\frac{\xi_1}{\xi_{10}} \right) \right) = \xi_{20} \left(\frac{\xi_1}{\xi_{10}}\right)^{\frac{\lambda_2}{\lambda_1}}  					
 				\end{align*}
-				\(\xi_{10}, \xi_{20} \in \RR \) beliebig \\
-				\underline{Elimination von t:}\\
-				\((\xi_{10} \not= 0)\) 
-				\begin{align*}
-&\frac{\xi_1}{\xi_{10}} = e^{\lambda_1t} \\
-\Leftrightarrow &\ln{\left(\frac{\xi_1}{\xi_{10}}\right)} = \lambda_1 t 		
-\Leftrightarrow t = 	
-\frac {1}{\lambda_1} \ln \left(\frac{\xi_1}{\xi_{10}} \right) \\
-					\Rightarrow \xi_2 &  = \xi_{20} \exp\left( \frac{\lambda_2}{\lambda_1} \ln\left(\frac{\xi_1}{\xi_{10}} \right) \right) = \xi_{20} \left(\frac{\xi_1}{\xi_{10}}\right)^{\frac{\lambda_2}{\lambda_1}}  					
-				\end{align*}
-				\( x = 0 \) ist instabiler Knoten 2. Art
-			
-			\item \(\lambda_2 < \lambda_1 < 0\) \\
-				\( x = 0\) ist stabiler Knoten 2. Art
-			\item \( 0 < \lambda_1 = \lambda_2\) \\	
-				\( x= 0\) ist instabiler Knoten 1. Art
-			\item \( \lambda_1 = \lambda_2 < 0 \) \\
-				\( x = 0\) ist stabiler Knoten 1. Art
-			\item \(\lambda_1 < 0 < \lambda_2\) \\
-				\(x = 0\) ist Sattelpunkt
-					
+Nun k"onnen die Phasendiagramme klassifiziert und skizziert werden. Es ergeben sich daher die F"alle
+\subsubsection{1. Fall: \(0<\lambda_1 < \lambda_2\) }
+	\( x = 0 \) wird \emph{instabiler Knoten 2. Art} genannt.
+\subsubsection{2. Fall: \(\lambda_2 < \lambda_1 < 0\)}
+	\( x = 0\) ist wird \emph{stabiler Knoten 2. Art} genannt.
+	
+	\begin{figure}[htpb]
+		\centering
+		\includegraphics[height=0.35\textheight]{img/lin_sys/lin_sys_1.pdf}
+		\includegraphics[height=0.35\textheight]{img/lin_sys/lin_sys_2.pdf}
+		\caption{1. Fall (links); 2. Fall (rechts)}
+	\end{figure}	
+	
+\subsubsection{3. Fall: \( 0 < \lambda_1 = \lambda_2\) }
+\( x= 0\) wird \emph{instabiler Knoten 1. Art} genannt.
+\subsubsection{4. Fall: $\lambda_1 = \lambda_2 < 0$ }
+\( x = 0\) wird \emph{stabiler Knoten 1. Art} genannt.
+	\begin{figure}[htpb]
+		\centering
+		\includegraphics[height=0.20\textheight]{img/lin_sys/lin_sys_3.pdf}
+		\includegraphics[height=0.20\textheight]{img/lin_sys/lin_sys_4.pdf}
+		\caption{3. Fall (links); 4.Fall (rechts)}
+	\end{figure}
+\subsubsection{5. Fall: \(\lambda_1 < 0 < \lambda_2\)}
+					\(x = 0\) wird \emph{Sattelpunkt} genannt und ist offensichtlich instabil. Es ergeben sich in diesem Fall als Orbits Hyperbeln.
+		\begin{figure}[htpb]
+		\centering
+		\includegraphics[height=0.20\textheight]{img/lin_sys/lin_sys_5.pdf}
+		\caption{5. Fall}
+	\end{figure}
+	
+	
+	
+	
+\subsection{Jordannormalform ist in Pseudo-Diagonalform} 
+$A$ habe einen geometrisch einfachen und algebraisch doppelten Eigenwert \({\lambda \in \RR}\). Die Jordannormalform von $A$ ist dann gegeben durch
+				$$ J = \left( \begin{array}{cc} \lambda & 1 \\ 0 & \lambda \end{array} \right) $$
+Das dazuge"orige Anfangswertproblem lautet
+				\[\begin{cases} 
+					\dot{\xi_1} = \lambda \xi_1 + \xi_2,\  \xi_1(0) = \xi_{10} \in \RR \\
+				 	\dot{\xi_2} = \lambda \xi_2, \qquad\  \xi_2(0) = \xi_{20} \in \RR
+				\end{cases} \]
+Die L"osungen sind schlie"slich folgenderma"sen gegeben
+
+				$$
+				\Rightarrow \xi_2(t) = \xi_{20} e ^{\lambda t} \qquad \Rightarrow \xi_1(t) = \xi_{10} e ^{\lambda t} + t \xi_{20} e ^{\lambda t}$$
+				Die Orbits sind analog zur vorherigen Jordannormalform darstellbar als
+				$$ \xi_1 = \left( \frac{\xi_{10}}{\xi_{20}} + \frac{1}{\lambda} \ln{\frac{\xi_2}{\xi_{20}}}\right) \xi_2$$
+solange keine ung"ultige Rechenoperation durchgef"uhrt wird. 
+	\begin{figure}[htpb]
+		\centering
+		\includegraphics[height=0.31\textheight]{img/lin_sys/lin_sys_6.pdf}
+		\includegraphics[height=0.31\textheight]{img/lin_sys/lin_sys_6_2.pdf}
+		\caption{1. Fall (links); 2.Fall (rechts)}
+	\end{figure}
+\subsubsection{1. Fall: $\lambda < 0$} 
+$x = 0$ wird \emph{stabiler Knoten 3. Art} genannt.
+\subsubsection{2. Fall: $\lambda < 0$}
+$ x = 0 $ wird \emph{instabiler Knoten 3. Art} genannt.
+
+\subsection{Jordannormalform ist in keiner Diagonalform} 
+$A$ habe ein paar komplex konjugierte Eigenwerte $\lambda_{1/2} = \alpha \pm i \beta $. Die reelle Jordannormalform von $A$ ist gegeben durch
+				$$ J = \left( \begin{array}{cc} \alpha & \beta \\ - \beta & \alpha \end{array}\right) $$ 
+und es ergibt sich das Anfangswertproblem
+		\[\begin{cases} 
+			\dot{\xi_1} =  \alpha \xi_1 + \beta\xi_2, \ \  \xi_1(0) = \xi_{10} \in \RR \\
+			\dot{\xi_2} = -\beta \xi_1 + \alpha \xi_2 , \ \xi_2(0) = \xi_{20} \in \RR
+		\end{cases} \]
+Die L"osung ist daher		
+		\[ \phi(t,\xi_0) = e^{Jt} \xi_0 = e^{(A+B)t} \xi_0 \]
+				wobei 
+				$$ A = \left( \begin{array}{cc} \alpha & 0 \\ 0 & \alpha \end{array}\right), \ B = \left( \begin{array}{cc} 0 & \beta \\ - \beta & 0 \end{array}\right) $$
+Offensichtlich kommutieren $A$ und $B$ miteinander und es gilt $ e^{(A+B)t} = e^{At} e^{Bt} $. Berechnen wir nun die Exponentialmatrix von $A$ bzw. $B$ explizit, so erhalten wir
+				$$ e^{At} = e^{\alpha t} \cdot I_2, \  e^{Bt} = \left(\begin{array}{cc} \cos{(\beta t)}  & \sin{(\beta t)} \\ - \sin{(\beta t )} & \cos{(\beta t })  \end{array}\right) \in SO(2) $$
+Die explizite L"osung ist dann
+				\[\phi(t, \xi_0) = e^{\alpha t} \underbrace{\left(\begin{array}{cc} \cos{(\beta t)}  & \sin{(\beta t)} \\ - \sin{(\beta t )} & \cos{(\beta t })  \end{array}\right)}_{Drehmatrix} \xi_0
+				\]
+				
+\subsubsection{1. Fall: \(\alpha \not = 0\)}
+$x=0$ wird \emph{Strudel(Wirbel)} genannt. Falls $\alpha < 0$ so sagt man zus"atzlich, dass $x$ stabil ist. F"ur $\alpha > 0$ entsprechend instabil.
+\subsubsection{2. Fall: \(\beta \not = 0\)}
+$x=0$ ist \emph{mit den Uhrzeigersinn orientiert}, falls $\beta < 0$. Entsprechend, falls $\beta > 0$ \emph{ gegen den Uhrzeigersinn orientiert}.
+\subsubsection{3. Fall: \(\alpha = 0\)}
+$x=0$ hei"st \emph{Zentrum}. Dieser ist stabil, jedoch nicht asymptotisch stabil.
+
 \begin{figure}[htpb]
-\centering
-\includegraphics[width=0.45\textwidth]{img/lin_sys/lin_sys_1.pdf}
-\includegraphics[width=0.45\textwidth]{img/lin_sys/lin_sys_2.pdf}
-\caption{$\lambda_1, \lambda_2 > 0$ (links); $\lambda_2, \lambda 1 < 0$ (rechts) }
-\end{figure}
-		\end{itemize}
+		\centering
+		\includegraphics[height=0.25\textheight]{img/lin_sys/lin_sys_7_1.pdf}
+		\includegraphics[height=0.25\textheight]{img/lin_sys/lin_sys_7_2.pdf}
+		\caption{$\beta < 0 < \alpha$ (links); $\alpha < 0 < \beta$ (rechts)}
+
+		\includegraphics[height=0.25\textheight]{img/lin_sys/lin_sys_7_3.pdf}
+		\caption{$\alpha = 0, \beta < 0$}
+	\end{figure}
+\newpage
+\section{Reduktion des Klassifikationsproblems}
+\begin{definition}
+	Sei \((X,\phi)\) ein dynamisches System. Dann hei"st
+	\begin{itemize}
+		\item \( M \subset X \) \emph{positiv invariant} \(\Leftrightarrow  \forall t \geq 0: \phi(t,M) \subset M \)
+		\item \(\begin{aligned}[t] M \subset X  \text{ \emph{negativ invariant}} 
+			& \Leftrightarrow \forall t \leq 0: M \subset \phi(t,M)  \\
+			& \Leftrightarrow \forall t \geq 0: \phi(-t,M) \subset M \\
+			& \Leftrightarrow \forall t \leq 0: \phi(t,M) \subset M  
+			\end{aligned} \)
+			
+		\item \(\begin{aligned}[t] M \subset X \text{ \emph{invariant}} & \Leftrightarrow M\ \text{positiv und negativ invariant}\\
+			& \Leftrightarrow \forall t \in T: \phi(t,M) = M \ 
+			\end{aligned} \)
+		\end{itemize}	
+		Ist \( M \subset X \) invariant, dann bildet 
+			\( (M,\left. \phi(t,\cdot)\right|_M) \) ein dynamisches System auf M und wird \emph{Teilsystem} des urspr"unglichen Systems \((X,\phi)\) genannt. 	
+\end{definition}
+
+\begin{description}
+\item [Bemerkung]
+	Jeder invariante Untervektorraum \(U \subset \RR^n \) bzgl. der linearen Abbildung 
+		\[x \mapsto Ax : \RR^n \rightarrow \RR^n \]
+(d.h. $x\in U\Rightarrow Ax \in U$ ) ist ein invarianter Untervektorraum des GDG-Systems \(\dot{x} = Ax\), denn
+		\[\phi(t,x_0) = e^{At} x_0 = \sum_{j=0}^{\infty} \frac{t^j}{j!} \underbrace{A^j x_0}_{\in U}, \qquad x_0 \in U\]
+Der Wert der Summe liegt in \(U\), da $U$ abgeschlossen und sie Grenzwert ist von
+	\[ e^{At} x_0 = \lim_{N\to \infty} \underbrace{\sum_{j=0}^{N} \frac{t^j}{j!} A^j x_0 }_{\in\  U\ \forall N} \]
+\end{description}
+
+\begin{corollar}
+	Alle Eigenr"ame \(E_j\) (bzw. verallgemeinerte Eigenr"aume), sowie deren direkte Summen sind kanonisch invariante Unervektorr"aume des Systems
+		\[\dot{x} = Ax, \qquad A \in \RR^{n\times n} \]
+	\underline{Speziell:} Ist \(\RR^n = \oplus_{j=1}^{N} E_j \) eine direkte Summe von (relativ niedrig dimensionierten) Eigenr"aumen von \(A\), dann ist das urspr"ungliche System \(\dot{x}=Ax\) das direkte Produkt der Teilsysteme auf den \(E_j\).
+	Falls sich die Teilsysteme vollst"andig analysieren bzw. klassifizieren lassen, dann auch das urspr"ungliche System \(\dot{x} = Ax\) im \(\RR^n\)
+\end{corollar}
+
+\begin{definition}
+	Spezielle (verallgemeinerte) Eigenr"aume von \(A\) und damit invariante Untervektorr"aume von \(\dot{x}=Ax\) : 
+	\begin{itemize} 
+		\item stabiler Unterraum von \(\dot{x}=Ax\)
+			$$E^s := \left\{\left. v\in \RR^n \right| (A-\lambda \operatorname{id})(v) = 0 \land \operatorname{Re}(\lambda) < 0\right\}$$ 
+			Dies ist der verallgemeinterte Eigenraum zu allen Eigenwerten $\lambda$ von $A$ mit $\operatorname{Re}\lambda < 0$.
+		\item instabiler Unterraum von \(\dot{x}=Ax\)
+		$$E^u := \left\{\left. v\in \RR^n \right| (A-\lambda \operatorname{id})(v) = 0 \land \operatorname{Re}(\lambda) > 0\right\}$$ 
+			Dies ist der verallgemeinterte Eigenraum zu allen Eigenwerten $\lambda$ von $A$ mit $\operatorname{Re}\lambda > 0$.
+		\item Zentrums-Unterraum von \(\dot{x}=Ax\)
+		$$E^c := \left\{\left. v\in \RR^n \right| (A-\lambda \operatorname{id})(v) = 0 \land \operatorname{Re}(\lambda) = 0\right\}$$ 
+			Dies ist der verallgemeinterte Eigenraum zu allen Eigenwerten $\lambda$ von $A$ mit $\operatorname{Re}\lambda = 0$.
 	\end{itemize}
+\end{definition}
+
+\begin{satz}
+Es gilt: 
+	\[\RR^n = E^s \oplus E^u \oplus E^c \]
+\end{satz}
+
+\begin{description}
+	\item[Terminologie]Spezielle Eigenraum-Typen des GDG-Systems $\dot x = Ax$ \\
+	\begin{itemize}
+		\item \(E^c = \{0\} \Rightarrow x =0\) hei"st hyperbolischer Gleichgewichtspunkt 
+		\item \(E^c = \{0\}, {E^s \not= \{0\}, E^u \not= \{0\}} \Rightarrow x =0\) hei"st Sattelpunkt
+		\item \(E^c = \{0\}, E^u = \{0\} \Rightarrow x =0\) hei"st Senke (asympt. stabil) 
+		\item \(E^c = \{0\}, E^s = \{0\} \Rightarrow x =0\) hei"st Quelle (instabil)
+		
+	\end{itemize}
+\end{description}
+\paragraph {\(n > 2\) wo positionieren??} 
+
+
+\section{Klassifikation von Phasendiagrammen von Hom-Systemen f"ur $n=1$}
+
+\(X = \RR^n, \psi \) erzeugender Hom"oomorphismus auf \(\RR^n, x_{k+1} = \psi(x_k)\) \((k \in \mathbb{Z})\)
+
+\subsection{Linearer Fall}
+	\[\psi(x) = Ax\]
+	linear in \(x\), \(A\) regul"ar \((\to \det A \not= 0) \)
+	
+\paragraph{\(n = 1\) (Klassifikation)}
+	\[ \psi(x) = ax, \qquad a \in \RR^n, a \not= 0 \]
+	\begin{itemize}
+		\item \( a < -1\) orientierungsumkehrende Quelle
+		\item \(-1 < a < 0\) orientierungsumkehrende Senke
+		\item \(0 < a < 1\) orientierungserhaltende Senke
+		\item \( 1 < a\) orientierungserhaltende Quelle
+		\item \( a = 1\) Zentrum (umgeben von auschlie"slich Gleichgewichtspunkten)
+		\item \( a = -1 \) Zentrum (umgeben von auschlie"slich 2-periodisches Orbits) (\(\to\) minimale positive Periode)
+		
+	\end{itemize}
+	
+\begin{description}
+\item[Bemerkung]
+	Jeder der bzgl. der linearen Abbildung \(x\mapsto Ax \) invarianter Unterverktorraum \(U\) ist invariant bzgl. des von \(\psi(x) = Ax \) erzeugten dynamsche Systems.
+\end{description}
+
+
+
 
 \end{document}
