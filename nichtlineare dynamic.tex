@@ -530,27 +530,24 @@ Es gilt:
 
 \section{Klassifikation von Phasendiagrammen von Hom-Systemen f"ur $n=1$}
 
-\(X = \RR^n, \psi \) erzeugender Hom"oomorphismus auf \(\RR^n, x_{k+1} = \psi(x_k)\) \((k \in \mathbb{Z})\)
+Sei $X = \RR, \ \psi\colon X \to X$ ein linearer Hom"omorphismus, der das lineare dynamische Systeme $(X,\phi)$ erzeugt. Insbesondere ist $\psi(x) = ax$ f"ur ein $a\in\RR\setminus\{0\}$.
 
-\subsection{Linearer Fall}
-	\[\psi(x) = Ax\]
-	linear in \(x\), \(A\) regul"ar \((\to \det A \not= 0) \)
-	
-\paragraph{\(n = 1\) (Klassifikation)}
-	\[ \psi(x) = ax, \qquad a \in \RR^n, a \not= 0 \]
-	\begin{itemize}
-		\item \( a < -1\) orientierungsumkehrende Quelle
-		\item \(-1 < a < 0\) orientierungsumkehrende Senke
-		\item \(0 < a < 1\) orientierungserhaltende Senke
-		\item \( 1 < a\) orientierungserhaltende Quelle
-		\item \( a = 1\) Zentrum (umgeben von auschlie"slich Gleichgewichtspunkten)
-		\item \( a = -1 \) Zentrum (umgeben von auschlie"slich 2-periodisches Orbits) (\(\to\) minimale positive Periode)
-		
-	\end{itemize}
-	
+Man kann dann die Orbits folgenderma"sen klassifizieren.
+\subsubsection{Falls $|a| < 1$}
+$x=0$ wird \emph{Senke} genannt und ist stabil.
+\subsubsection{Falls $|a| > 1$}
+$x=0$ wird \emph{Quelle} genannt und ist instabil.
+\subsubsection{Falls $ a < 0$}
+$x=0$ wird \emph{orientierungsumkehrend} genannt.
+\subsubsection{Falls $a > 0$}
+$x=0$ wird \emph{orientierungserhaltend} genannt.
+\subsubsection{Falls $|a| = 1$}
+$x=0$ wird \emph{Zentrum} genannt. Ist $x = 1$, so ist jeder Punkt $x\in\RR$ ein Gleichgewichtspunkt. F"ur $x=-1$ ergeben sich 2-periodische Orbits (gez"ahlt an der minimalen positiven Periode).
+
+
 \begin{description}
 \item[Bemerkung]
-	Jeder der bzgl. der linearen Abbildung \(x\mapsto Ax \) invarianter Unterverktorraum \(U\) ist invariant bzgl. des von \(\psi(x) = Ax \) erzeugten dynamsche Systems.
+	Jeder der bzgl. der linearen Abbildung \(x\mapsto Ax \) invarianter Unterverktorraum \(U\) ist invariant bzgl. des von \(\psi(x) = Ax \) erzeugten dynamische Systems.
 \end{description}
 
 
