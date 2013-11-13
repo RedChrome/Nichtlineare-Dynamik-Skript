@@ -577,20 +577,25 @@ Gegeben sei ein GDG-System wie oben, wobei $x_G$ ein hyperbolischer Gleichgewich
 
 Somit bildet $h$ hom"oomorph die Orbits des linearisierten Systems durch $\xi\in U$ auf diejenigen des nichtlinearen Systems durch $h(\xi)$ ab, wobei die zeitliche Orientierung erhalten bleibt. Man sagt, die beiden Systeme sind mittels des Hom"oomorphismus topologisch konjugiert zueinander. Insbesondere ist damit also das lokale Phasenportrait des nichtlinearen Systems nahe $x_G$ ein hom"oomorphes Abbild des lokalen Phasenportraits des linearisierten Systems in U; die Bezeichnung zur Typisierung (Klassifikation) entsprechender hyperbolischer Gleichgewichtspunkte nichtlinearer Systeme "ubernimmt man vom linearen Fall, z.B: Ist $\xi =0$ ein Sattelpunkt von $\dot{\xi}=Jv(x_G)\xi$, dann ist auch $x_G$ ein Sattelpunkt von $\dot{x}=v(x)$.
 
-\\
-\begin{bezeichnung}
+\begin{description}
+\item[Bezeichnung]
 \begin{itemize}
 \item $h(E^s\cap U)=: W_{loc}^s(x_G)$ lokale stabile Mannigfaltigkeit von $x_G$ (positiv invariant)\\
 \item $h(E^u\cap U)=: W_{loc}^u(x_G)$ lokale instabile Mannigfaltigkeit von $x_G$ (negativ invariant)\\
 \item $W^s(x_G):=\{x\in\mathbb{R}^n|\lim\limits_{t\to +\infty}\phi (t,x)=x_G\}$ heißt (globale) stabile Mannigfaltigkeit von $x_G$\\
 \item $W^u(x_G):=\{x\in\mathbb{R}^n|\lim\limits_{t\to -\infty}\phi (t,x)=x_G\}$ heißt (globale) instabile Mannigfaltigkeit von $x_G$
 \end{itemize}
-\end{bezeichnung}
+\end{description}
 
 \begin{bemerkung}
 $W^s(x_G)$ und $W^u(x_G)$ sind invariant, d.h.
-\[\phi(t,W^{s/u}(x_G))=W^{s/u}(x_G)\ \forall t\in\mathbb{R} \\
-x\in W^s(x_G)\ \Rightarrow\ \lim_{t\to\infty}\phi(t,x)=x_G\ \Rightarrow\ \lim_{t\to\infty}\phi(t,\phi(s,x))=\lim_{t\to\infty}\phi(t+s,x)=x_G \text{für jedes}  s\in\mathbb{R}\ \Rightarrow\ \phi(s,x)\in W^s(x_G)\ \Rightarrow\ \phi(s,W^s(x_G))=W^s(x_G)\ \forall s\in\mathbb{R}\]
+\begin{align*}
+\phi(t,W^{s/u}(x_G))=W^{s/u}(x_G)\ \forall t\in\mathbb{R} \\
+x\in W^s(x_G)\ \Rightarrow\ \lim_{t\to\infty}\phi(t,x)=x_G\\
+\Rightarrow\ \lim_{t\to\infty}\phi(t,\phi(s,x))=\lim_{t\to\infty}\phi(t+s,x)=x_G \text{ für jedes }  s\in\mathbb{R}\\
+\Rightarrow\ \phi(s,x)\in W^s(x_G)\\
+\Rightarrow\ \phi(s,W^s(x_G))=W^s(x_G)\ \forall s\in\mathbb{R}
+\end{align*}
 \end{bemerkung}
 
 \begin{satz}[über die lokalen stabilen und instabilen Mannigfaltigkeiten eines hyperbolischen Gleichgewichtspunktes]
@@ -603,18 +608,21 @@ mit $h^{s/u}(x_G)=0$ und $Jh^{s/u}(x_G)=0$, d.h. $W_{loc}^{s/u}(x_G)$ ist in $x_
 \end{satz}
 
 \begin{beispiel}
-\[
+\begin{align*}
 \dot{x}=x\\
 \dot{y}=-y+x^2
-\right\}
-=v(x,y)\]
+\end{align*}
 Betrachte $x_G=(0,0)$;
 \[Jv(x_G)=\begin{pmatrix} 1&0\\ 0&1 \end{pmatrix}; \lambda_1=-1, \lambda_2=1\\
 \Rightarrow\ x_G  \text{ hyperbolischer Sattelpunkt}\]
 Orbitgleichung:
-\[\frac{dy}{dx}=\frac{\frac{dy}{dt}}{\frac{dx}{dt}}=\frac{-y+x^2}{x} \text{(für $x\neq 0$)} =-\frac 1 x \cdot y+x\ \Rightarrow\ y(x)=\frac 1 3 x^2+\frac c x, c\in\mathbb{R} \text{ beliebig} \\
-\Rightarrow\ h^u:\mathbb{R}\to\mathbb{R}, x\mapsto\frac{x^2} 3\ (c=0)\ \Rightarrow\ h^u(0)=0, (h^u)'(0)=Jh^u(0)=0\\
-h^s:\mathbb{R}\to\mathbb{R}, x\mapsto 0\]
+\begin{align*}
+\frac{dy}{dx}=\frac{\frac{dy}{dt}}{\frac{dx}{dt}}=\frac{-y+x^2}{x} \text{ (für $x\neq 0$) } =-\frac 1 x \cdot y+x\\
+\Rightarrow\ y(x)=\frac 1 3 x^2+\frac c x, c\in\mathbb{R} \text{ beliebig} \\
+\Rightarrow\ h^u:\mathbb{R}\to\mathbb{R}, x\mapsto\frac{x^2} 3\ (c=0)\\
+\Rightarrow\ h^u(0)=0, (h^u)'(0)=Jh^u(0)=0\\
+h^s:\mathbb{R}\to\mathbb{R}, x\mapsto 0
+\end{align*}
 \end{beispiel}
 
 
