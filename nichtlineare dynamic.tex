@@ -511,7 +511,7 @@ Der Wert der Summe liegt in \(U\), da $U$ abgeschlossen und sie Grenzwert ist vo
 \end{definition}
 \begin{figure}[htpb]
 		\centering
-		\includegraphics[height=0.40\textheight]{img/eigenraeume.pdf}
+		\includegraphics[height=0.30\textheight]{img/eigenraeume.pdf}
 		\caption{$E^c$ entscheidet viel über das Verhalten der Orbits}
 \end{figure}
 
@@ -569,10 +569,12 @@ $x=0$ wird \emph{Zentrum} genannt. Ist $a = 1$, so ist jeder Punkt $x\in\RR$ ein
 \chapter{Grobman-Hartman-Theorem}
 
 \section{Kontinuierlicher Fall}
-GDG-System $\dot{x}=v(x), x\in\mathbb{R}^{n}$ mit einem Vektorfeld $v\in C^k , k\geq 1$. Sei $x_G$ ein Gleichgewichtspunkt. Betrachte die Linearisierung des Systems um $x_G$, d.h. \[\dot{\xi}=Jv(x_G)\xi, \xi =x-x_G\] ( $\dot{\xi}(x_G)\approx v(x)$, falls $\Vert\xi\Vert\ll 1$ )
+Sei $(X,\phi)$ ein dynamisches System, das durch die Differentialgleichung ${\dot x = v(x)}$ induziert ist, wobei $v \in C^k(\RR^n, \RR^n), \ k \geq 1$. Sei zus"atzlich  $x_G$ ein Gleichgewichtspunkt des dynamischen Systems. Betrachte die \emph{Linearisierung} des Systems um $x_G$ 
+\[\dot{\xi}=Jv(x_G)\xi, \ \xi =x-x_G\] 
+( $\dot{\xi}(x_G)\approx v(x)$, falls $\Vert\xi\Vert\ll 1$ )
 
 \begin{satz}[Grobman-Hartman]\label{Grobman-Hartman}
-Gegeben sei ein GDG-System wie oben, wobei $x_G$ ein hyperbolischer Gleichgewichtspunkt ist, d.h. $\operatorname{Re}\lambda \neq 0$ für alle Eigenwerte $\lambda$ von $Jv(x_G)$. Dann existiert eine Umgebung $U$ von $\xi =0$ und ein Hom"oomorphismus $h:U\to\mathbb{R}^n$, so dass \[h(e^{Jv(x_G)t}\xi)=\phi(t,h(\xi))\ \forall t\in\mathbb{R}\] solange $e^{Jv(x_G)t}\xi \in U$ und $\xi\in U$, wobei $\phi(t,x)$ die Flussabbildung des Systems $\dot{x}=v(x)$ bezeichne.
+Gegeben sei ein dynamisches System $(X,\phi)$ wie oben, wobei $x_G$ ein hyperbolischer Gleichgewichtspunkt ist, d.h. $\operatorname{Re}\lambda \neq 0$ für alle Eigenwerte $\lambda$ von $Jv(x_G)$. Dann existiert eine Umgebung $U\subseteq \RR^n$ von $\xi =0$ und ein Hom"oomorphismus $h:U\to\mathbb{R}^n$, so dass \[ \forall t\in D: h(e^{Jv(x_G)t}\xi)=\phi(t,h(\xi))\ \] wobei $D := \left \{ \left . t \in \RR \right| e^{Jv(x_G)t}\xi \in U \right \}$ bezeichne.
 \end{satz}
 \begin{figure}[htpb]
 		\centering
@@ -580,10 +582,10 @@ Gegeben sei ein GDG-System wie oben, wobei $x_G$ ein hyperbolischer Gleichgewich
 		\caption{Illustration Grobman-Hartman-Theorem}
 \end{figure}
 
-Somit bildet $h$ hom"oomorph die Orbits des linearisierten Systems durch $\xi\in U$ auf diejenigen des nichtlinearen Systems durch $h(\xi)$ ab, wobei die zeitliche Orientierung erhalten bleibt. Man sagt, die beiden Systeme sind mittels des Hom"oomorphismus topologisch konjugiert zueinander. Insbesondere ist damit also das lokale Phasenportrait des nichtlinearen Systems nahe $x_G$ ein hom"oomorphes Abbild des lokalen Phasenportraits des linearisierten Systems in U; die Bezeichnung zur Typisierung (Klassifikation) entsprechender hyperbolischer Gleichgewichtspunkte nichtlinearer Systeme "ubernimmt man vom linearen Fall, z.B: Ist $\xi =0$ ein Sattelpunkt von $\dot{\xi}=Jv(x_G)\xi$, dann ist auch $x_G$ ein Sattelpunkt von $\dot{x}=v(x)$.
+Somit bildet $h$ hom"oomorph die Orbits des linearisierten Systems durch $\xi\in U$ auf diejenigen des nichtlinearen Systems durch $h(\xi)$ ab, wobei die zeitliche Orientierung erhalten bleibt. Man sagt, die beiden Systeme sind mittels des Hom"oomorphismus \emph{topologisch konjugiert} zueinander. Insbesondere ist damit also das lokale Phasenportrait des nichtlinearen Systems nahe $x_G$ ein hom"oomorphes Abbild des lokalen Phasenportraits des linearisierten Systems in U; die Bezeichnung zur Typisierung (Klassifikation) entsprechender hyperbolischer Gleichgewichtspunkte nichtlinearer Systeme "ubernimmt man vom linearen Fall, z.B: Ist $\xi =0$ ein Sattelpunkt von $\dot{\xi}=Jv(x_G)\xi$, dann ist auch $x_G$ ein Sattelpunkt von $\dot{x}=v(x)$.
 
 \begin{description}
-\item[Bezeichnung]
+\item[Bezeichnung]Wir f"uhren folgende Bezeichnungen ein
 \begin{itemize}
 \item $h(E^s\cap U)=: W_{loc}^s(x_G)$ lokale stabile Mannigfaltigkeit von $x_G$ (positiv invariant)\\
 \item $h(E^u\cap U)=: W_{loc}^u(x_G)$ lokale instabile Mannigfaltigkeit von $x_G$ (negativ invariant)\\
@@ -604,23 +606,28 @@ x\in W^s(x_G)\ \Rightarrow\ \lim_{t\to\infty}\phi(t,x)=x_G\\
 \end{bemerkung}
 
 \begin{satz}[über die lokalen stabilen und instabilen Mannigfaltigkeiten eines hyperbolischen Gleichgewichtspunktes]
-Sei $V:=h(U)$ eine Umgebung von $x_G$. Unter den Voraussetzungen von \eqref{Grobman-Hartman} existieren Abbildungen
+Unter den Voraussetzungen von \eqref{Grobman-Hartman} gibt es eine Umgebung $U\subseteq \RR^n$ von $x_G$, sodass  Abbildungen
 \[h^s:E^s\cap V\to E^u \text{ und } h^u:E^u\cap V\to E^s\]
-die so glatt sind wie das Vektorfeld $v=v(x)$, so dass
-\[W_{loc}^s(x_G)=\operatorname{graph}(h^s) \text{ "uber } E^s\cap V\]und
-\[W_{loc}^u(x_G)=\operatorname{graph}(h^u) \text{ "uber } E^u\cap V\]
-mit $h^{s/u}(x_G)=0$ und $Jh^{s/u}(x_G)=0$, d.h. $W_{loc}^{s/u}(x_G)$ ist in $x_G$ tangential zu $E^{s/u}$.
+existieren, die so glatt sind wie das Vektorfeld $v(x)$, so dass
+\[W_{loc}^s(x_G)=\operatorname{graph}(h^s, E^s\cap V) \]und
+\[W_{loc}^u(x_G)=\operatorname{graph}(h^u, E^u\cap V) \]
+mit $h^{s/u}(x_G)=0$ und $J_{h^{s/u}}(x_G)=0$, d.h. $W_{loc}^{s/u}(x_G)$ ist in $x_G$ tangential zu $E^{s/u}$. Speziell kann $V = h(U)$ gew"ahlt werden, wobei $h$ der Hom"oomorphismus aus \eqref{Grobman-Hartman} ist.
 \end{satz}
 
 \begin{beispiel}
+Gegeben sei folgende Differentialgleichung
 \begin{align*}
-\dot{x}=x\\
-\dot{y}=-y+x^2
+v( \begin{pmatrix} x \\ y\end{pmatrix} ) = \begin{cases}
+&\dot{x}=x\\
+&\dot{y}=-y+x^2
+\end{cases}
 \end{align*}
-Betrachte $x_G=(0,0)$;
-\[Jv(x_G)=\begin{pmatrix} 1&0\\ 0&1 \end{pmatrix}; \lambda_1=-1, \lambda_2=1\\
+Ein Gleichgewichtpunkt ist $x_G=(0,0)$. Die Jacobi-Matrix erf"ullt in $x_G$ 
+\[Jv(x_G)=\begin{pmatrix} 1&0\\ 0&1 \end{pmatrix}\]
+Daher sind die Eigenwerte 
+\[ \lambda_1=-1, \lambda_2=1\\
 \Rightarrow\ x_G  \text{ hyperbolischer Sattelpunkt}\]
-Orbitgleichung:
+und der Satz von Grobman-Hartman ist anwendbar. Die Orbitgleichung erh"alt man folgenderma"sen:
 \begin{align*}
 \frac{dy}{dx}=\frac{\frac{dy}{dt}}{\frac{dx}{dt}}=\frac{-y+x^2}{x} \text{ (für $x\neq 0$) } =-\frac 1 x \cdot y+x\\
 \Rightarrow\ y(x)=\frac 1 3 x^2+\frac c x, c\in\mathbb{R} \text{ beliebig} \\
