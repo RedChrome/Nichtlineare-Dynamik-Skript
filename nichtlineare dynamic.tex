@@ -638,4 +638,34 @@ h^s:\mathbb{R}\to\mathbb{R}, x\mapsto 0
 \end{beispiel}
 
 
+\section{Diskreter Fall}
+Sei $\psi$ ein $C^k$-Diffeomorphismus von $\mathbb{R}^n$ nach $\mathbb{R}^n$, d.h. $\psi$ ist bijektiv und $\psi^{-1}\in C^k(\mathbb{R}^{n},\mathbb{R}^{n})$, $x_G$ ein Gleichgewichtspunkt des von $\psi$ erzeugten dynamischen Systems. Betrachte die Linearisierung dieses Systems in $x_G$, erzeugt durch $J\psi(x_G)$ (regulär). ($\psi(x)\approx J\psi(\x_G)\xi, \xi=x-x_G, \Vert\xi\Vert\ll 1$)
+
+\begin{satz}[Grobman-Hartman]
+Unter diesen Voraussetzungen existiert eine Umgebung $0\in U\subset \mathbb{R}^n$ und ein Hom"oomorphismus $h:U\to h(U)\subset\mathbb{R}^n, h(0)=x_G$, sodass das von $J\psi(x_G)\xi$ erzeugte System bzgl. $h$ lokal topologisch konjugiert ist, d.h.
+\begin{align*}
+h(J\psi(x_G)\xi)=\psi(h(\xi)), \xi\in U\\
+h(J\psi(x_G)^k\xi)=\psi^k(h(\xi)), k\in\mathbb{Z} \text{ beliebig}
+\end{align*}
+sofern $x_G$ ein hyperbolischer Gleichgewichtspunkt des $\psi$-Systems ist, d.h. $\xi=0$ ein hyperbolischer Gleichgewichtspunkt des linearisierten $J\psi(x_G)$-Systems ist.
+\end{satz}
+
+Die restliche Grobman-Hartman-Theorie ist analog zum kontinuierlichen Fall.
+
+\begin{beispiel}
+$\psi(x)=x^3$ erzeugender Hom"oomorphismus ($C^k$-Diffeomorphismus f"ur $1\leq k\leq\infty$ au"serhalb von $x=0$)\\
+Als Voraussetzung der Grobman-Hartman-Theorie gen"ugt es, wenn die Voraussetzungen lokal nahe der betrachteten Gleichgewichtspunkte erfüllt sind.
+\[x_G=\pm 1, J\psi(x_G)=3>1\ \Rightarrow\ x_G\text{ orientierungserhaltende Quelle}\]
+Gesucht ist ein Hom"oomorphismus $h$, welcher das $\psi$- und das $J\psi(x_G)$-System lokal nahe $x_G=\pm 1$ konjugiert (in $U_1=(-\infty, 0), U_2=(0,+\infty)$).\\
+$h:\mathbb{R}\to\mathbb{R}, \xi\mapsto h(\xi)$ stetig, bijektiv, sodass
+\begin{align*}
+h(3\xi)=h(\xi)^3\ \forall\xi\in U\\
+\Leftrightarrow \ln h(3\xi)=3\ln h(\xi)\\
+\Rightarrow\ \ln\circ h(\xi)=\xi\\
+\Rightarrow\ h(\xi)=e^{\xi}, h(0)=1 \text{ in } U_2=(0,+\infty)
+\end{align*}
+\end{beispiel}
+
+
+
 \end{document}
