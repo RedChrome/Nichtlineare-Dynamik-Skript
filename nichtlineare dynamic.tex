@@ -8,6 +8,7 @@
 %\usepackage{pstricks}
 \usepackage[T1]{fontenc}
 \usepackage{color}
+\usepackage{lmodern}
 \usepackage[pdfborder={0 0 0}]{hyperref}
 
 \pagestyle{headings}
@@ -25,6 +26,8 @@
 \item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
 \newenvironment{bemerkung}[1][Bemerkung]{\begin{trivlist}
 \item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+\DeclareMathOperator*{\argmin}{arg\,min}
 
 \newcommand{\RR}{\mathbb{R}}
 
@@ -574,7 +577,7 @@ Sei $(X,\phi)$ ein dynamisches System, das durch die Differentialgleichung ${\do
 ( $\dot{\xi}(x_G)\approx v(x)$, falls $\Vert\xi\Vert\ll 1$ )
 
 \begin{satz}[Grobman-Hartman]\label{Grobman-Hartman}
-Gegeben sei ein dynamisches System $(X,\phi)$ wie oben, wobei $x_G$ ein hyperbolischer Gleichgewichtspunkt ist, d.h. $\operatorname{Re}\lambda \neq 0$ für alle Eigenwerte $\lambda$ von $Jv(x_G)$. Dann existiert eine Umgebung $U\subseteq \RR^n$ von $\xi =0$ und ein Hom"oomorphismus $h:U\to\mathbb{R}^n$, so dass \[ \forall t\in D: h(e^{Jv(x_G)t}\xi)=\phi(t,h(\xi))\ \] wobei $D := \left \{ \left . t \in \RR \right| e^{Jv(x_G)t}\xi \in U \right \}$ bezeichne.
+Gegeben sei ein dynamisches System $(X,\phi)$ wie oben, wobei $x_G$ ein hyperbolischer Gleichgewichtspunkt ist, d.h. $\operatorname{Re}\lambda \neq 0$ f"ur alle Eigenwerte $\lambda$ von $Jv(x_G)$. Dann existiert eine Umgebung $U\subseteq \RR^n$ von $\xi =0$ und ein Hom"oomorphismus $h:U\to\mathbb{R}^n$, so dass \[ \forall t\in D: h(e^{Jv(x_G)t}\xi)=\phi(t,h(\xi))\ \] wobei $D := \left \{ \left . t \in \RR \right| e^{Jv(x_G)t}\xi \in U \right \}$ bezeichne.
 \end{satz}
 \begin{figure}[htpb]
 		\centering
@@ -605,7 +608,7 @@ x\in W^s(x_G)\ \Rightarrow\ \lim_{t\to\infty}\phi(t,x)=x_G\\
 \end{align*}
 \end{bemerkung}
 
-\begin{satz}[über die lokalen stabilen und instabilen Mannigfaltigkeiten eines hyperbolischen Gleichgewichtspunktes]
+\begin{satz}["Uber die lokalen stabilen und instabilen Mannigfaltigkeiten eines hyperbolischen Gleichgewichtspunktes]
 Unter den Voraussetzungen von \eqref{Grobman-Hartman} gibt es eine Umgebung $U\subseteq \RR^n$ von $x_G$, sodass  Abbildungen
 \[h^s:E^s\cap V\to E^u \text{ und } h^u:E^u\cap V\to E^s\]
 existieren, die so glatt sind wie das Vektorfeld $v(x)$, so dass
@@ -666,6 +669,163 @@ h(3\xi)=h(\xi)^3\ \forall\xi\in U\\
 \end{align*}
 \end{beispiel}
 
+\chapter{Periodische Orbits}
+\section{Begriff und Bestimmung von periodischen Orbits}
+\begin{definition}
+Sei $(X,\phi)$ ein dynamisches System. Ein Orbit $\Gamma_{x_p} = \left \{ \left. \phi(t, x_p) \right | t \in \RR \right \}$ hei"st $T$-periodisch, falls $T>0$ und 
+$$\forall t \in \RR: \phi(t, x_p) = \phi(t + T, x_p)$$
+Das minimale $T>0$ hei"st \emph{Periode} des Orbits $\Gamma_{x_p}$. $x_p$ nennt man $T$-periodischen Punkt des Systems.
+\end{definition}
+\begin{figure}[htpb]
+		\centering
+		\includegraphics[width=0.5\textwidth]{img/periodische_orbits/disk_kont.pdf}
+		\caption{periodische Orbits}
+\end{figure}
 
+\begin{description}
+\item[Bemerkung]
+Falls $x_p$ ein $T$-periodischer Punkt ist, so ist auch jeder andere Punkt $x\in \Gamma_{x_p}$ $T$-periodisch.
+\end{description}
+\subsection{Bestimmungsgleichung f"ur periodische Punkte}
+Die Bestimmungsgleichung ist folgenderma"sen gegeben
+$$\phi(T, x_p) = \phi(0, x_p)$$
+f"ur ein minimales $T > 0$. Speziell im diskreten Fall ergibt sich
+$$\phi(T, x_p) = \psi^T(x_p) = x_p$$
+
+\begin{beispiel}
+$\psi(x) = -x , \ x \in \RR$. 
+Bestimmungsgleichung f"ur $2$-periodische Punkte
+$$\psi^2(x_p) = \operatorname{id}(x_p) = x_p$$
+Folglich ist jeder Punkt $x_p\in\RR\setminus\{0\}$ ein $2$-periodischer Punkt, also gilt ${\Gamma_{x_p} = \left \{ x_p, -x_p\right\}}$. F"ur $x = 0$ liegt ein Gleichgewichtspunkt vor (man sagt auch $1$-periodisch). 
+\begin{figure}[htpb]
+		\centering
+		\includegraphics[width=0.5\textwidth]{img/periodische_orbits/disk_kont.pdf}
+		\caption{periodische Orbits}
+\end{figure}
+\end{beispiel}
+\section{Poincar\'{e}  Abbildung f"ur GDG-Systeme}
+Sei $(X,\phi)$ ein dynamisches System, das durch die Differentialgleichung $\dot x = v(x), \ x \in \RR^n$ erzeugt wird.
+\begin{definition}
+Sei $x_p$ ein $T$-periodischer Punkt. Es existiert ein $n\in\RR^n$, sodass $\langle v(x_p), n \rangle \neq 0$, beispielsweise $n = v(x_p)$. Die $(n-1)$-dimensionale Untermannigfaltigkeit
+$$\Sigma_{x_p} := \left \{ \left. x \in \RR \right| \langle x - x_p, n \rangle \right \}$$ 
+schneidet den Orbit $\Gamma_{x_p}$ \emph{transversal}. Sei $V\subseteq \RR^n$ eine hinreichend kleine Umgebung von $x_p$. Die \emph{erste R"uckkehrzeit} $\tau$ ist definiert als
+$$\tau(x) := \min \left \{ \left. t> 0 \right| \phi(t, x) \in \Sigma_{x_p} \right \}$$
+\end{definition}
+\begin{description}
+\item[Bemerkung] 
+Die erste R"uckkehrzeit gibt die Zeit an, die ben"otigt wird um, ausgehend vom Punkt $x \in \Sigma_{x_p}\cap V$, die transversale Menge $\Sigma_{x_p}$ wieder zu schneiden. Das hei"st es gilt $\phi(\tau(x), x) \in \Sigma_{x_p}$. Es gilt nach Definition $\tau(x_p) = T$.
+\end{description}
+\begin{figure}[htpb]
+		\centering
+		\includegraphics[width=0.5\textwidth]{img/periodische_orbits/transversal_rueckkehrzeit.pdf}
+		\caption{Transversale Menge $\Sigma_{x_p}$, sowie erste R"uckkehrzeit}
+\end{figure}
+\begin{lemma}\label{rueckkehrzeit_diffbar}
+Sei $v \in C^k(\RR^n,\RR^n)$ ein Vektorfeld mit $k \in \mathbb{N}$. Dann ist $\tau \in C^k(V, \RR)$, wobei $V\subseteq \RR^n$ hinreichend klein.
+\end{lemma}
+\begin{beweis}
+Definiere Funktion $F \colon \RR \times \RR^n \to \RR, \ (t, x) \mapsto \langle \phi(t, x) - x_p, n\rangle$. F ist $k$-fach stetig differenzierbar. Wir weisen die Voraussetzungen f"ur den Satz von der impliziten Funktion nach
+\begin{itemize}
+	\item Es gilt $F(T, x_p) = 0$ 
+	\item Die Ableitung von $F$ nach $t$ ist invertierbar in $x_p$
+	\begin{align*}
+		&\frac{\mathrm d}{\mathrm dt} \langle \phi(t, x) - x_p, n\rangle =  \langle \frac{\mathrm d}{\mathrm dt} \phi(t, x), n\rangle = \langle v(x), n \rangle\\
+		&\Rightarrow \left. \frac{\mathrm d}{\mathrm dt} \langle \phi(t, x) - x_p, n\rangle \right|_{x=x_p} = \langle v(x_p), n \rangle \neq 0
+	\end{align*}
+\end{itemize}
+Der Satz von der impliziten Funktion anwendbar und es existiert daher ein $V\subseteq \RR$, sowie $f \in C^k(V, \RR)$, sodass gilt
+\begin{enumerate}
+	\item $f(x_p) = T$
+	\item $\forall x \in V: F(f(x), x) = 0$
+\end{enumerate}
+Dieses $f$ stellt die erste R"uckkehrzeit $\tau$ dar, denn es gilt
+$$ F(\tau(x), x) = \langle \phi(\tau(x), x) - x_p, n\rangle = 0 = F(f(x), x) $$
+\qed
+\end{beweis}
+\begin{definition}
+Die Abbildung
+$$P_{\Sigma_{x_p}} \colon V \cap \Sigma_{x_p} \to \Sigma_{x_p},\ x\mapsto \phi(\tau(x), x)$$
+hei"st \emph{Poincar\'{e} Abbildung (des periodischen Orbits $\Gamma_{x_p}$ bez"uglich $\Sigma_{x_p}$)}. 
+\end{definition}
+\begin{description}
+\item[Bemerkung] Falls $v\in C^k$, so ist $P_{\Sigma_{x_p}} \in C^k$. Dies ist eine direkte Folgerung von \eqref{rueckkehrzeit_diffbar}, sowie der Eigenschaft, dass $\phi \in C^k$. Die Poincar\'{e} Abbildung besitzt einen Fixpunkt, denn ${P_{\Sigma_{x_p}}(x_p) = x_p}$. Allgemeiner gilt folgendes Lemma 
+\end{description}
+
+\begin{lemma}
+Sei $x$ ein Fixpunkt von $P_{\Sigma_{x_p}}^N$ mit einem minimalen $N \in \mathbb{N}$. Dann ist $\Gamma_x$ ein periodischer Orbit mit Periode
+$$ \sum_{j=1}^N{\tau(x_j)}$$
+wobei $x_1 = x, \ x_{j+1} = \phi(\tau(x_j), x_{j})$ f"ur $j = 1,\ldots N$ \
+\end{lemma}
+\section{Stabilit"atsanalyse periodischer Orbits mittels Poincar\'{e} Abbildung}
+\begin{definition}[Orbitale dynamische Stabilit"at]
+Sei $(X,d)$ ein metrischer Raum, $(X,\phi)$ ein dynamisches System mit einem periodischen Orbit $\Gamma_{x_p}$. Dann hei"st $\Gamma_{x_p}$ 
+\begin{itemize}
+\item \emph{orbital stabil}, falls 
+	$$ \forall \varepsilon > 0 \exists \delta > 0 \forall x\in X, t\geq 0:
+	\operatorname{dist}(x, \Gamma_{x_p}) < \delta \Rightarrow \operatorname{dist}(\phi(t,x), \Gamma_{x_p}) < \varepsilon$$
+\item \emph{orbital instabil }, falls $\Gamma_{x_p}$ nicht orbital stabil ist.
+\item \emph{orbital asymptotisch stabil}, falls $\Gamma_{x_p}$ orbial stabil ist und gilt
+$$ \exists b > 0 \forall x \in X: \operatorname{dist}(x, \Gamma_{x_p}) < b \Rightarrow \lim_{t\to\infty}{\operatorname{dist}(\phi(t,x), \Gamma_{x_p})} = 0 $$
+\end{itemize}
+wobei $\operatorname{dist}(x, M) := \inf_{y\in M}{d(x,y)}, \ M\subseteq X$.
+\end{definition}
+\begin{figure}[htpb]
+		\centering
+		\includegraphics[width=0.3\textwidth]{img/periodische_orbits/orbiale_stabilitaet.pdf}
+		\includegraphics[width=0.3\textwidth]{img/periodische_orbits/orbitale_asymp_stabilitaet.pdf}
+		\caption{Orbitale Stabilit"at(links); Orbitale asymptotische Stabilit"at (rechts)}
+\end{figure}
+\begin{satz}[Stabilit"atskriterium]\label{stabilitatskriterium_periodische_orbits}
+Sei $\Gamma_{x_p}$ ein periodischer Orbit von $(X, \phi)$ und $P_{\Sigma_{x_p}}$ eine zugeh"orige Poincar\'{e} Abbildung. Dann sind "aquivalent
+\begin{enumerate}
+\item $x_p$ ist ein (asymptotisch) stabiler Fixpunkt von $P_{\Sigma_{x_p}}^N, \ N\in\mathbb{N}$ im Sinne von Lyapunov
+\item $\Gamma_{x_p}$ ist ein orbital (asymptotisch) stabiler periodischer Orbit von $(X, \phi)$.
+\end{enumerate}
+\end{satz}
+
+\begin{beispiel}
+Betrachte folgende Differentialgleichung
+\begin{align*}
+	\begin{cases}
+		&\dot x = \mu x - y - x(x^2+y^2)\\
+		&\dot y = x + \mu y - y(x^2+y^2)
+	\end{cases}
+\end{align*}
+mit einem Parameter $\mu > 0$. Eine Transformation in Polarkoordinaten vermittels $x = r \cos(\theta),\ y = r \sin(\theta), \ r\geq 0, \ \theta \in [0,2\pi)$ liefert
+\begin{align*}
+	\begin{cases}
+		&\dot t = \mu r - r ^3\\
+		& \dot \theta = 1
+	\end{cases}
+\end{align*}
+Daher ist die Flussabbildung folgenderma"sen gegeben
+$$\phi\left(t, \begin{pmatrix} r_0\\ \theta_0 \end{pmatrix}\right) = \begin{pmatrix}
+	\left(\frac 1\mu + e^{-2\mu t}\left(\frac{1}{r_0^2} - \frac 1\mu\right)\right)^{-\frac 12}\\
+	t + \theta_0
+\end{pmatrix}$$
+Ein periodischer Orbit $\Gamma$ ist offensichtlich gegeben durch 
+\begin{align*}
+\begin{cases}
+ &r = \sqrt\mu\\
+ &\theta = \theta_0
+\end{cases}
+\Leftrightarrow
+\begin{cases}
+ & x(t) = \sqrt\mu \cos\left(\theta(t)\right)\\
+ & y(t) = \sqrt\mu \sin\left(\theta(t)\right)
+\end{cases}
+\end{align*}
+Also hat dieser Orbit die Periode $2\pi$ und er besitzt die Poincar\'{e} Abbildung
+$$ P_\Sigma (r_0) = \left(\frac 1\mu + e^{-2\mu t}\left(\frac{1}{r_0^2} - \frac 1\mu\right)\right)^{-\frac 12}$$
+wobei $\Sigma = \RR\times\{0\}$, falls $\theta_0 \neq \frac{(2k+1)\pi}{2}$, ansonsten $\Sigma = \{0\}\times\RR$. F"ur alle $\mu > 0$ gilt $P_\Sigma(\sqrt \mu) = \sqrt \mu$. Die Ableitung von $P_\Sigma$ nach $r$ ist 
+$$\frac{\mathrm d}{\mathrm dr} P_\Sigma(\sqrt \mu) = e^{-4 \pi \mu} \stackrel{\mu > 0} < 1$$
+Die direkte Methode von Lyapunov liefert, dass $(\sqrt \mu, \theta_0)^T$ asymptotisch stabil ist im Sinne von Lyapunov und somit liefert \eqref{stabilitatskriterium_periodische_orbits}, dass $(\sqrt \mu, \theta_0)^T$ orbital asymptotisch stabil ist.
+\end{beispiel}
+
+\begin{figure}[htpb]
+		\centering
+		\includegraphics[width=0.3\textwidth]{img/periodische_orbits/beispiel_asymp_stabilitaet.pdf}
+		\caption{Flussabbildung zum Beispiel}
+\end{figure}
 
 \end{document}
