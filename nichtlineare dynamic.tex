@@ -642,7 +642,7 @@ h^s:\mathbb{R}\to\mathbb{R}, x\mapsto 0
 
 
 \section{Diskreter Fall}
-Sei $\psi$ ein $C^k$-Diffeomorphismus von $\mathbb{R}^n$ nach $\mathbb{R}^n$, d.h. $\psi$ ist bijektiv und $\psi^{-1}\in C^k(\mathbb{R}^{n},\mathbb{R}^{n})$, $x_G$ ein Gleichgewichtspunkt des von $\psi$ erzeugten dynamischen Systems. Betrachte die Linearisierung dieses Systems in $x_G$, erzeugt durch $J\psi(x_G)$ (regulär). ($\psi(x)\approx J\psi(x_G)\xi, \xi=x-x_G, \Vert\xi\Vert\ll 1$)
+Sei $\psi$ ein $C^k$-Diffeomorphismus von $\mathbb{R}^n$ nach $\mathbb{R}^n$, d.h. $\psi$ ist bijektiv und $\psi^{-1}\in C^k(\mathbb{R}^{n},\mathbb{R}^{n})$, $x_G$ ein Gleichgewichtspunkt des von $\psi$ erzeugten dynamischen Systems. Betrachte die Linearisierung dieses Systems in $x_G$, erzeugt durch $J\psi(x_G)$ (regul"ar). ($\psi(x)\approx J\psi(x_G)\xi, \xi=x-x_G, \Vert\xi\Vert\ll 1$)
 
 \begin{satz}[Grobman-Hartman]
 Unter diesen Voraussetzungen existiert eine Umgebung $0\in U\subset \mathbb{R}^n$ und ein Hom"oomorphismus $h:U\to h(U)\subset\mathbb{R}^n, h(0)=x_G$, sodass das von $J\psi(x_G)\xi$ erzeugte System bzgl. $h$ lokal topologisch konjugiert ist, d.h.
@@ -657,7 +657,7 @@ Die restliche Grobman-Hartman-Theorie ist analog zum kontinuierlichen Fall.
 
 \begin{beispiel}
 $\psi(x)=x^3$ erzeugender Hom"oomorphismus ($C^k$-Diffeomorphismus f"ur $1\leq k\leq\infty$ au"serhalb von $x=0$)\\
-Als Voraussetzung der Grobman-Hartman-Theorie gen"ugt es, wenn die Voraussetzungen lokal nahe der betrachteten Gleichgewichtspunkte erfüllt sind.
+Als Voraussetzung der Grobman-Hartman-Theorie gen"ugt es, wenn die Voraussetzungen lokal nahe der betrachteten Gleichgewichtspunkte erf"ullt sind.
 \[x_G=\pm 1, J\psi(x_G)=3>1\ \Rightarrow\ x_G\text{ orientierungserhaltende Quelle}\]
 Gesucht ist ein Hom"oomorphismus $h$, welcher das $\psi$- und das $J\psi(x_G)$-System lokal nahe $x_G=\pm 1$ konjugiert (in $U_1=(-\infty, 0), U_2=(0,+\infty)$).\\
 $h:\mathbb{R}\to\mathbb{R}, \xi\mapsto h(\xi)$ stetig, bijektiv, sodass
@@ -678,7 +678,7 @@ Das minimale $T>0$ hei"st \emph{Periode} des Orbits $\Gamma_{x_p}$. $x_p$ nennt 
 \end{definition}
 \begin{figure}[htpb]
 		\centering
-		\includegraphics[width=0.5\textwidth]{img/periodische_orbits/disk_kont.pdf}
+		\includegraphics[width=0.8\textwidth]{img/periodische_orbits/disk_kont.pdf}
 		\caption{periodische Orbits}
 \end{figure}
 
@@ -699,7 +699,7 @@ $$\psi^2(x_p) = \operatorname{id}(x_p) = x_p$$
 Folglich ist jeder Punkt $x_p\in\RR\setminus\{0\}$ ein $2$-periodischer Punkt, also gilt ${\Gamma_{x_p} = \left \{ x_p, -x_p\right\}}$. F"ur $x = 0$ liegt ein Gleichgewichtspunkt vor (man sagt auch $1$-periodisch). 
 \begin{figure}[htpb]
 		\centering
-		\includegraphics[width=0.5\textwidth]{img/periodische_orbits/disk_kont.pdf}
+		\includegraphics[width=0.7\textwidth]{img/periodische_orbits/beispiel_per_orbit.pdf}
 		\caption{periodische Orbits}
 \end{figure}
 \end{beispiel}
@@ -707,13 +707,14 @@ Folglich ist jeder Punkt $x_p\in\RR\setminus\{0\}$ ein $2$-periodischer Punkt, a
 Sei $(X,\phi)$ ein dynamisches System, das durch die Differentialgleichung $\dot x = v(x), \ x \in \RR^n$ erzeugt wird.
 \begin{definition}
 Sei $x_p$ ein $T$-periodischer Punkt. Es existiert ein $n\in\RR^n$, sodass $\langle v(x_p), n \rangle \neq 0$, beispielsweise $n = v(x_p)$. Die $(n-1)$-dimensionale Untermannigfaltigkeit
-$$\Sigma_{x_p} := \left \{ \left. x \in \RR \right| \langle x - x_p, n \rangle \right \}$$ 
-schneidet den Orbit $\Gamma_{x_p}$ \emph{transversal}. Sei $V\subseteq \RR^n$ eine hinreichend kleine Umgebung von $x_p$. Die \emph{erste R"uckkehrzeit} $\tau$ ist definiert als
-$$\tau(x) := \min \left \{ \left. t> 0 \right| \phi(t, x) \in \Sigma_{x_p} \right \}$$
+$$\Sigma_{x_p} := \left \{ \left. x \in X \right| \langle x - x_p, n \rangle =0 \right \}$$ 
+schneidet den Orbit $\Gamma_{x_p}$ \emph{transversal}. Sei $V\subseteq \RR^n$ eine hinreichend kleine Umgebung von $x_p$. Die \emph{erste R"uckkehrzeit} $\tau\colon \Sigma_{x_p} \cap V \to \RR$ ist definiert als
+$$\tau(x) := \min \left \{ \left. t> 0 \right| \phi(t, x) \in \Sigma_{x_p} \cap B_{\varepsilon(x)}(x) \right \}$$
+wobei $\varepsilon(x)$ hinreichend klein gew"ahlt ist.
 \end{definition}
 \begin{description}
 \item[Bemerkung] 
-Die erste R"uckkehrzeit gibt die Zeit an, die ben"otigt wird um, ausgehend vom Punkt $x \in \Sigma_{x_p}\cap V$, die transversale Menge $\Sigma_{x_p}$ wieder zu schneiden. Das hei"st es gilt $\phi(\tau(x), x) \in \Sigma_{x_p}$. Es gilt nach Definition $\tau(x_p) = T$.
+Die erste R"uckkehrzeit gibt die Zeit an, die ben"otigt wird um, ausgehend vom Punkt $x \in \Sigma_{x_p}\cap V$, die transversale Menge $\Sigma_{x_p}$ nach einem vollen Umlauf wieder zu schneiden. Das hei"st es gilt $\phi(\tau(x), x) \in \Sigma_{x_p}$. Es gilt nach Definition $\tau(x_p) = T$.
 \end{description}
 \begin{figure}[htpb]
 		\centering
@@ -824,7 +825,7 @@ Die direkte Methode von Lyapunov liefert, dass $(\sqrt \mu, \theta_0)^T$ asympto
 
 \begin{figure}[htpb]
 		\centering
-		\includegraphics[width=0.3\textwidth]{img/periodische_orbits/beispiel_asymp_stabilitaet.pdf}
+		\includegraphics[width=1\textwidth]{img/periodische_orbits/beispiel_asymp_stabilitaet.pdf}
 		\caption{Flussabbildung zum Beispiel}
 \end{figure}
 
