@@ -835,4 +835,110 @@ Die direkte Methode von Lyapunov liefert, dass $(\sqrt \mu, \theta_0)^T$ asympto
 		\caption{Flussabbildung zum Beispiel}
 \end{figure}
 
+
+\section{Poincaré-Bendixon-Theorie}
+
+Betrachte das GDG-System
+	\[\dot{x} = v(x), \qquad x \in\mathbb{R} \]
+\begin{definition}
+	Sei \(\phi(t,x)\) Flußabbildung dieses Systems und \(x_0 \in \mathbb{R}\). Dann heißt
+		\[\omega(x_0)= \{x \in \mathbb{R}^n\ |\ \exists\  (t_j)_{j \in \mathbb{N}} \in \mathbb{R}, t_j \to \infty : \lim_{j\to \infty} \phi(t_j,x) = x_0\} \]
+	\(\omega\)-Limesmenge des (Anfangs-) zustands \(x_0\). Jedes \(x \in \omega(x_0)\) ist ein 		sogenannter \emph{\(\omega\)-Limespunkt} von \(x_0\).
+
+\end{definition}
+\begin{description}
+	\item[Bemerkung] Entsprechend definiert man \(\alpha\)-Limesmengen bzw. \(\alpha\)-Limespunkte im Fall \((t_j) \to -\infty\).
+\end{description}
+
+\begin{beispiel}
+	\begin{enumerate}
+		\item Sei \(x_G\) asymptotisch stabiler GGP. Dann gilt \(\omega(x_0) = \{x_G\} \) für alle \(x_0\) hinreichend nahe bei \(x_G\)
+		\item Sei \(\Gamma_{x_p} \) ein orbital asymptotisch stabiler periodischer Orbit, d.h. ein sogenannter \emph{Grenzzykel}. Dann gilt \(\omega(x_0)= \Gamma_{x_p}\) für alle \(x_0\) hinreichend nahe bei \(\Gamma_{x_p}\)
+	\end{enumerate}
+\end{beispiel}
+
+\begin{satz}[Poincaré-Bendixon-Theorem]
+	Sei \(n=2, M \subset \mathbb{R}^2\) eine positiv invariante, kompakte Teilmenge. Dann gilt für jedes \(x_0 \in M\) hinsichtlich der \(\omega\)-Limesmenge \(\omega(x_0)\) von \(x_0\) eine der folgenden drei Alternativen:
+	\begin{itemize}
+		\item \(\omega (x_0) = \{x_G\} \) ist ein GGP in M
+		\item \(\omega(x_0) = \Gamma_{x_p}\) ist ein periodischer Orbit
+		\item \(\omega(x_0)\) ist ein sogenannter \emph{heterogener Zykel} in M, d.h. die Vereinigung von endlich vielen GGPs \(x_G^1,...,x_G^N, x_G^{N+1} = x_G^1\) sowie Verbindungsorbits \(\Gamma_{x_p}\) (heterokline Orbits durch heterokline Punkte \(x_h^k\)) \((k=1,...,N)\) mit der Eigenschaft 
+			\[\lim_{t\to -\infty} \phi(t,x_h^k) = x_G^k,\qquad \lim_{t\to\infty} \phi(t,x_h^k) = x_G^{k+1}\]
+	\end{itemize}
+
+\end{satz}
+
+\begin{corollar}
+Es seien die Vorraussetzungen des Poincaré-Bendixon-Theorems gegeben. Ferner existiere in M kein GGP des Systems. Dann enthält M wenigstens einen periodischen Oribut des Systems.
+\end{corollar}
+
+\begin{beispiel}
+	\begin{align*} \begin{cases}
+		\dot{x} = \mu x - y - x(x^2+y^2) \\
+		\dot{y} = x + \mu y - y(x^2+y^2)
+	\end{cases} \end{align*}
+	\(x=y=0\) ist trivialer (und einizger) GGP. \\
+	Betrachte das Vektorfeld \(v(x,y)\) des Systems längs eines Kreises \({x^2+y^2=R^2}\)
+		\[\Rightarrow v(x,y) = \begin{pmatrix} \mu x - y - R^2x \\
+		x + \mu y - R^2y \end{pmatrix} \]
+		\begin{align*}
+			\langle v(x,y), \begin{pmatrix} x \\ y \end{pmatrix} \rangle & = \mu x^2 - xy - R^2x^2 + xy + \mu y^2 - R^2y^2\\
+			& = (\mu-R^2)(x^2+y^2) = (\mu - R^2)R^2 \lessgtr 0,\qquad ( R \gtrless \sqrt{\mu})
+		\end{align*}
+	Außerhalb von \(x=y=0\) exisitiert kein weiterer GGP, da \({\langle v(x,y),\begin{pmatrix} x \\ y \end{pmatrix} \rangle \not= 0}\) für \(R\not= 0, \sqrt{\mu}\) und \(v_{|_{x^2+y^2=\mu}} = \begin{pmatrix} -y \\ x \end{pmatrix} \not= 0\).\\
+	Somit existiert nach Poincaré-Bendixon innerhalb des Ringelements \newline \(R_1^2 < x^2+y^2 < R_2^2\) wenigstens \underline{ein} periodischer Orbit \(\Gamma_{x_p}\).
+\end{beispiel}
+
+\section{Zeitlich periodische nicht-autonome GDG-Systeme}
+
+Betrachte das GDG-System
+	\begin{align*} 
+		&\dot{x} = v(t,x), \qquad x \in \mathbb{R}^n, t \in \mathbb{R}\ \text{mit} \\
+		&v(t+T,x) = v(t,x)\qquad \forall (t,x) \in \mathbb{R}\times\mathbb{R}^n \\
+		& T>0 \text{ (minimal) zeitliche Periode}
+	\end{align*}
+Diese GDG erzeugt zwar kein dynamisches System im \(\mathbb{R}^n\) aber wie folgt im erweiterten Zustands-(Phasen-) Raumes \(\mathbb{R}\times\mathbb{R}^n\): \\
+Betrachte das erweiterte System
+\begin{align*} \begin{cases} \dot{\tau} = 1 \\
+	\dot{x}=v(\tau,x)
+	\end{cases}, \begin{pmatrix} \tau \\ x \end{pmatrix} \in \mathbb{R}\times\mathbb{R}^n 
+\end{align*}
+Unter den entsprechenden Bedingungen erzeugt diese autonome GDG 1.Ordnung ein dynamisches System im \( \mathbb{R}\times\mathbb{R}^n \) mit Flußabbildung
+	\begin{align*} x = \phi(t; \tau_0, x_0) \\
+		\tau = \tau(t; \tau_0,x_0)
+	\end{align*}
+Die Lösungen dieses erweiterten Systems sind Lösungen der ursprünglichen GDG für \(\tau_0=0 \Leftrightarrow \tau = t\)
+
+-Bild plus Beschriftung- \newline
+
+\(\Rightarrow\) Die Lösung durch \((\tau_0,x_0)\) ergibt sich aus der Lösung durch \((\tau_0-kT,x_0)\) durch zeitliche Verschiebung um \(kT\). Daher beschreibt das von der sogenannten \emph{Periodenabbildung} \(P_{\tau_0} \) erzeugte diskrete dynamische System im \(\mathbb{R}^n\) die Dynamik des erweiterten Systems zu den Zeitpunkten \(\tau_0 + kT\) \((k\in\mathbb{Z})\).
+
+\begin{description}
+	\item[Bemerkung] Es gilt für \(P_{\tau_0}\):
+		\[P_{\tau_0} : \mathbb{R}^n \to \mathbb{R}^n, x\mapsto \phi(T;\tau_0,x_0) \]
+		(Periodenabbildung einer zeitlich T-periodischen nicht autonomen GDG \(\dot{x} = v(t,x) \)) \\
+		z.B. entsprechen Fixpunkte von \(P_{\tau_0}\) i.A. einer T-periodischen Lösung von \(\dot{x} = v(t,x) \) und Fixpunkte von \(P_{\tau_0}^K\) (\(K\in\mathbb{N}\)) entsprechen einer KT-periodischen Lösung einschließlich der Stabiltätseigenschaften.
+\end{description}
+
+\begin{beispiel}
+	\[\dot{x} = -x + \sin t \qquad (\text{nicht autom,} 2\pi \text{-periodisch})\]
+	Die allgemeine homogene Lösung ist gegeben durch \(x_h(t) = e^{(t-t_0)}x_0\)
+	Allgemeine Lösung: 
+		\begin{align*} x(t) &= x_p(t) + x_h(t) \\
+			& = \frac 1 2 (\sin t - \cos t) - \frac 1 2 e^{(t-t_0)}(\sin t_0 - \cos t_0) + e^{(t-t_0)}x_0\\
+			&= \phi(t; t_0,x_0)
+		\end{align*}
+	\(\Rightarrow\) Mit \(\tau_0=t_0=0, t = 2\pi\) folgt:
+		\begin{align*} P_0 : \mathbb{R} \to \mathbb{R}, x_0 \mapsto &-\frac 1 2 - \frac 1 2 e^{-2\pi}(-1)+e^{-2\pi}x_0\\
+			& = -\frac 1 2 + \frac 1 2 e^{-2\pi} + e^{-2\pi}x_0
+		\end{align*}
+	ist Periodenabbildung für obige GDG.\\
+	Bestimmung des (eindeutigen) Fixpunkts: 
+		\begin{align*} P_0(x_0)=x_0 &\Leftrightarrow -\frac 1 2 + \frac 1 2 e^{-2\pi} + e^{-2\pi}x_0 = x_0 \\
+		&\Rightarrow x_0 = \frac{-\frac 1 2 + \frac 1 2 e^{-2\pi}} {e^{-2\pi}}
+		\end{align*}
+		\(\Rightarrow 0 < \frac{d}{d_x0} P_0(x_0) = e^{-2\pi}< 1 \Rightarrow\) asymptotisch stabil \(\Rightarrow\) obige GDG besitzt einen orbital asymptotisch stabilen \(2\pi\)-periodischen Orbit.
+	
+\end{beispiel}
+
 \end{document}
