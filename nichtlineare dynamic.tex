@@ -195,7 +195,7 @@ $$ \exists b > 0\ \forall x \in X: d(x, x_G) < b \Rightarrow \lim_{t\to\infty}{d
 \centering
 \includegraphics[width=0.45\textwidth]{img/stabilitaet/stabilitaet_lypunov.pdf}
 \includegraphics[width=0.45\textwidth]{img/stabilitaet/instabilitaet_lypunov.pdf}
-\caption{Stabilität(links); Instabilität (rechts)}
+\caption{Stabilit"at(links); Instabilit"at (rechts)}
 \end{figure}
 
 \subsection{Indirekte Methode von Lyapunov}
@@ -515,7 +515,7 @@ Der Wert der Summe liegt in \(U\), da $U$ abgeschlossen und sie Grenzwert ist vo
 \begin{figure}[htpb]
 		\centering
 		\includegraphics[height=0.30\textheight]{img/eigenraeume.pdf}
-		\caption{$E^c$ entscheidet viel über das Verhalten der Orbits}
+		\caption{$E^c$ entscheidet viel "uber das Verhalten der Orbits}
 \end{figure}
 
 \begin{satz}
@@ -592,8 +592,8 @@ Somit bildet $h$ hom"oomorph die Orbits des linearisierten Systems durch $\xi\in
 \begin{itemize}
 \item $h(E^s\cap U)=: W_{loc}^s(x_G)$ lokale stabile Mannigfaltigkeit von $x_G$ (positiv invariant)\\
 \item $h(E^u\cap U)=: W_{loc}^u(x_G)$ lokale instabile Mannigfaltigkeit von $x_G$ (negativ invariant)\\
-\item $W^s(x_G):=\{x\in\mathbb{R}^n|\lim\limits_{t\to +\infty}\phi (t,x)=x_G\}$ heißt (globale) stabile Mannigfaltigkeit von $x_G$\\
-\item $W^u(x_G):=\{x\in\mathbb{R}^n|\lim\limits_{t\to -\infty}\phi (t,x)=x_G\}$ heißt (globale) instabile Mannigfaltigkeit von $x_G$
+\item $W^s(x_G):=\{x\in\mathbb{R}^n|\lim\limits_{t\to +\infty}\phi (t,x)=x_G\}$ hei"st (globale) stabile Mannigfaltigkeit von $x_G$\\
+\item $W^u(x_G):=\{x\in\mathbb{R}^n|\lim\limits_{t\to -\infty}\phi (t,x)=x_G\}$ hei"st (globale) instabile Mannigfaltigkeit von $x_G$
 \end{itemize}
 \end{description}
 
@@ -602,7 +602,7 @@ $W^s(x_G)$ und $W^u(x_G)$ sind invariant, d.h.
 \begin{align*}
 \phi(t,W^{s/u}(x_G))=W^{s/u}(x_G)\ \forall t\in\mathbb{R} \\
 x\in W^s(x_G)\ \Rightarrow\ \lim_{t\to\infty}\phi(t,x)=x_G\\
-\Rightarrow\ \lim_{t\to\infty}\phi(t,\phi(s,x))=\lim_{t\to\infty}\phi(t+s,x)=x_G \text{ für jedes }  s\in\mathbb{R}\\
+\Rightarrow\ \lim_{t\to\infty}\phi(t,\phi(s,x))=\lim_{t\to\infty}\phi(t+s,x)=x_G \text{ f"ur jedes }  s\in\mathbb{R}\\
 \Rightarrow\ \phi(s,x)\in W^s(x_G)\\
 \Rightarrow\ \phi(s,W^s(x_G))=W^s(x_G)\ \forall s\in\mathbb{R}
 \end{align*}
@@ -632,7 +632,7 @@ Daher sind die Eigenwerte
 \Rightarrow\ x_G  \text{ hyperbolischer Sattelpunkt}\]
 und der Satz von Grobman-Hartman ist anwendbar. Die Orbitgleichung erh"alt man folgenderma"sen:
 \begin{align*}
-\frac{dy}{dx}=\frac{\frac{dy}{dt}}{\frac{dx}{dt}}=\frac{-y+x^2}{x} \text{ (für $x\neq 0$) } =-\frac 1 x \cdot y+x\\
+\frac{dy}{dx}=\frac{\frac{dy}{dt}}{\frac{dx}{dt}}=\frac{-y+x^2}{x} \text{ (f"ur $x\neq 0$) } =-\frac 1 x \cdot y+x\\
 \Rightarrow\ y(x)=\frac 1 3 x^2+\frac c x, c\in\mathbb{R} \text{ beliebig} \\
 \Rightarrow\ h^u:\mathbb{R}\to\mathbb{R}, x\mapsto\frac{x^2} 3\ (c=0)\\
 \Rightarrow\ h^u(0)=0, (h^u)'(0)=Jh^u(0)=0\\
@@ -768,7 +768,7 @@ Sei $(X,d)$ ein metrischer Raum, $(X,\phi)$ ein dynamisches System mit einem per
 \item \emph{orbital asymptotisch stabil}, falls $\Gamma_{x_p}$ orbial stabil ist und gilt
 $$ \exists b > 0 \forall x \in X: \operatorname{dist}(x, \Gamma_{x_p}) < b \Rightarrow \lim_{t\to\infty}{\operatorname{dist}(\phi(t,x), \Gamma_{x_p})} = 0 $$
 \end{itemize}
-wobei $\operatorname{dist}(x, M) := \inf_{y\in M}{d(x,y)}, \ M\subseteq X$.
+wobei $\operatorname{dist}(x, M) := \inf_{y\in M}{d(x,y)}, \ M\subseteq X$. Zu orbital asymptotisch stabilen Orbits $\Gamma_{x_p}$ sagt man auch \emph{Grenzzykel}.
 \end{definition}
 \begin{figure}[htpb]
 		\centering
@@ -836,12 +836,12 @@ Die direkte Methode von Lyapunov liefert, dass $(\sqrt \mu, \theta_0)^T$ asympto
 \end{figure}
 
 
-\section{Poincaré-Bendixon-Theorie}
+\section{Poincar\'{e}-Bendixson-Theorie}
 
 Betrachte das GDG-System
 	\[\dot{x} = v(x), \qquad x \in\mathbb{R} \]
 \begin{definition}
-	Sei \(\phi(t,x)\) Flußabbildung dieses Systems und \(x_0 \in \mathbb{R}\). Dann heißt
+	Sei \(\phi(t,x)\) Flu"sabbildung dieses Systems und \(x_0 \in \mathbb{R}\). Dann hei"st
 		\[\omega(x_0)= \{x \in \mathbb{R}^n\ |\ \exists\  (t_j)_{j \in \mathbb{N}} \in \mathbb{R}, t_j \to \infty : \lim_{j\to \infty} \phi(t_j,x) = x_0\} \]
 	\(\omega\)-Limesmenge des (Anfangs-) zustands \(x_0\). Jedes \(x \in \omega(x_0)\) ist ein 		sogenannter \emph{\(\omega\)-Limespunkt} von \(x_0\).
 
@@ -852,24 +852,40 @@ Betrachte das GDG-System
 
 \begin{beispiel}
 	\begin{enumerate}
-		\item Sei \(x_G\) asymptotisch stabiler GGP. Dann gilt \(\omega(x_0) = \{x_G\} \) für alle \(x_0\) hinreichend nahe bei \(x_G\)
-		\item Sei \(\Gamma_{x_p} \) ein orbital asymptotisch stabiler periodischer Orbit, d.h. ein sogenannter \emph{Grenzzykel}. Dann gilt \(\omega(x_0)= \Gamma_{x_p}\) für alle \(x_0\) hinreichend nahe bei \(\Gamma_{x_p}\)
+		\item Sei \(x_G\) asymptotisch stabiler Gleichgewichtspunkt. Dann gilt \(\omega(x_0) = \{x_G\} \) f"ur alle \(x_0\) hinreichend nahe bei \(x_G\)
+		\item Sei \(\Gamma_{x_p} \) ein orbital asymptotisch stabiler periodischer Orbit. Dann gilt \(\omega(x_0)= \Gamma_{x_p}\) f"ur alle \(x_0\) hinreichend nahe bei \(\Gamma_{x_p}\)
 	\end{enumerate}
 \end{beispiel}
 
-\begin{satz}[Poincaré-Bendixon-Theorem]
-	Sei \(n=2, M \subset \mathbb{R}^2\) eine positiv invariante, kompakte Teilmenge. Dann gilt für jedes \(x_0 \in M\) hinsichtlich der \(\omega\)-Limesmenge \(\omega(x_0)\) von \(x_0\) eine der folgenden drei Alternativen:
-	\begin{itemize}
-		\item \(\omega (x_0) = \{x_G\} \) ist ein GGP in M
+\begin{definition}
+Ein Orbit $\Gamma$ hei"st \emph{heterokliner Orbit} zwischen $x_1$ und $x_2$, falls ein \emph{heterokliner Punkt} $x_h \in \Gamma$ existiert, sodass 
+\[\lim_{t\to -\infty} \phi(t,x_h) = x_1,\qquad \lim_{t\to\infty} \phi(t,x_h) = x_2\]
+gilt. Seien \(x_G^1,...,x_G^N\) Gleichgewichtspunkte, $x_G^{N+1}$ bezeichne $x_G^1$. Seien $\Gamma_{k}$ heterokline Orbits zwischen $x_G^k$ und $x_G^{k+1}$ mit heteroklinen Punkt $x_h^k$. Dann hei"st die Menge 
+	$$	\bigcup_{k=1}^{N} \Gamma_k \cup x_G^k$$
+\emph{heterokliner Zykel}.
+\end{definition}
+\begin{description}
+\item[Bemerkung] Es ist in der Definition eines heteroklinen Orbits auch zugelassen, dass dieser Orbit zwischen zwei gleichen Punkten verl"auft, d.h. $x_1 = x_2$. Ein solcher Orbit wird auch als \emph{homokliner Orbit} bezeichnet.
+\end{description}
+\begin{figure}[htpb]
+		\centering
+		\includegraphics[width=0.4\textwidth]{img/poincare_Bendixson/heterokline_orbits.pdf}
+		\caption{Illustration eines heteroklinen Zykels mit einem homoklinen Orbit zwischen $x_G^4$ und $x_G^5$}
+\end{figure}
+
+
+\begin{satz}[Poincar\'{e}-Bendixson-Theorem]
+	Sei \(n=2, M \subset \mathbb{R}^2\) eine positiv invariante, kompakte Teilmenge. Dann gilt f"ur jedes \(x_0 \in M\) hinsichtlich der \(\omega\)-Limesmenge \(\omega(x_0)\) von \(x_0\) eine der folgenden drei Alternativen:
+	\begin{enumerate}
+		\item \(\omega (x_0) = \{x_G\} \) ist ein Gleichgewichtspunkt in M
 		\item \(\omega(x_0) = \Gamma_{x_p}\) ist ein periodischer Orbit
-		\item \(\omega(x_0)\) ist ein sogenannter \emph{heterogener Zykel} in M, d.h. die Vereinigung von endlich vielen GGPs \(x_G^1,...,x_G^N, x_G^{N+1} = x_G^1\) sowie Verbindungsorbits \(\Gamma_{x_p}\) (heterokline Orbits durch heterokline Punkte \(x_h^k\)) \((k=1,...,N)\) mit der Eigenschaft 
-			\[\lim_{t\to -\infty} \phi(t,x_h^k) = x_G^k,\qquad \lim_{t\to\infty} \phi(t,x_h^k) = x_G^{k+1}\]
-	\end{itemize}
+		\item \(\omega(x_0)\) ist ein heterokliner Zykel
+	\end{enumerate}
 
 \end{satz}
 
 \begin{corollar}
-Es seien die Vorraussetzungen des Poincaré-Bendixon-Theorems gegeben. Ferner existiere in M kein GGP des Systems. Dann enthält M wenigstens einen periodischen Oribut des Systems.
+Es seien die Vorraussetzungen des Poincar\'{e}-Bendixson-Theorems gegeben. Ferner existiere in M kein Gleichgewichtspunkt des Systems. Dann enth"alt M mindestens einen periodischen Oribit des Systems.
 \end{corollar}
 
 \begin{beispiel}
@@ -877,53 +893,78 @@ Es seien die Vorraussetzungen des Poincaré-Bendixon-Theorems gegeben. Ferner ex
 		\dot{x} = \mu x - y - x(x^2+y^2) \\
 		\dot{y} = x + \mu y - y(x^2+y^2)
 	\end{cases} \end{align*}
-	\(x=y=0\) ist trivialer (und einizger) GGP. \\
-	Betrachte das Vektorfeld \(v(x,y)\) des Systems längs eines Kreises \({x^2+y^2=R^2}\)
+	\(x=y=0\) ist trivialer (und einizger) Gleichgewichtspunkt. \\
+	Betrachte das Vektorfeld \(v(x,y)\) des Systems l"angs eines Kreises \({x^2+y^2=R^2}\)
 		\[\Rightarrow v(x,y) = \begin{pmatrix} \mu x - y - R^2x \\
 		x + \mu y - R^2y \end{pmatrix} \]
 		\begin{align*}
 			\langle v(x,y), \begin{pmatrix} x \\ y \end{pmatrix} \rangle & = \mu x^2 - xy - R^2x^2 + xy + \mu y^2 - R^2y^2\\
 			& = (\mu-R^2)(x^2+y^2) = (\mu - R^2)R^2 \lessgtr 0,\qquad ( R \gtrless \sqrt{\mu})
 		\end{align*}
-	Außerhalb von \(x=y=0\) exisitiert kein weiterer GGP, da \({\langle v(x,y),\begin{pmatrix} x \\ y \end{pmatrix} \rangle \not= 0}\) für \(R\not= 0, \sqrt{\mu}\) und \(v_{|_{x^2+y^2=\mu}} = \begin{pmatrix} -y \\ x \end{pmatrix} \not= 0\).\\
-	Somit existiert nach Poincaré-Bendixon innerhalb des Ringelements \newline \(R_1^2 < x^2+y^2 < R_2^2\) wenigstens \underline{ein} periodischer Orbit \(\Gamma_{x_p}\).
+	Au"serhalb von \(x=y=0\) exisitiert kein weiterer Gleichgewichtspunkt, da \({\langle v(x,y),\begin{pmatrix} x \\ y \end{pmatrix} \rangle \not= 0}\) f"ur \(R\not= 0, \sqrt{\mu}\) und \(v_{|_{x^2+y^2=\mu}} = \begin{pmatrix} -y \\ x \end{pmatrix} \not= 0\).\\
+	Somit existiert nach Poincar\'{e}-Bendixson innerhalb des Ringelements \newline \(R_1^2 < x^2+y^2 < R_2^2\) wenigstens \underline{ein} periodischer Orbit \(\Gamma_{x_p}\).
 \end{beispiel}
 
+\begin{figure}[htpb]
+		\centering
+		\includegraphics[width=0.4\textwidth]{img/poincare_Bendixson/beispiel_poincare_Bendixson.pdf}
+		\caption{Vektorfeld auf den Kreisen $R_1$ sowie $R_2$ des obigen Beispiels}
+\end{figure}
 \section{Zeitlich periodische nicht-autonome GDG-Systeme}
 
-Betrachte das GDG-System
+Betrachte die Differentialgleichung
 	\begin{align*} 
 		&\dot{x} = v(t,x), \qquad x \in \mathbb{R}^n, t \in \mathbb{R}\ \text{mit} \\
 		&v(t+T,x) = v(t,x)\qquad \forall (t,x) \in \mathbb{R}\times\mathbb{R}^n \\
-		& T>0 \text{ (minimal) zeitliche Periode}
 	\end{align*}
-Diese GDG erzeugt zwar kein dynamisches System im \(\mathbb{R}^n\) aber wie folgt im erweiterten Zustands-(Phasen-) Raumes \(\mathbb{R}\times\mathbb{R}^n\): \\
-Betrachte das erweiterte System
-\begin{align*} \begin{cases} \dot{\tau} = 1 \\
-	\dot{x}=v(\tau,x)
-	\end{cases}, \begin{pmatrix} \tau \\ x \end{pmatrix} \in \mathbb{R}\times\mathbb{R}^n 
+wobei $T > 0$ minimal ist und die zeitliche Periode des System angibt. Da dies eine nicht-autonome Differentialgleichung ist, wird dadurch a priori kein dynamisches System erzeugt. Doch wenn man den erweiterten Phasenraum betrachtet wird ein dynamisches System induziert.
+\begin{lemma}
+Jede nicht-autonome Differentialgleichung $\dot x = v(t, x)$ kann folgenderma"sen in eine autonome Differentialgleichung 
+transformiert werden
+\begin{align*}
+	\dot{\tilde x} := \dot{\begin{pmatrix}
+		t\\
+		x
+	\end{pmatrix}} = 
+	\begin{pmatrix}
+		1\\
+		v(t,x)
+	\end{pmatrix} = 
+	\begin{pmatrix}
+		1\\
+		v(\tilde x)
+	\end{pmatrix}
+	=: \tilde v(\tilde x)
 \end{align*}
-Unter den entsprechenden Bedingungen erzeugt diese autonome GDG 1.Ordnung ein dynamisches System im \( \mathbb{R}\times\mathbb{R}^n \) mit Flußabbildung
-	\begin{align*} x = \phi(t; \tau_0, x_0) \\
-		\tau = \tau(t; \tau_0,x_0)
-	\end{align*}
-Die Lösungen dieses erweiterten Systems sind Lösungen der ursprünglichen GDG für \(\tau_0=0 \Leftrightarrow \tau = t\)
+Dabei erweitert man den Phasenraum der nicht-autonomen Differentialgleichung auf $\RR \times \RR^n$, d.h. $\tilde v\colon \RR^{n+1} \to \RR^{n+1}$. Die L"osungen der autonomisierten Differentialgleichung mit Anfangswert $\tilde x (0) = \begin{pmatrix} \tau_0 \\ x_0 \end{pmatrix}$ entspricht der L"osung der nicht-autonomen Differentialgleichung mit Anfangswert $x(\tau_0) = x_0$.
+\end{lemma}
+Aus dem Lemma folgt sofort, dass die autonomisierte Differentialgleichung auf $\RR\times \RR^n$ ein dynamisches System induziert, falls $v$ entsprechende Bedingungen besitzt. Die Flussabbildung schreiben wir dann folgenderma"sen
+\begin{align*} 
+		\tilde x = \tilde\phi\left(t, \left(\tau_0, x_0\right) \right)
+\end{align*}
 
--Bild plus Beschriftung- \newline
+Da $v$ in der ersten Komponente $T$-periodisch sind die L"osung mit Anfangswert $(\tau_0, x_0)$ identisch zu den L"osungen mit Anfangswert $(\tau_0 + kT, x_0)$ f"ur jedes $k\in\mathbb{Z}$. Daher ergibt sich auf kanonische Art eine Poincar\'{e}-Abbildung
+\[P_{\tau_0} : \mathbb{R}^n \to \mathbb{R}^n, \ x_0\mapsto \phi(T;\tau_0,x_0) \]
+wobei $\phi$ der Fluss der nicht-autonomen Differentialgleichung ist. Ein dazugeh"origer Poincar\'{e} Schnitt ist beispielsweise
+$$ \Sigma_{\tau_0} = \left \{ \left. (t,x)\in\RR\times\RR^n \right | \langle (t - \tau_0 ,x), (1,0)\rangle = 0 \right \} = \left \{ \left . (\tau_0, x) \right| x \in \RR^n \right \} $$
+Im folgenden werden wir diese spezielle Poincar\'{e} Abbildung auch mit \emph{Periodenabbildung} bezeichnen.
+\begin{figure}[htpb]
+		\centering
+		\includegraphics[width=0.7\textwidth]{img/poincare_Bendixson/periodenabbildung.pdf}
+		\caption{Illustration der Periodenabbildung; $\Gamma_{x_1}$ ist $T$-periodisch, $\Gamma_{x_2}$ ist $2T$-periodisch}
+\end{figure}
 
-\(\Rightarrow\) Die Lösung durch \((\tau_0,x_0)\) ergibt sich aus der Lösung durch \((\tau_0-kT,x_0)\) durch zeitliche Verschiebung um \(kT\). Daher beschreibt das von der sogenannten \emph{Periodenabbildung} \(P_{\tau_0} \) erzeugte diskrete dynamische System im \(\mathbb{R}^n\) die Dynamik des erweiterten Systems zu den Zeitpunkten \(\tau_0 + kT\) \((k\in\mathbb{Z})\).
+
+Die Periodenabbildung erzeugt analog wie im vorherigen Kapitel ein diskretes dynamisches System durch $\psi(k, x) = P_{\tau_0}^k(x)$. Daher kann man die periodischen Orbits von $\phi$ wieder mithilfe der Stabilit"at von Gleichgewichtspunkten von $\psi$ analysieren.
 
 \begin{description}
-	\item[Bemerkung] Es gilt für \(P_{\tau_0}\):
-		\[P_{\tau_0} : \mathbb{R}^n \to \mathbb{R}^n, x\mapsto \phi(T;\tau_0,x_0) \]
-		(Periodenabbildung einer zeitlich T-periodischen nicht autonomen GDG \(\dot{x} = v(t,x) \)) \\
-		z.B. entsprechen Fixpunkte von \(P_{\tau_0}\) i.A. einer T-periodischen Lösung von \(\dot{x} = v(t,x) \) und Fixpunkte von \(P_{\tau_0}^K\) (\(K\in\mathbb{N}\)) entsprechen einer KT-periodischen Lösung einschließlich der Stabiltätseigenschaften.
+	\item[Bemerkung] Fixpunkte von \(P_{\tau_0}\) entsprechen i.A. einem T-periodischen Orbit von \(\dot{x} = v(t,x) \) und Fixpunkte von \(P_{\tau_0}^K\) (\(K\in\mathbb{N}\)) entsprechen einem KT-periodischen Orbit einschlie"slich der Stabilt"atseigenschaften.
 \end{description}
 
 \begin{beispiel}
 	\[\dot{x} = -x + \sin t \qquad (\text{nicht autom,} 2\pi \text{-periodisch})\]
-	Die allgemeine homogene Lösung ist gegeben durch \(x_h(t) = e^{(t-t_0)}x_0\)
-	Allgemeine Lösung: 
+	Die allgemeine homogene L"osung ist gegeben durch \(x_h(t) = e^{(t-t_0)}x_0\)
+	Allgemeine L"osung: 
 		\begin{align*} x(t) &= x_p(t) + x_h(t) \\
 			& = \frac 1 2 (\sin t - \cos t) - \frac 1 2 e^{(t-t_0)}(\sin t_0 - \cos t_0) + e^{(t-t_0)}x_0\\
 			&= \phi(t; t_0,x_0)
@@ -932,7 +973,7 @@ Die Lösungen dieses erweiterten Systems sind Lösungen der ursprünglichen GDG 
 		\begin{align*} P_0 : \mathbb{R} \to \mathbb{R}, x_0 \mapsto &-\frac 1 2 - \frac 1 2 e^{-2\pi}(-1)+e^{-2\pi}x_0\\
 			& = -\frac 1 2 + \frac 1 2 e^{-2\pi} + e^{-2\pi}x_0
 		\end{align*}
-	ist Periodenabbildung für obige GDG.\\
+	ist Periodenabbildung f"ur obige GDG.\\
 	Bestimmung des (eindeutigen) Fixpunkts: 
 		\begin{align*} P_0(x_0)=x_0 &\Leftrightarrow -\frac 1 2 + \frac 1 2 e^{-2\pi} + e^{-2\pi}x_0 = x_0 \\
 		&\Rightarrow x_0 = \frac{-\frac 1 2 + \frac 1 2 e^{-2\pi}} {e^{-2\pi}}
