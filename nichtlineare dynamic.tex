@@ -982,4 +982,160 @@ Die Periodenabbildung erzeugt analog wie im vorherigen Kapitel ein diskretes dyn
 	
 \end{beispiel}
 
+%-----------------------------------------------------------------------------------------------
+
+\chapter{Verzweigungstheorie (Bifurkationstheorie)}
+
+Zunächst werden \emph{stationäre Verzweigungen} betrachtet.
+
+\section{Kontinuierlicher Fall}
+
+\subsection{$n=1$}
+
+Für $(\lambda,x)\in\RR\times\RR$ und den \emph{Verzweigungsparameter} $\lambda$ betrachte man
+\[
+\dot x = v(\lambda,x).
+\]
+
+Bei der \emph{stationären Verzweigungstheorie} studiert man die Struktur der Gleichgewichtspunkte im Phasenraum ($x$-Raum) in Abhängigkeit vom Parameter $\lambda\in\RR$.
+
+O.B.d.A.\ sei $x=0$ für alle Werte von $\lambda$ ein trivialer Gleichgewichtspunkt. Die Menge dieser trivialen Gleichgewichtspunkte bildet den \emph{Grundlösungszweig}. Falls der Grundlösungszweig die Form $x=x_G(\lambda)$ mit $\lambda\in\RR$ hat, setze
+\[
+x=x_G(\lambda)+\xi\Rightarrow\dot x = \dot\xi = v(\lambda,x_G(\lambda)+\xi) = \tilde v(\lambda,\xi).
+\]
+Da $v(\lambda, x_G(\lambda)) = 0$, ist $\xi = 0$ Gleichgewichtspunkt für alle $\lambda$
+
+\begin{definition}
+Ein Punkt $(\lambda_C,0)$ auf dem Grundlösungszweig heißt \emph{stationärer Verzweigungspunkt} des Problems $\dot x = v(\lambda, x)$, falls er in $\RR\times\RR$ Häufungspunkt nicht-trivialer Gleichgewichtslösungen $(\lambda,x_G)$ mit ${x_G\neq 0}$ ist.
+\end{definition}
+
+\begin{lemma}
+Notwendige Bedingung für einen solchen Verzweigungspunkt (VP):
+\[
+v_x(\lambda_C,0) = 0\text{, falls }v\text{ } C^1\text{-glatt in beiden Variablen}
+\]
+\end{lemma}
+
+\begin{beweis}
+Angenommen $v_x(\lambda_C,0)\neq 0$. Dann hat $v(\lambda,x) = 0$ nahe $(\lambda_C, 0)$ zu jedem $\lambda$ genau einen Gleichgewichtspunkt $x=x_G(\lambda)$. Daher lässt sich der Satz über implizite Funktionen für $v(\lambda_C,0)$, $v_x(\lambda_C,0)$ mit $x_G(\lambda)$ $C^1$-glatt, $x(\lambda_C)=0$ anwenden. Damit gilt notwendigerweise $x_G(\lambda)\equiv 0$, d.h.\ nahe $(\lambda_C,0)$ existiert keine nicht-trivialen Lösungspunkte.
+\end{beweis}
+
+\begin{satz}[Hinreichende Bedingung für einen VP]
+Sei $v$ $C^2$-Funktion ($k\geq 2$), $v(\lambda,0)=0$,
+\begin{enumerate}
+\item\label{enum:1}
+$v_x(\lambda_C,0) = 0$
+
+\item\label{enum:2}
+$v_{\lambda x}(\lambda_C,0)\neq 0$.
+\end{enumerate}
+Dann ist $(\lambda_C,0)$ ein VP. Genauer: es existiert in der Nähe von $(\lambda_C,0)$ ein nicht-trivialer Lösungszweig $\lambda = \lambda^*(x)$ mit $|x|$ hinreichend klein, welcher den Grundlösungszweig in $(\lambda_C,0)$ \emph{transversal} schneidet, d.h.\ $\lambda^*(0) = \lambda_C$, und nicht-tangential zur $\lambda$-Achse in $(\lambda_C,0)$.
+
+Gilt zudem
+\begin{enumerate}
+\setcounter{enumi}{2}
+\item\label{enum:3}
+$v_{xx}(\lambda_C,0)\neq 0$.
+\end{enumerate}
+Dann ist die Verzweigung bei $(\lambda_C,0)$ transkritisch, d.h.\ es gibt Werte $\lambda < \lambda_C$ als auch $\lambda > \lambda_C$, zu denen nicht-triviale Gleichgewichtspunkte existieren.
+
+Falls anstelle von \ref{enum:3}
+\begin{enumerate}
+\setcounter{enumi}{3}
+\item\label{enum:4}
+\[
+v_{xx}(\lambda_C,0) = 0\\
+v_{xxx}(\lambda_C,0)\neq 0
+\]
+\end{enumerate}
+mit $k\geq3$ gilt, dann ist die Verzweigung \emph{super- } bzw.\ \emph{subkritisch} je nach Vorzeichen von $v_{xxx}(\lambda_C,0)$ (\emph{Heugabelbedingung}).
+\end{satz}
+
+\begin{beweis}
+Man betrachte die \emph{Gleichgewichtsbedingung (stationär)}
+\[
+v(\lambda,x) = 0.
+\]
+Setze
+\[
+V(\lambda,x) =
+\begin{cases}
+\frac{v(\lambda,x)}{x} & x\neq 0\\
+v_x(\lambda,0) & x = 0
+\end{cases}
+\]
+mit $(\lambda,x)\in\RR\times\RR$ beliebig, woraus die $C^{k-1}$-Glattheit von $V$ folgt ($k-1\geq 1$).
+
+Aus \ref{enum:1} folgt $V(\lambda_C,0) = 0$. Ferner gilt $V_\lambda(\lambda_C,0)\neq 0$, weshalb sich $V(\lambda,x) = 0$ lokal eindeutig nach  $\lambda = \lambda^*(x)$ auflösen lässt (Satz über implizite Fuktionen) mit $\lambda^*(0) = \lambda_C$, $\lambda^*$ $C^{k-1}$-glatt.
+
+Insbesondere gilt: $v(\lambda^*(x),x) = 0$ für alle $x\neq 0$
+
+\underline{Taylorentwicklung} von $v(\lambda,x)$ um $(\lambda_C,0)$:
+\begin{align*}
+v(\lambda,x)&=\underbrace{a(\lambda)}_{v_x(\lambda,0)}x + \underbrace{b(\lambda)}_{\frac{1}{2}v_{xx}(\lambda,0)}x^2 + \underbrace{c(\lambda)}_{\frac{1}{6}v_{xxx}(\lambda,0)}x^3 + \dots\text{, falls } v \text{ entsprechend glatt}\\
+&= v_{\lambda x}(\lambda_C,0)(\lambda-\lambda_C)x + \frac{1}{2}v_{xx}(\lambda,0)x^2 + \frac{1}{6}v_{xxx}(\lambda,0)x^3 + \dots
+\end{align*}
+Daraus folgt:
+\[
+V(\lambda,x) =  v_{\lambda x}(\lambda_C,0)(\lambda - \lambda_C) + \frac{1}{2}v_{xx}(\lambda,0)x + \frac{1}{6}v_{xxx}(\lambda,0)x^2 + \dots
+\]
+Daher gilt:
+\begin{align*}
+V_\lambda(\lambda_C,0) &= v_{\lambda x}(\lambda_C,0)\neq 0\\
+V_x(\lambda_C,0) &= \frac{1}{2}v_{xx}(\lambda,0)\\
+V_{xx}(\lambda_C,0) &= \frac{1}{6}v_{xxx}(\lambda,0)
+\end{align*}
+
+\underline{Zusatzaussage:}
+
+Aus \ref{enum:3} folgt:
+\begin{align*}
+V(\lambda^*(x),x) &= 0\text{, für } |x| \text{ hinreichend klein}\\
+V_x(\lambda^*(x),x) + V_\lambda(\lambda^*(x),x)\cdot(\lambda^*)'(x) &= 0
+\end{align*}
+Speziell für $x=0$ ergibt sich:
+\[
+V_x(\lambda_C,0) + \underbrace{V_\lambda(\lambda_C,0)}_{\neq 0\text{ wegen \ref{enum:2}}}\cdot(\lambda^*)'(0) = 0
+\]
+Somit gilt:
+\[
+(\lambda^*)'(0) = -\frac{V_x(\lambda_C,0)}{V_\lambda(\lambda_C,0)} = -\frac{v_{xx}(\lambda_C,0)}{2v_{\lambda x}(\lambda_C,0)}\stackrel{\ref{enum:3}}{\neq}0
+\]
+und $(\lambda_C,0)$ ist daher transkritischer VP.
+
+Falls \ref{enum:4} gilt, ist $(\lambda^*)'(0) = 0$:
+\begin{align*}
+V_{x\lambda}(\lambda^*(x),x)\cdot(\lambda^*)'(x) + V_{xx}(\lambda^*(x),x) + V_{\lambda\lambda}(\lambda^*(x),x)\cdot(\lambda^*)'(x)^2\\
+ + V_{\lambda x}(\lambda^*(x),x)\cdot(\lambda^*)'(x) + V_\lambda(\lambda^*(x),x)(\lambda^*)''(x) = 0
+\end{align*}
+Speziell für $x =0$ ergibt sich:
+\[
+V_{x\lambda}(\lambda_C,0)\cdot\underbrace{(\lambda^*)'(0)}_{= 0} + V_{xx}(\lambda_C,0) + V_{\lambda x}(\lambda_C,0)\cdot\underbrace{(\lambda^*)'(0)}_{= 0} + V_\lambda(\lambda_C,0)\cdot(\lambda^*)''(0)=0
+\]
+Letztendlich folgt daraus:
+\[
+(\lambda^*)''(0) = -\frac{V_{xx}(\lambda_C,0)}{V_\lambda(\lambda_C,0)} = -\frac{v_{xxx}(\lambda_C,0)}{6v_{\lambda x}(\lambda_C,0)}\neq 0
+\]
+\end{beweis}
+
+\begin{bemerkung}
+Diskreter Fall ($n = 1$):
+
+Sei $\psi:\RR\times\RR\rightarrow\RR$ mit $\psi(\lambda,\cdot):\RR\rightarrow\RR$ Homöomorphismus ($C^k$-Diffeomorphismus)
+
+$\psi(\lambda,0) = 0$ für alle $\lambda\in\RR$, d.h. $x = 0$ ist für alle $\lambda\in\RR$ ein trivialer Fixpunkt.
+
+Nicht-triviale Gleichgewichtspunkte: $\psi(\lambda,x)=x\Leftrightarrow\underbrace{\psi(\lambda,x)-x}_{= v(\lambda,x)} = 0$
+Das zugehörige stationäre Problem ist formal identisch mit jenem des kontinuierlichen Falls weshalb der Satz entsprechend anwendbar ist.
+\end{bemerkung}
+
+\begin{beispiel}
+$\dot x = \lambda x - x^2$, $v(\lambda,0) = 0$ für alle $\lambda$, $\underbrace{v_x(\lambda,0)}_{= (\left.\lambda - 2x)\right|_{x = 0}}\stackrel{!}{=}0$.
+
+Wegen \ref{enum:1} ist $\lambda = \lambda_C = 0$ kritischer Punkt (sonst nirgends VP).
+\begin{align*}
+v_{x\lambda}(\lambda_C,0) &= 1\neq 0\text{, daher ist } (\lambda_C,0)\text{ VP,}\\
+v_{xx}(\lambda,0) &= -2,\,v_{xx}(0,0) = -2\neq 0\text{, daher ist }(\lambda_C,0) = (0,0)\text{ transkritischer VP.}
+\end{align*}
+\end{beispiel}
 \end{document}
