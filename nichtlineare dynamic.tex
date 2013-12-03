@@ -1012,11 +1012,8 @@ Da $v(\lambda, x_G(\lambda)) = 0$, ist $\xi = 0$ Gleichgewichtspunkt f"ur alle $
 \begin{definition}
 Ein Punkt $(\lambda_C,0) \in G$ auf dem Grundl"osungszweig hei"st \emph{station"arer Verzweigungspunkt (Bifurkationspunkt)} des Problems $\dot x = v(\lambda, x)$, falls er in $\RR\times\RR$ H"aufungspunkt nicht-trivialer Gleichgewichtsl"osungen $(\lambda,x_G)$ mit ${x_G\neq 0}$ ist.
 \end{definition}
-
 Im Folgenden bezeichnet $v_x$ die partielle Ableitung von $v$ nach $x$
 $$ v_x = \partial_x v = \frac{\partial}{\partial x} v$$
-Entsprechend steht $v_{xy}$ als partielle Ableitung von $v$ nach $x$ und $y$.
-
 \begin{lemma}
 Sei $U\subseteq \RR^2$ offen, sowie $v \in C^1(U, \RR)$. Eine notwendige Bedingung f"ur einen  Verzweigungspunkt $(\lambda_C, 0)\in G$ ist
 \[
@@ -1031,16 +1028,27 @@ Angenommen $v_x(\lambda_C,0)\neq 0$. Dann folgt nach dem Satz "uber implizite Fu
 \end{beweis}
 
 \begin{definition}
-Ein Verzweigungspunkt $(\lambda_C, x)$ hei"st \emph{transkritisch}, falls Parameter $\lambda_- < \lambda_C < \lambda_+$ und Anfangswerte $x_+, x_- \in \RR\setminus\{x\}$ existieren, sodass
+Ein Verzweigungspunkt $(\lambda_C, x_C)$ hei"st \emph{transkritisch}, falls in jeder hinreichend kleinen Umgebung $U$ von $(\lambda_C, x_C)$ Parameter $\lambda_- \leq \lambda_C \leq \lambda_+$ und Anfangswerte $x_+, x_- \in \RR$ existieren, sodass $(x_- - x)(x_+ - x) < 0$ und 
 $$ v(\lambda_-, x_-) = v(\lambda_C, x) = v(\lambda_+, x_+) = 0$$
-Das hei"st $(\lambda_-, x_-), (\lambda_+, x_+)$ sind Gleichgewichtspunkte
 \end{definition}
+\begin{figure}[htpb]
+		\centering
+		\includegraphics[width=0.4\textwidth]{img/bifurkation/transkritischer_vp.pdf}
+		\includegraphics[width=0.4\textwidth]{img/bifurkation/nicht_transkritischer_vp.pdf}
+		\caption{Transkritischer Verzweigungspunkt (links); Kein transkritischer Punkt (rechts)}
+\end{figure}
 
-TODO: "Uberpr"ufen, ob subkritisch, superkritisch richtig definiert ist (Ungleichung der $\lambda$)
 \begin{definition}
-Ein Verzweigunspunkt $(\lambda_C, x)$ hei"st \emph{subkritisch} bzw. \emph{superkritisch}, falls eine Umgebung $U$ von $(\lambda_C, x)$ existiert, sodass f"ur alle nicht-trivialen Gleichgewichtspunkte ($\lambda, x) \in U$ gilt
+Ein Verzweigunspunkt $(\lambda_C, x_C)$ hei"st \emph{subkritisch} bzw. \emph{superkritisch}, falls eine Umgebung $U$ von $(\lambda_C, x_C)$ existiert, sodass f"ur alle nicht-trivialen Gleichgewichtspunkte ($\lambda, x) \in U$ gilt
 $$ \lambda < \lambda_C \mbox{ bzw. } \lambda > \lambda_C$$
 \end{definition}
+
+\begin{figure}[htpb]
+		\centering
+		\includegraphics[width=0.4\textwidth]{img/bifurkation/subkritischer_vp.pdf}
+		\includegraphics[width=0.4\textwidth]{img/bifurkation/superkritischer_vp.pdf}
+		\caption{Subkritischer Verzweigungspunkt (links); Superkritischer Verzweigungspunkt (rechts)}
+\end{figure}
 
 \begin{satz}[Hinreichende Bedingung f"ur einen VP]
 Sei $U\subseteq \RR^2$ offen, $v \in C^k(U, \RR)$ f"ur ein $k\geq 2$ und $v(\lambda_C,0)=0$. Es gelten weiter 
@@ -1051,7 +1059,8 @@ $v_x(\lambda_C,0) = 0$
 \item\label{enum:2}
 $v_{\lambda x}(\lambda_C,0)\neq 0$.
 \end{enumerate}
-Dann ist $(\lambda_C,0)$ ein Verzweigungspunkt. Weiterhin existiert in einer Umgebung von $(\lambda_C,0)$ ein eindeutiger nicht-trivialer L"osungszweig $\lambda = \lambda^*(x) \in C^{k-1}(\RR)$, welcher den Grundl"osungszweig in $(\lambda_C,0)$ \emph{transversal} schneidet und nicht-tangential zur $\lambda$-Achse ist in $(\lambda_C,0)$, d.h.\ $\lambda^*(0) = \lambda_C$ und $|{\lambda^*}'(0)| < \infty$. F"ur den L"osungszweig gilt $v(\lambda(x), x) = 0$.
+Dann ist $(\lambda_C,0)$ ein Verzweigungspunkt. Weiterhin existiert in einer Umgebung von $(\lambda_C,0)$ ein eindeutiger nicht-trivialer L"osungszweig $\lambda = \lambda^*(x) \in C^{k-1}(\RR)$, welcher den Grundl"osungszweig in $(\lambda_C,0)$ \emph{transversal} schneidet in $(\lambda_C,0)$, d.h.\ $\lambda^*(0) = \lambda_C$ und 
+$$-\frac{v_{xx}(\lambda_C,0)}{2v_{\lambda x}(\lambda_C,0)} = {\lambda^*}'(0)  \in \RR$$
 
 Gilt zudem
 \begin{enumerate}
@@ -1070,7 +1079,7 @@ v_{xx}(\lambda_C,0) = 0\\
 v_{xxx}(\lambda_C,0)\neq 0
 \)
 \end{enumerate}
-mit $k\geq3$ gilt, dann ist die Verzweigung \emph{super- } bzw.\ \emph{subkritisch} je nach Vorzeichen von $v_{xxx}(\lambda_C,0)$ (\emph{Heugabelverzweigung}). TODO: genauer hier, subkritisch f"ur positives oder neg. VZ?
+mit $k\geq3$ gilt, dann ist die Verzweigung \emph{super- } bzw.\ \emph{subkritisch} falls $$-\frac{v_{xxx}(\lambda_C, 0)}{3v_{\lambda x}(\lambda_C, 0)} = {\lambda^*}''(0)$$ positives bzw. negatives Vorzeichen hat.
 \end{satz}
 
 \begin{beweis}
@@ -1078,7 +1087,7 @@ Man betrachte die \emph{Gleichgewichtsbedingung (station"ar)}
 \[
 v(\lambda,x) = 0.
 \]
-Setze
+und setze 
 \[
 V(\lambda,x) =
 \begin{cases}
@@ -1086,12 +1095,12 @@ V(\lambda,x) =
 v_x(\lambda,0) & x = 0
 \end{cases}
 \]
-mit $(\lambda,x)\in\RR\times\RR$ beliebig, woraus die $C^{k-1}$-Glattheit von $V$ folgt ($k-1\geq 1$).
-
+mit $(\lambda,x)\in\RR\times\RR$ beliebig, woraus die $C^{k-1}$-Glattheit von $V$ folgt.
+\\
 Aus \ref{enum:1} folgt $V(\lambda_C,0) = 0$. Ferner gilt $V_\lambda(\lambda_C,0)\neq 0$, weshalb sich $V(\lambda,x) = 0$ lokal eindeutig nach  $\lambda = \lambda^*(x)$ aufl"osen l"asst (Satz "uber implizite Fuktionen) mit $\lambda^*(0) = \lambda_C$, $\lambda^*$ $C^{k-1}$-glatt.
-
+\\
 Insbesondere gilt: $v(\lambda^*(x),x) = 0$ f"ur alle $x\neq 0$
-
+\\
 \underline{Taylorentwicklung} von $v(\lambda,x)$ um $(\lambda_C,0)$:
 \begin{align*}
 v(\lambda,x)=&\underbrace{a(\lambda)}_{v_x(\lambda,0)}x + \underbrace{b(\lambda)}_{\frac{1}{2}v_{xx}(\lambda,0)}x^2 + \underbrace{c(\lambda)}_{\frac{1}{6}v_{xxx}(\lambda,0)}x^3 + \dots\text{, falls } v \text{ entsprechend glatt}\\
@@ -1109,39 +1118,38 @@ Daher gilt:
 \begin{align*}
 V_\lambda(\lambda_C,0) &= v_{\lambda x}(\lambda_C,0)\neq 0\\
 V_x(\lambda_C,0) &= \frac{1}{2}v_{xx}(\lambda,0)\\
-V_{xx}(\lambda_C,0) &= \frac{1}{6}v_{xxx}(\lambda,0)
+V_{xx}(\lambda_C,0) &= \frac{1}{3}v_{xxx}(\lambda,0)
 \end{align*}
-
-\underline{Zusatzaussage:}
-
-Aus \ref{enum:3} folgt:
-\begin{align*}
-V(\lambda^*(x),x) &= 0\text{, f"ur } |x| \text{ hinreichend klein}\\
-V_x(\lambda^*(x),x) + V_\lambda(\lambda^*(x),x)\cdot(\lambda^*)'(x) &= 0
-\end{align*}
-Speziell f"ur $x=0$ ergibt sich:
+\\\underline{Zusatzaussage:}
+\\Aus \ref{enum:3} folgt f"ur hinreichend kleine $|x|$
+$$ V(\lambda^*(x),x) = 0 $$
+Differenzieren der impliziten Darstellung ergibt 
+$$V_x(\lambda^*(x),x) + V_\lambda(\lambda^*(x),x)\cdot(\lambda^*)'(x) = 0$$
+Speziell f"ur $x=0$ folgt, dass
 \[
 V_x(\lambda_C,0) + \underbrace{V_\lambda(\lambda_C,0)}_{\neq 0\text{ wegen \ref{enum:2}}}\cdot(\lambda^*)'(0) = 0
 \]
-Somit gilt:
+und somit
 \[
 (\lambda^*)'(0) = -\frac{V_x(\lambda_C,0)}{V_\lambda(\lambda_C,0)} = -\frac{v_{xx}(\lambda_C,0)}{2v_{\lambda x}(\lambda_C,0)}\stackrel{\ref{enum:3}}{\neq}0
 \]
-und $(\lambda_C,0)$ ist daher transkritischer VP.
-
-Falls \ref{enum:4} gilt, ist $(\lambda^*)'(0) = 0$:
+Daher ist $(\lambda_C,0)$ ein transkritischer Verzweigungspunkt.
+\\
+Falls \ref{enum:4} gilt, so kann ein weiteres mal differenziert werden und es gilt
 \begin{align*}
 V_{x\lambda}(\lambda^*(x),x)\cdot(\lambda^*)'(x) + V_{xx}(\lambda^*(x),x) + V_{\lambda\lambda}(\lambda^*(x),x)\cdot(\lambda^*)'(x)^2\\
  + V_{\lambda x}(\lambda^*(x),x)\cdot(\lambda^*)'(x) + V_\lambda(\lambda^*(x),x)(\lambda^*)''(x) = 0
 \end{align*}
-Speziell f"ur $x =0$ ergibt sich:
-\[
-V_{x\lambda}(\lambda_C,0)\cdot\underbrace{(\lambda^*)'(0)}_{= 0} + V_{xx}(\lambda_C,0) + V_{\lambda x}(\lambda_C,0)\cdot\underbrace{(\lambda^*)'(0)}_{= 0} + V_\lambda(\lambda_C,0)\cdot(\lambda^*)''(0)=0
-\]
-Letztendlich folgt daraus:
-\[
-(\lambda^*)''(0) = -\frac{V_{xx}(\lambda_C,0)}{V_\lambda(\lambda_C,0)} = -\frac{v_{xxx}(\lambda_C,0)}{6v_{\lambda x}(\lambda_C,0)}\neq 0
-\]\qed
+Speziell f"ur $x = 0$ gilt $\lambda^*(x) = \lambda_C$, sowie $(\lambda^*)'(x) = 0$ und es fallen alle Terme mit $(\lambda^*)'(x)$ weg. Daher ergibt sich
+\begin{align*}
+V_{xx}(\lambda_C,0) + V_\lambda(\lambda_C,0)\cdot(\lambda^*)''(0)=0
+\end{align*}
+Letztendlich folgt daraus, dass
+\begin{align*}
+(\lambda^*)''(0) = -\frac{V_{xx}(\lambda_C,0)}{V_\lambda(\lambda_C,0)} = -\frac{v_{xxx}(\lambda_C,0)}{3v_{\lambda x}(\lambda_C,0)}\neq 0
+\end{align*}
+Ist nun $(\lambda^*)''(0) > 0$, so handelt es sich um ein superkritischen Verzweigungspunkt, f"ur $(\lambda^*)''(0) < 0$ liegt ein subkritischer Verzweigungspunkt vor.
+\qed
 \end{beweis}
 
 \begin{beispiel}
