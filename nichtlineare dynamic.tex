@@ -1068,7 +1068,7 @@ Gilt zudem
 \item\label{enum:3}
 $v_{xx}(\lambda_C,0)\neq 0$.
 \end{enumerate}
-Dann ist die Verzweigung bei $(\lambda_C,0)$ transkritisch
+Dann ist die Verzweigung bei $(\lambda_C,0)$ transkritisch.
 
 Falls anstelle von \ref{enum:3}
 \begin{enumerate}
@@ -1175,5 +1175,127 @@ Nicht-triviale Gleichgewichtspunkte:
 \end{align*}
 Das zugeh"orige station"are Problem ist formal identisch mit jenem des kontinuierlichen Falls weshalb der Satz entsprechend anwendbar ist.
 
+\section{Stabilitätsanalyse}
+
+Sei $\mu(\lambda):=v_x(\lambda,0)$ Jakobi-Matrix bzw.\ EW dieser entlang des Grundlösungszweiges. Weiterhin sei angenommen, dass $v_{\lambda x}(\lambda_C,0)>0$. Für $|\lambda-\lambda_C|$ und $|x|$ beide hinreichen klein definiere man $\gamma(x):=v_x(\lambda^*(x),x)$.
+
+Für die Vorzeichenbestimmung von $\gamma(x)$ werden nun die Jakobi-Matrix bzw.\ die EWe dieser entlang des nicht-trivialen Lösungszweiges untersucht.
+
+Wegen $v(\lambda^*(x),x)=0$ liefert Differentiation nach $x$ für hinreichend kleine $|x|$:
+\begin{align*}
+v_\lambda(\lambda^*(x),x)\cdot(\lambda^*)'(x) + \underbrace{v_x(\lambda^*(x),x)}_{=\gamma(x)} = 0\\
+\Rightarrow\gamma(x) = -v_\lambda(\lambda^*(x),x)\cdot(\lambda^*)'(x)
+\end{align*}
+Taylorentwicklung um $x=0$ liefert nun für $|x|\to 0$:
+\begin{align*}
+v_\lambda(\lambda^*(x),x) &= \underbrace{v_\lambda(\lambda_C,0)}_{= 0} + (\underbrace{v_{\lambda\lambda}(\overbrace{\lambda^*(0)}^{= \lambda_C},0)}_{= 0}\cdot(\lambda^*)'(0) + v_{x\lambda}(\overbrace{\lambda^*(0)}^{= \lambda_C},0))\cdot x + o(x)\\
+\Rightarrow\gamma(x) &= -\underbrace{v_{x\lambda}(\lambda_C,0)}_{= \mu'(\lambda_C)}\cdot x(\lambda^*)'(x) + \underbrace{o(x)(\lambda^*)'(x)}_{= \mu'(\lambda_C)x(\lambda^*)'(x)o(1)}\\
+&= \underbrace{(-1+o(1))}_{<0}\underbrace{\mu'(\lambda_C)}_{>0}x(\lambda^*)'(x)
+\end{align*}
+Daraus ergibt sich nun:
+\begin{itemize}
+\item
+für $x<0$ haben $\gamma(x)$ und $(\lambda^*)'(x)$ das gleiche Vorzeichen,
+
+\item
+für $x>0$ haben $\gamma(x)$ und $(\lambda^*)'(x)$ entgegengesetztes Vorzeichen, wobei $(\lambda^*)'(x)\neq 0$, d.h.\ $(\lambda^*(x),x)$ ist kein Umkehrpunkt entlang des nicht-trivialen Lösungszweiges.
+\end{itemize}
+Die Gleichgewichtspunkte entlang des nicht-trivialen Lösungszweiges sind somit asymptotisch stabil, wo sich jener für $x>0$ nach rechts wendet ($(\lambda^*)'>0$) und instabil, wo sich jener für $x<0$ nach links wendet ($(\lambda^*)'(x)<0$). Man nennt diesen Sachverhalt auch das \emph{Prinzip des Stabilitätsaustausches} in einem solchen VP.
+
+\begin{beispiel}
+
+\begin{itemize}
+\item
+\begin{align*}
+v(\lambda,x) &= \lambda x-x^2\quad(\lambda\in\RR,x\in\RR)\\
+v(\lambda,0) &= 0\text{ für alle }\lambda\\
+\mu(\lambda) = v_x(\lambda,0) &= \lambda \stackrel{\lambda_C = 0}{\Rightarrow}\mu(0) = v_{xx}(0,0) = 0\\
+\mu'(\lambda_C) = v_{x\lambda}(\lambda_C,0) &=1 > 0
+\end{align*}
+Daher ist $(0,0)$ ein stationärer VP.
+\begin{align*}
+v_{xx}(\lambda_C,0) &= -2 < 0\\
+v_x(\lambda,x) &= \lambda-2x\\
+v_{xx}(\lambda,x) &= -2
+\end{align*}
+Somit handelt es sich um eine \emph{transkritische Verzweigung}.
+
+\item
+\begin{align*}
+v(\lambda,x) &= \lambda x-x^3\quad(\lambda\in\RR,x\in\RR)\\
+v(\lambda,0) &= 0\text{ für alle }\lambda\\
+\mu(\lambda) = v_x(\lambda,0) &= \lambda \stackrel{\lambda_C = 0}{\Rightarrow}\mu(0) = v_{xx}(0,0) = 0\\
+\mu'(\lambda_C) = v_{x\lambda}(\lambda_C,0) &=1 > 0
+\end{align*}
+Daher ist $(0,0)$ ein stationärer VP mit kritischem Parameterwert $\lambda_C = 0$.
+\begin{align*}
+v_x(\lambda,x) &= \lambda - 3x^2\\
+v_{xx}(\lambda,x) &= -6x\Rightarrow v_{xx}(\lambda_C,0) = 0\\
+v_{xxx}(\lambda,x) &= -6 < 0
+\end{align*}
+Somit handelt es sich um eine \emph{superkritische Heugabelverzweigung} bei $(0,0)$.
+\end{itemize}
+\end{beispiel}
+
+\begin{satz}[Stationäre \emph{Verzweigung in einem einfachen Eigenwert 0} bzw.\ \emph{stationäre \glqq Kodimension 1\grqq-Verzweigung}]
+Man betrachte das Problem $\dot x = v(\lambda,x)$ für $\lambda\in\RR$, $x\in\RR^n$, $n\in\mathbb{N}$ mit $v$ $C^k$-glatt, $k\geq 2$. Sei o.B.d.A.\ $v(\lambda,0) = 0$ für alle $\lambda\in\RR$, d.h.\ $(\lambda,0)$ ist ein Grundlösungszweig von Gleichgewichtspunkten. $J_xv(\lambda,0)$ habe einen algebraisch und geometrisch einfachen EW $\mu(\lambda)$ mit $\mu(\lambda_C) = 0$, $\mu'(\lambda_C) > 0$. Die übrigen EWe von $J_xv(\lambda,0)$ seien für alle $\lambda\in\RR$ strikt wegbeschränkt von der imaginären Achse in $\mathbb{C}$. Dann ist $(\lambda_C, x) = (0,0)$ ein stationärer Verzweigungspunkt.
+
+Falls die übrigen EWw von $J_xv(\lambda,0)$ für alle $\lambda\in\RR$ strikt in der linken komplexen Halbebene liegen, gilt das \emph{Prinzip des Stabilitätsaustausches} wie im Falle $n = 1$.
+
+Sei ferner $\varphi(\lambda)$ ein EV zum EW $\mu(\lambda)$ von $J_xv(\lambda,0)$ und $\tilde{\varphi} = \tilde{\varphi}(\lambda_C)$ ein EW von $\left[J_xv(\lambda_C,0)\right]^T$ zum EW $\mu(\lambda_C) = 0$, $\left[J_xv(\lambda_C,0)\right]^T\tilde{\varphi} = 0$ mit $\langle\tilde{\varphi},\varphi(\lambda_C)\rangle > 0$. Dann gilt für $k\geq 2$:
+\begin{enumerate}
+\item
+$\langle\tilde{\varphi},D_{xx}^2(\lambda_C,0)(\varphi(\lambda_C),\varphi(\lambda_C))\rangle\neq 0\Rightarrow(\lambda_C,0)$ ist ein transkritischer VP,
+
+\item
+für $k\geq 3$: $\langle\tilde{\varphi},D_{xx}^2(\lambda_C,0)(\varphi(\lambda_C),\varphi(\lambda_C))\rangle = 0$ und\\ $\langle\tilde{\varphi},D_{xxx}^3(\lambda_C,0)(\varphi(\lambda_C),\varphi(\lambda_C),(\varphi(\lambda_C))\rangle\stackrel{(<)}{>}0$\\
+$\Rightarrow(\lambda_C,0)$ ist eine subkritische (im Falle von \glqq$>$\grqq) bzw.\ eine superkitische (im Falle von \glqq$<$\grqq) Heugabelverzweigung.
+
+\end{enumerate}
+\end{satz}
+
+\begin{bemerkung}
+Falls $\mu(x)$ im vorigen Satz nicht einfacher EW von $J_xv(\lambda,0)$ ist, gilt der Satz im allgemeinen \emph{nicht}.
+\end{bemerkung}
+
+\begin{beispiel}
+Für $\lambda,x,y\in\RR$ sei:
+\[
+v(\lambda,x,y):=\begin{pmatrix}
+\lambda x + y(x^2+y^2)\\
+\lambda y - x(x^2+y^2)
+\end{pmatrix}.
+\]
+Dann gilt:
+\begin{align*}
+v(\lambda,0,0) &= \begin{pmatrix}
+0\\
+0
+\end{pmatrix}\\
+J_xv(\lambda,0,0) &= \left(\begin{array}{cc}
+\lambda & 0\\
+0 & \lambda
+\end{array}\right)
+\end{align*}
+Daher $\mu(\lambda) = \lambda$ algebraischer und geometrischer EW. Weiter gilt:
+\begin{align*}
+\mu(0) &= 0\\
+\mu'(0) &= 1 > 0 (\lambda_C = 0)
+\end{align*}
+mit $\lambda_C = 0)$. Aber außer diesen trivialen Lösungen gibt es keine weiteren Gleichgewichtspunkte. Dazu setze man $v(\lambda,x,y) = 0$:
+\begin{itemize}
+\item
+für $\lambda = 0$ erhält man aus $x^2+y^2 = 0$, dass $x = y = 0$ und die Lösung somit ein Spezialfall der oben betrachteten Gleichgewichtspunkte ist,
+
+\item
+für $\lambda\neq 0$ folgt aus $x = 0$ oder $y = 0$, dass wegen $x^2+y^2 = 0$ auch $x = y = 0$ gilt. Seien deshalb nun $x\neq 0$ und $y\neq 0$. Löst man nun $v_2(\lambda,x,y)=0$ nach $\lambda$ auf erhält man:
+\[\lambda = \frac{x}{y}(x^2+y^2)\]
+Setzt man diese $\lambda$ nun in $v_1(\lambda,x,y)=0$ ein ergibt sich:
+\[
+\frac{x^2}{y} = -y \Leftrightarrow x^2 = -y^2 \Leftrightarrow x = y = 0
+\]
+Das steht jedoch im Widerspruch zur Annahme.
+\end{itemize}
+\end{beispiel}
 
 \end{document}
