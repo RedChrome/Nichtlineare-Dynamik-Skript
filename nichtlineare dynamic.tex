@@ -1050,7 +1050,7 @@ $$ \lambda < \lambda_C \mbox{ bzw. } \lambda > \lambda_C$$
 		\caption{Subkritischer Verzweigungspunkt (links); Superkritischer Verzweigungspunkt (rechts)}
 \end{figure}
 
-\begin{satz}[Hinreichende Bedingung f"ur einen VP]
+\begin{satz}[Hinreichende Bedingung f"ur einen VP]\label{hinreichend_verzweigungspunkt}
 Sei $U\subseteq \RR^2$ offen, $v \in C^k(U, \RR)$ f"ur ein $k\geq 2$ und $v(\lambda_C,0)=0$. Es gelten weiter 
 \begin{enumerate}
 \item\label{enum:1}
@@ -1059,7 +1059,7 @@ $v_x(\lambda_C,0) = 0$
 \item\label{enum:2}
 $v_{\lambda x}(\lambda_C,0)\neq 0$.
 \end{enumerate}
-Dann ist $(\lambda_C,0)$ ein Verzweigungspunkt. Weiterhin existiert in einer Umgebung von $(\lambda_C,0)$ ein eindeutiger nicht-trivialer L"osungszweig $\lambda = \lambda^*(x) \in C^{k-1}(\RR)$, welcher den Grundl"osungszweig in $(\lambda_C,0)$ \emph{transversal} schneidet in $(\lambda_C,0)$, d.h.\ $\lambda^*(0) = \lambda_C$ und 
+Dann ist $(\lambda_C,0)$ ein Verzweigungspunkt. Weiterhin existiert in einer Umgebung von $0$ ein eindeutiger nicht-trivialer L"osungszweig $\lambda = \lambda^*(x) \in C^{k-1}(\RR)$, welcher den Grundl"osungszweig in $(\lambda_C,0)$ \emph{transversal} schneidet in $(\lambda_C,0)$, d.h.\ $\lambda^*(0) = \lambda_C$ und 
 $$-\frac{v_{xx}(\lambda_C,0)}{2v_{\lambda x}(\lambda_C,0)} = {\lambda^*}'(0)  \in \RR$$
 
 Gilt zudem
@@ -1175,44 +1175,74 @@ Nicht-triviale Gleichgewichtspunkte:
 \end{align*}
 Das zugeh"orige station"are Problem ist formal identisch mit jenem des kontinuierlichen Falls weshalb der Satz entsprechend anwendbar ist.
 
-\section{Stabilitätsanalyse}
 
-Sei $\mu(\lambda):=v_x(\lambda,0)$ Jakobi-Matrix bzw.\ EW dieser entlang des Grundlösungszweiges. Weiterhin sei angenommen, dass $v_{\lambda x}(\lambda_C,0)>0$. Für $|\lambda-\lambda_C|$ und $|x|$ beide hinreichen klein definiere man $\gamma(x):=v_x(\lambda^*(x),x)$.
+%% -- VL 09.12.13
 
-Für die Vorzeichenbestimmung von $\gamma(x)$ werden nun die Jakobi-Matrix bzw.\ die EWe dieser entlang des nicht-trivialen Lösungszweiges untersucht.
+\section{Stabilit"atsanalyse}
+Wir wollen nun die Stabilit"atseigenschaften der Gleichgewichtspunkte entlang von Verzweigungen analysieren. Die Theorie von Lyapunov "uber Gleichgewichtspunkte, insbesondere die direkte Methode von Lyapunov, wird dabei sehr hilfreich sein. Um diese Anwenden zu k"onnen, ben"otigen wir die Eigenwerte der Jacobi-Matrix von $v$ bei einem nicht-trivialen Gleichgewichtspunkt.
+\subsection{Stabilit"atsanalyse im eindimensionalem Fall}
+Um Sicherzustellen, dass tats"achlich nicht-triviale Gleichgewichtspunkte existieren, fordern wir die Voraussetzungen vom Satz "uber die hinreichenden Bedingungen f"ur einen Verzweigungspunkt \eqref{hinreichend_verzweigungspunkt}.
 
-Wegen $v(\lambda^*(x),x)=0$ liefert Differentiation nach $x$ für hinreichend kleine $|x|$:
+Die Analyse im eindimensionalem Fall ist sehr einfach, denn es werden nur Kenntnisse des einzigen Eigenwertes $v_x(\lambda^*(x), x)$ ben"otigt. 
+
+TODO: evtl. noch um zweite Ableitung von $\lambda$ erweitern?
+\begin{definition}
+Sei $(\lambda_C,0)$ ein Verzweigungspunkt, $\lambda^*$ der zugeh"orige nicht-triviale L"osungszweig. Ein Punkt $(\lambda^*(x), x)$ hei"st \emph{Umkehrpunkt}, falls ${\lambda^*}'(x) = 0$.
+\end{definition}
+
+\begin{satz}
+Sei $(\lambda_C, 0)$ ein Verzweigungspunkt sowie $v_{\lambda x}(\lambda_C, 0) > 0$. Sei $\lambda^*$ der zugeh"orige nicht-triviale L"osungszweig.
+Dann ist der Gleichgewichtspunkt $(\lambda^*(x), x)$ 
+\begin{itemize}
+\item asymptotisch stabil, falls $x{\lambda^*}'(x) > 0$
+\item instabil, falls $x{\lambda^*}'(x) < 0$
+\end{itemize}
+In einer hinreichend kleinen Umgebung von $(\lambda_C, 0)$, kann das Vorzeichen von ${\lambda^*}'(x)$ durch $v_{xx}(\lambda_C,0)$ ermittelt werden.
+\end{satz}
+
+\begin{beweis}
+
+Sei im folgendem $\mu(\lambda):=v_x(\lambda,0)$ die Jakobi-Matrix entlang des Grundl"osungszweiges. Es gilt $v_{\lambda x}(\lambda_C,0) = \mu'(\lambda_C) >0$. Sei $\lambda^*(x)$ der nicht-trivialer L"osungszweig, dieser existiert nach \eqref{hinreichend_verzweigungspunkt} in einer Umgebung $U$ von $0$. Setze nun $\gamma(x):=v_x(\lambda^*(x),x)$ f"ur $x \in U$.
+
+F"ur die Vorzeichenbestimmung von $\gamma(x)$ werden nun die Jakobi-Matrix bzw.\ die Eigenwerte dieser entlang des nicht-trivialen L"osungszweiges untersucht.
+
+Wegen $v(\lambda^*(x),x)=0$ liefert Differentiation nach $x$ f"ur $x\in U$:
 \begin{align*}
 v_\lambda(\lambda^*(x),x)\cdot(\lambda^*)'(x) + \underbrace{v_x(\lambda^*(x),x)}_{=\gamma(x)} = 0\\
 \Rightarrow\gamma(x) = -v_\lambda(\lambda^*(x),x)\cdot(\lambda^*)'(x)
 \end{align*}
-Taylorentwicklung um $x=0$ liefert nun für $|x|\to 0$:
+Taylorentwicklung um $x=0$ liefert nun f"ur $|x|\to 0$:
 \begin{align*}
 v_\lambda(\lambda^*(x),x) &= \underbrace{v_\lambda(\lambda_C,0)}_{= 0} + (\underbrace{v_{\lambda\lambda}(\overbrace{\lambda^*(0)}^{= \lambda_C},0)}_{= 0}\cdot(\lambda^*)'(0) + v_{x\lambda}(\overbrace{\lambda^*(0)}^{= \lambda_C},0))\cdot x + o(x)\\
 \Rightarrow\gamma(x) &= -\underbrace{v_{x\lambda}(\lambda_C,0)}_{= \mu'(\lambda_C)}\cdot x(\lambda^*)'(x) + \underbrace{o(x)(\lambda^*)'(x)}_{= \mu'(\lambda_C)x(\lambda^*)'(x)o(1)}\\
 &= \underbrace{(-1+o(1))}_{<0}\underbrace{\mu'(\lambda_C)}_{>0}x(\lambda^*)'(x)
 \end{align*}
-Daraus ergibt sich nun:
+Daraus ergibt sich nun, falls $(\lambda*(x), x)$ kein Umkehrpunkt ist, dass
 \begin{itemize}
 \item
-für $x<0$ haben $\gamma(x)$ und $(\lambda^*)'(x)$ das gleiche Vorzeichen,
+f"ur $x<0$ haben $\gamma(x)$ und $(\lambda^*)'(x)$ das gleiche Vorzeichen,
 
 \item
-für $x>0$ haben $\gamma(x)$ und $(\lambda^*)'(x)$ entgegengesetztes Vorzeichen, wobei $(\lambda^*)'(x)\neq 0$, d.h.\ $(\lambda^*(x),x)$ ist kein Umkehrpunkt entlang des nicht-trivialen Lösungszweiges.
+f"ur $x>0$ haben $\gamma(x)$ und $(\lambda^*)'(x)$ entgegengesetztes Vorzeichen
 \end{itemize}
-Die Gleichgewichtspunkte entlang des nicht-trivialen Lösungszweiges sind somit asymptotisch stabil, wo sich jener für $x>0$ nach rechts wendet ($(\lambda^*)'>0$) und instabil, wo sich jener für $x<0$ nach links wendet ($(\lambda^*)'(x)<0$). Man nennt diesen Sachverhalt auch das \emph{Prinzip des Stabilitätsaustausches} in einem solchen VP.
+Die Gleichgewichtspunkte entlang des nicht-trivialen L"osungszweiges sind somit asymptotisch stabil, wo sich jener f"ur $x>0$ nach rechts wendet ($(\lambda^*)'>0$) und instabil, wo sich jener f"ur $x<0$ nach links wendet ($(\lambda^*)'(x)<0$).
+\qed
+\end{beweis}
+\begin{bemerkung}
+F"ur einen transkritischen Verzweigungspunkt ergibt obiger Satz, dass der L"osungszweig sowohl stabile, als auch instabile Gleichgewichtspunkte enth"alt, welche durch den Punkt $(\lambda_C, 0)$ getrennt werden. Dies bezeichnet man auch als  \emph{Prinzip des Stabilit"atsaustausches}.
+\end{bemerkung}
+
 
 \begin{beispiel}
-
 \begin{itemize}
 \item
 \begin{align*}
 v(\lambda,x) &= \lambda x-x^2\quad(\lambda\in\RR,x\in\RR)\\
-v(\lambda,0) &= 0\text{ für alle }\lambda\\
+v(\lambda,0) &= 0\text{ f"ur alle }\lambda\\
 \mu(\lambda) = v_x(\lambda,0) &= \lambda \stackrel{\lambda_C = 0}{\Rightarrow}\mu(0) = v_{xx}(0,0) = 0\\
 \mu'(\lambda_C) = v_{x\lambda}(\lambda_C,0) &=1 > 0
 \end{align*}
-Daher ist $(0,0)$ ein stationärer VP.
+Daher ist $(0,0)$ ein station"arer VP.
 \begin{align*}
 v_{xx}(\lambda_C,0) &= -2 < 0\\
 v_x(\lambda,x) &= \lambda-2x\\
@@ -1223,11 +1253,11 @@ Somit handelt es sich um eine \emph{transkritische Verzweigung}.
 \item
 \begin{align*}
 v(\lambda,x) &= \lambda x-x^3\quad(\lambda\in\RR,x\in\RR)\\
-v(\lambda,0) &= 0\text{ für alle }\lambda\\
+v(\lambda,0) &= 0\text{ f"ur alle }\lambda\\
 \mu(\lambda) = v_x(\lambda,0) &= \lambda \stackrel{\lambda_C = 0}{\Rightarrow}\mu(0) = v_{xx}(0,0) = 0\\
 \mu'(\lambda_C) = v_{x\lambda}(\lambda_C,0) &=1 > 0
 \end{align*}
-Daher ist $(0,0)$ ein stationärer VP mit kritischem Parameterwert $\lambda_C = 0$.
+Daher ist $(0,0)$ ein station"arer VP mit kritischem Parameterwert $\lambda_C = 0$.
 \begin{align*}
 v_x(\lambda,x) &= \lambda - 3x^2\\
 v_{xx}(\lambda,x) &= -6x\Rightarrow v_{xx}(\lambda_C,0) = 0\\
@@ -1237,19 +1267,23 @@ Somit handelt es sich um eine \emph{superkritische Heugabelverzweigung} bei $(0,
 \end{itemize}
 \end{beispiel}
 
-\begin{satz}[Stationäre \emph{Verzweigung in einem einfachen Eigenwert 0} bzw.\ \emph{stationäre \glqq Kodimension 1\grqq-Verzweigung}]
-Man betrachte das Problem $\dot x = v(\lambda,x)$ für $\lambda\in\RR$, $x\in\RR^n$, $n\in\mathbb{N}$ mit $v$ $C^k$-glatt, $k\geq 2$. Sei o.B.d.A.\ $v(\lambda,0) = 0$ für alle $\lambda\in\RR$, d.h.\ $(\lambda,0)$ ist ein Grundlösungszweig von Gleichgewichtspunkten. $J_xv(\lambda,0)$ habe einen algebraisch und geometrisch einfachen EW $\mu(\lambda)$ mit $\mu(\lambda_C) = 0$, $\mu'(\lambda_C) > 0$. Die übrigen EWe von $J_xv(\lambda,0)$ seien für alle $\lambda\in\RR$ strikt wegbeschränkt von der imaginären Achse in $\mathbb{C}$. Dann ist $(\lambda_C, x) = (0,0)$ ein stationärer Verzweigungspunkt.
+\subsection{Stabilit"atsanalyse in beliebiger Dimension}
+Man betrachte nun die Differentialgleichung 
+$$\dot x = v(x)$$
+mit einem Vektorfeld $v\in C^k(\RR \times \RR^n, \RR)$, $k\geq 2$.
 
-Falls die übrigen EWw von $J_xv(\lambda,0)$ für alle $\lambda\in\RR$ strikt in der linken komplexen Halbebene liegen, gilt das \emph{Prinzip des Stabilitätsaustausches} wie im Falle $n = 1$.
+\begin{satz}[Station"are \emph{Verzweigung in einem einfachen Eigenwert 0} bzw.\ \emph{station"are \glqq Kodimension 1\grqq-Verzweigung}]
+Es habe $J_xv(\lambda,0)$ einen algebraisch und geometrisch einfachen Eigenwert $\mu(\lambda)$ mit $\mu(\lambda_C) = 0$, $\mu'(\lambda_C) > 0$ f"ur ein $\lambda_C \in \RR$. Die "ubrigen Eigenwerte von $J_xv(\lambda,0)$ haben einen Realteil ungleich 0. Dann ist $(\lambda_C, 0)$ ein station"arer Verzweigungspunkt.
 
-Sei ferner $\varphi(\lambda)$ ein EV zum EW $\mu(\lambda)$ von $J_xv(\lambda,0)$ und $\tilde{\varphi} = \tilde{\varphi}(\lambda_C)$ ein EW von $\left[J_xv(\lambda_C,0)\right]^T$ zum EW $\mu(\lambda_C) = 0$, $\left[J_xv(\lambda_C,0)\right]^T\tilde{\varphi} = 0$ mit $\langle\tilde{\varphi},\varphi(\lambda_C)\rangle > 0$. Dann gilt für $k\geq 2$:
+Falls die "ubrigen Eigenwerte von $J_xv(\lambda,0)$ f"ur alle $\lambda\in\RR$ einen Realteil strikt kleiner als $0$ besitzen, so gilt das \emph{Prinzip des Stabilit"atsaustausches} wie im Falle $n = 1$.
+
+Sei ferner $\varphi(\lambda)$ ein Eigenvektor zum Eigenwert $\mu(\lambda)$ von $J_xv(\lambda,0)$ und $\tilde{\varphi} = \tilde{\varphi}(\lambda_C)$ ein Eigenvektor von $\left[J_xv(\lambda_C,0)\right]^T$ zum Eigenwert $\mu(\lambda_C) = 0$, $\left[J_xv(\lambda_C,0)\right]^T\tilde{\varphi} = 0$ mit $\langle\tilde{\varphi},\varphi(\lambda_C)\rangle > 0$. Dann folgt
 \begin{enumerate}
-\item
-$\langle\tilde{\varphi},D_{xx}^2(\lambda_C,0)(\varphi(\lambda_C),\varphi(\lambda_C))\rangle\neq 0\Rightarrow(\lambda_C,0)$ ist ein transkritischer VP,
+\item falls
+$\langle\tilde{\varphi},D_{xx}^2v(\lambda_C,0)(\varphi(\lambda_C),\varphi(\lambda_C))\rangle\neq 0$, so ist $(\lambda_C,0)$ ein transkritischer Verzweigungspunkt
 
-\item
-für $k\geq 3$: $\langle\tilde{\varphi},D_{xx}^2(\lambda_C,0)(\varphi(\lambda_C),\varphi(\lambda_C))\rangle = 0$ und\\ $\langle\tilde{\varphi},D_{xxx}^3(\lambda_C,0)(\varphi(\lambda_C),\varphi(\lambda_C),(\varphi(\lambda_C))\rangle\stackrel{(<)}{>}0$\\
-$\Rightarrow(\lambda_C,0)$ ist eine subkritische (im Falle von \glqq$>$\grqq) bzw.\ eine superkitische (im Falle von \glqq$<$\grqq) Heugabelverzweigung.
+\item falls $k\geq 3$, 
+$\langle\tilde{\varphi},D_{xx}^2v(\lambda_C,0)(\varphi(\lambda_C),\varphi(\lambda_C))\rangle = 0$ und\\ $\langle\tilde{\varphi},D_{xxx}^3v(\lambda_C,0)(\varphi(\lambda_C),\varphi(\lambda_C),(\varphi(\lambda_C))\rangle\stackrel{(<)}{>}0$, so ist $(\lambda_C,0)$ eine subkritische (im Falle von \glqq$>$\grqq) bzw. ein superkitische (im Falle von \glqq$<$\grqq) Heugabelverzweigung.
 
 \end{enumerate}
 \end{satz}
@@ -1259,7 +1293,7 @@ Falls $\mu(x)$ im vorigen Satz nicht einfacher EW von $J_xv(\lambda,0)$ ist, gil
 \end{bemerkung}
 
 \begin{beispiel}
-Für $\lambda,x,y\in\RR$ sei:
+F"ur $\lambda,x,y\in\RR$ sei:
 \[
 v(\lambda,x,y):=\begin{pmatrix}
 \lambda x + y(x^2+y^2)\\
@@ -1282,13 +1316,13 @@ Daher $\mu(\lambda) = \lambda$ algebraischer und geometrischer EW. Weiter gilt:
 \mu(0) &= 0\\
 \mu'(0) &= 1 > 0 (\lambda_C = 0)
 \end{align*}
-mit $\lambda_C = 0)$. Aber außer diesen trivialen Lösungen gibt es keine weiteren Gleichgewichtspunkte. Dazu setze man $v(\lambda,x,y) = 0$:
+mit $\lambda_C = 0)$. Aber au"ser diesen trivialen L"osungen gibt es keine weiteren Gleichgewichtspunkte. Dazu setze man $v(\lambda,x,y) = 0$:
 \begin{itemize}
 \item
-für $\lambda = 0$ erhält man aus $x^2+y^2 = 0$, dass $x = y = 0$ und die Lösung somit ein Spezialfall der oben betrachteten Gleichgewichtspunkte ist,
+f"ur $\lambda = 0$ erh"alt man aus $x^2+y^2 = 0$, dass $x = y = 0$ und die L"osung somit ein Spezialfall der oben betrachteten Gleichgewichtspunkte ist,
 
 \item
-für $\lambda\neq 0$ folgt aus $x = 0$ oder $y = 0$, dass wegen $x^2+y^2 = 0$ auch $x = y = 0$ gilt. Seien deshalb nun $x\neq 0$ und $y\neq 0$. Löst man nun $v_2(\lambda,x,y)=0$ nach $\lambda$ auf erhält man:
+f"ur $\lambda\neq 0$ folgt aus $x = 0$ oder $y = 0$, dass wegen $x^2+y^2 = 0$ auch $x = y = 0$ gilt. Seien deshalb nun $x\neq 0$ und $y\neq 0$. L"ost man nun $v_2(\lambda,x,y)=0$ nach $\lambda$ auf erh"alt man:
 \[\lambda = \frac{x}{y}(x^2+y^2)\]
 Setzt man diese $\lambda$ nun in $v_1(\lambda,x,y)=0$ ein ergibt sich:
 \[
