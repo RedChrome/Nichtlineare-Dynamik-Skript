@@ -1225,7 +1225,7 @@ f"ur $x<0$ haben $\gamma(x)$ und $(\lambda^*)'(x)$ das gleiche Vorzeichen,
 \item
 f"ur $x>0$ haben $\gamma(x)$ und $(\lambda^*)'(x)$ entgegengesetztes Vorzeichen
 \end{itemize}
-Die Gleichgewichtspunkte entlang des nicht-trivialen L"osungszweiges sind somit asymptotisch stabil, wo sich jener f"ur $x>0$ nach rechts wendet ($(\lambda^*)'>0$) und instabil, wo sich jener f"ur $x<0$ nach links wendet ($(\lambda^*)'(x)<0$).
+Die Gleichgewichtspunkte entlang des nicht-trivialen L"osungszweiges sind somit asymptotisch stabil, wo sich jener f"ur $x>0$ nach rechts wendet ($(\lambda^*)'>0$) und instabil, wo sich jener nach links wendet ($(\lambda^*)'(x)<0$), umgekehrt für \(x<0\).
 \qed
 \end{beweis}
 \begin{figure}[htpb]
@@ -1244,7 +1244,7 @@ F"ur einen transkritischen Verzweigungspunkt ergibt obiger Satz, dass der L"osun
 \begin{align*}
 v(\lambda,x) &= \lambda x-x^2\quad(\lambda\in\RR,x\in\RR)\\
 v(\lambda,0) &= 0\text{ f"ur alle }\lambda\\
-\mu(\lambda) = v_x(\lambda,0) &= \lambda \stackrel{\lambda_C = 0}{\Rightarrow}\mu(0) = v_{xx}(0,0) = 0\\
+\mu(\lambda) = v_x(\lambda,0) &= \lambda \stackrel{\lambda_C = 0}{\Rightarrow}\mu(0) = v_{x}(0,0) = 0\\
 \mu'(\lambda_C) = v_{x\lambda}(\lambda_C,0) &=1 > 0
 \end{align*}
 Daher ist $(0,0)$ ein station"arer VP.
@@ -1319,9 +1319,9 @@ J_xv(\lambda,0,0) &= \left(\begin{array}{cc}
 Daher $\mu(\lambda) = \lambda$ algebraischer und geometrischer EW. Weiter gilt:
 \begin{align*}
 \mu(0) &= 0\\
-\mu'(0) &= 1 > 0 (\lambda_C = 0)
+\mu'(0) &= 1 > 0\qquad (\lambda_C = 0)
 \end{align*}
-mit $\lambda_C = 0)$. Aber au"ser diesen trivialen L"osungen gibt es keine weiteren Gleichgewichtspunkte. Dazu setze man $v(\lambda,x,y) = 0$:
+Aber au"ser diesen trivialen L"osungen gibt es keine weiteren Gleichgewichtspunkte. Dazu setze man $v(\lambda,x,y) = 0$:
 \begin{itemize}
 \item
 f"ur $\lambda = 0$ erh"alt man aus $x^2+y^2 = 0$, dass $x = y = 0$ und die L"osung somit ein Spezialfall der oben betrachteten Gleichgewichtspunkte ist,
