@@ -1337,4 +1337,58 @@ Das steht jedoch im Widerspruch zur Annahme.
 \end{itemize}
 \end{beispiel}
 
+% 16.12.
+
+$\operatorname{D}_x v(\lambda ,0)=\operatorname{J}_x v(\lambda ,0)$ habe einen algebraisch einfachen Eigenwert $\gamma (\lambda)$ mit $\gamma(\lambda_c)=0, \gamma '(\lambda_c)\neq 0 \Rightarrow (\lambda_c,0)$ ist ein stationärer Verzweigungspunkt, d.h. es existiert lokal nahe $\lambda=\lambda_c, x=0$ ein Zweig nicht-trivialer Gleichgewichtspunkte, welcher den Grundlösungszweig dort transversal schneidet.
+
+\\
+
+Ferner gilt das \emph{Prinzip des Stabilit"atsaustausches} nahe $\lambda = \lambda_c, x=0$, falls gilt $\gamma(\lambda_c)=0, \gamma'(\lambda_c)>0$ und alle "ubrigen Eigenwerte von $\operatorname{J}_x v(\lambda,0)$ für $\lambda$ nahe $\lambda_c$ strikt in der linken komplexen Halbebene liegen.
+
+Zeitdiskreter Fall:
+Sei $\Psi(\lambda,\cdot)$ eine Familie von $C^k$-Diffeomorphismen ($k\geq 2$) im $\mathbb{R}^n$ mit $\Psi(\lambda,0)=0$ ($\Rightarrow x=0$ ist ein Gleichgewichtspunkt f"ur alle $\lambda$-Werte, bilden Grundl"osungszweig)
+
+Gleichgewichtspunkte = Fixpunkte von $\Psi(\lambda,\cdot)$, d.h. L"osungen von 
+\[\Psi(\lambda,x)=x \ \Leftrightarrow \underbrace{\Psi(\lambda,x)-x}_{=:v(\lambda,x)}=0\]
+$\Rightarrow $ L"osung des station"aren Verzweigungsproblems im diskreten Fall durch Anwendung der Theorie f"ur den kontinuierlichen Fall auf 
+\[v(\lambda,x):=\Psi(\lambda,x)-x\]
+$\Rightarrow \operatorname{D}_x \Psi(\lambda,0)=\operatorname{J}_x \Psi(\lambda,0)$ habe einen algebraisch einfachen Eigenwert $\gamma(\lambda)$ f"ur $\lambda$ nahe $\lambda_c$ mit $\gamma(\lambda_c)=1, \gamma'(\lambda_c)\neq 0$\\
+$\Rightarrow (\lambda_c,0)$ ist ein station"arer Verzweigungspunkt entsprechend dem kontinuierlichen Fall.\\
+Auch hier gilt das \emph{Prinzip des Stabilit"atsaustausches} entsprechend dem kontinuierlichen Fall, falls gilt: $\gamma(\lambda_c)=1, \gamma'(\lambda_c)>0$. Alle "ubrigen Eigenwerte von $\operatorname{J}_x \Psi(\lambda,0)$ seien f"ur $\lambda$ nahe $\lambda_c$ strikt im Inneren des Einheitskreises der komplexen Ebene (um den Ursprung) enthalten.
+Ebenso gelten die Kriterien f"ur die Verzweigungsrichtung im Verzweigunspunkt $(\lambda_c,0)$ w"ortlich wie im kontinuierlichen Fall (der modifizierte Term $-x$ liefert keinen Beitrag zu den Ableitungen der Ordnung $\geq 2$).
+
+\begin{beispiel}
+\[\lambda\in\mathbb{R}, \Psi(\lambda,\cdot), \begin{cases}
+x_1\mapsto x_1+\lambda x_1+x_1^2+x_2^3\\
+x_2\mapsto \frac 1 2 x_2+x_1^2+x_2^2
+\end{cases}\]
+$C^{\infty}$-glatt\\
+$\Psi(\lambda,0)=0\ \forall\lambda\in\mathbb{R} \Rightarrow$ Grundl"osungszweig trivialer (Fix-) Gleichgewichtspunkte\\
+\[\operatorname{J}_x(\lambda,x)=\begin{pmatrix}
+1+\lambda+2x_1 & 3x_2^2\\
+2x_1 & \frac 1 2 +2x_2\\
+\end{pmatrix}\]
+\[\operatorname{J}_x\Psi(\lambda,0)=\begin{pmatrix}
+1+\lambda & 0\\
+0 & \frac 1 2\\
+\end{pmatrix}\]
+Eigenwerte $\gamma(\lambda)=1+\lambda$
+\[\Rightarrow \gamma(0)=1, \gamma'(\lambda)=1>0\ \forall \lambda\in\mathbb{R}\]
+\[\mu=\frac 1 2\ \forall \lambda\in\mathbb{R} \Rightarrow |\mu|<1\]
+$\Rightarrow (\lambda_c,0)$ ist ein station"arer Verzweigungspunkt $(\lambda_c =0, x=0)$ und es gilt das Prinzip des Stabilitätsaustausches\\
+Eigenvektor zu $\gamma(\lambda)=1+\lambda: \varphi(\lambda)=(1,0)\ \forall \lambda\in\mathbb{R}$\\
+insbesondere $\varphi =\varphi(\lambda_c)=\varphi(0)=(1,0)$\\
+Ferner gilt: $\operatorname{J}_x\Psi(\lambda,0)^T=\operatorname{J}_x\Psi(\lambda,0)$ symmetrische Matrix\\
+$\Rightarrow \tilde{\varphi}=\varphi$ ist Eigenvektor zum Eigenwert $1$ von $\operatorname{J}_x\Psi(\lambda,0)^T$\\
+$\Rightarrow \langle\tilde{\varphi},\varphi\rangle=\langle\varphi,\varphi\rangle =1>0$
+\[\operatorname{D}_{\varphi}\Psi(\lambda,x)=\operatorname{J}_x\Psi(\lambda,x)\varphi=\begin{pmatrix}1+\lambda+2x_1\\ 2x_1 \end{pmatrix}\]
+\[\operatorname{D}_{\varphi}(\operatorname{D}_{\varphi}\Psi(\lambda,x))=\begin{pmatrix}2 & 0\\ 2& 0\end{pmatrix}\varphi =\begin{pmatrix}2 \\ 2 \end{pmatrix} =\operatorname{D}^2\Psi(\lambda,x)(\varphi,\varphi)\]
+\[\Rightarrow \langle \operatorname{D}^2 \Psi(\lambda,x)(\varphi,\varphi),\tilde{\varphi}\rangle =\langle (2,2),(1,0)\rangle=2>0
+\]
+$\Rightarrow$ Die station"are Verzweigung bei $\lambda_c=0, x=0$ ist \emph{transkritisch}
+\end{beispiel}
+
+
+
+
 \end{document}
