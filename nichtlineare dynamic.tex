@@ -1185,7 +1185,6 @@ Um Sicherzustellen, dass tats"achlich nicht-triviale Gleichgewichtspunkte existi
 
 Die Analyse im eindimensionalem Fall ist sehr einfach, denn es werden nur Kenntnisse des einzigen Eigenwertes $v_x(\lambda^*(x), x)$ ben"otigt. 
 
-TODO: evtl. noch um zweite Ableitung von $\lambda$ erweitern?
 \begin{definition}
 Sei $(\lambda_C,0)$ ein Verzweigungspunkt, $\lambda^*$ der zugeh"orige nicht-triviale L"osungszweig. Ein Punkt $(\lambda^*(x), x)$ hei"st \emph{Umkehrpunkt}, falls ${\lambda^*}'(x) = 0$.
 \end{definition}
@@ -1339,26 +1338,29 @@ Das steht jedoch im Widerspruch zur Annahme.
 
 % 16.12.
 
-$\operatorname{D}_x v(\lambda ,0)=\operatorname{J}_x v(\lambda ,0)$ habe einen algebraisch einfachen Eigenwert $\gamma (\lambda)$ mit $\gamma(\lambda_c)=0, \gamma '(\lambda_c)\neq 0 \Rightarrow (\lambda_c,0)$ ist ein stationärer Verzweigungspunkt, d.h. es existiert lokal nahe $\lambda=\lambda_c, x=0$ ein Zweig nicht-trivialer Gleichgewichtspunkte, welcher den Grundlösungszweig dort transversal schneidet.
+\section{Stabilit"atsanalyse f"ur Hom-Systeme}
 
-\\
+Sei $\Psi(\lambda,\cdot)\colon\mathbb{R}^n\to\mathbb{R}$ ein $C^2$-Diffeomorphismus f"ur jedes $\lambda\in\mathbb{R}$. 
+Sei o.B.d.A $\Psi(\lambda,0)=0$ f"ur alle $\lambda$ in einer Umgebung $U$ von $\lambda_C\in\RR$, d.h. $0$ ist ein Fixpunkt von $\Psi$ und somit ein Gleichgewichtspunkt des von $\Psi$ erzeugten dynamischen Systems. Dies bildet uns wieder einen Grundl"osungszweig.
 
-Ferner gilt das \emph{Prinzip des Stabilit"atsaustausches} nahe $\lambda = \lambda_c, x=0$, falls gilt $\gamma(\lambda_c)=0, \gamma'(\lambda_c)>0$ und alle "ubrigen Eigenwerte von $\operatorname{J}_x v(\lambda,0)$ für $\lambda$ nahe $\lambda_c$ strikt in der linken komplexen Halbebene liegen.
-
-
-
-\section{Zeitdiskreter Fall}
-
-Sei $\Psi(\lambda,\cdot)$ eine Familie von $C^k$-Diffeomorphismen ($k\geq 2$) im $\mathbb{R}^n$ mit $\Psi(\lambda,0)=0$ ($\Rightarrow x=0$ ist ein Gleichgewichtspunkt f"ur alle $\lambda$-Werte, bilden Grundl"osungszweig)
-
-Gleichgewichtspunkte = Fixpunkte von $\Psi(\lambda,\cdot)$, d.h. L"osungen von 
+Wir wollen nun die Theorie im kontinuierlichem Fall auf den diskreten Fall "ubertragen. Dazu stellen wir das Fixpunktproblem, als Nullstellenproblem dar und erhalten dadurch ein Vektorfeld f"ur ein kontinuierliches System
 \[\Psi(\lambda,x)=x \ \Leftrightarrow \underbrace{\Psi(\lambda,x)-x}_{=:v(\lambda,x)}=0\]
-$\Rightarrow $ L"osung des station"aren Verzweigungsproblems im diskreten Fall durch Anwendung der Theorie f"ur den kontinuierlichen Fall auf 
+Daher sind L"osungen des station"aren Verzweigungsproblems im diskreten Fall durch Anwendung der Theorie f"ur den kontinuierlichen Fall auf 
 \[v(\lambda,x):=\Psi(\lambda,x)-x\]
-$\Rightarrow \operatorname{D}_x \Psi(\lambda,0)=\operatorname{J}_x \Psi(\lambda,0)$ habe einen algebraisch einfachen Eigenwert $\gamma(\lambda)$ f"ur $\lambda$ nahe $\lambda_c$ mit $\gamma(\lambda_c)=1, \gamma'(\lambda_c)\neq 0$\\
-$\Rightarrow (\lambda_c,0)$ ist ein station"arer Verzweigungspunkt entsprechend dem kontinuierlichen Fall.\\
-Auch hier gilt das \emph{Prinzip des Stabilit"atsaustausches} entsprechend dem kontinuierlichen Fall, falls gilt: $\gamma(\lambda_c)=1, \gamma'(\lambda_c)>0$. Alle "ubrigen Eigenwerte von $\operatorname{J}_x \Psi(\lambda,0)$ seien f"ur $\lambda$ nahe $\lambda_c$ strikt im Inneren des Einheitskreises der komplexen Ebene (um den Ursprung) enthalten.
-Ebenso gelten die Kriterien f"ur die Verzweigungsrichtung im Verzweigunspunkt $(\lambda_c,0)$ w"ortlich wie im kontinuierlichen Fall (der modifizierte Term $-x$ liefert keinen Beitrag zu den Ableitungen der Ordnung $\geq 2$).
+"aquivalent.
+
+\begin{satz}
+Sei $\Psi\colon\RR\times\RR^n\to\RR^n$ ein $C^2$-Diffeomorphismus. Sei $G\subseteq \RR\times\RR^n$ ein Grundl"osungszweig, $(\lambda_C, x_t)\in G$. Es habe $D_x \Psi(\lambda, x_t)$ einen algebraisch und geometrisch einfachen Eigenwert $\gamma(\lambda)$ f"ur alle $(\lambda, x_t)$ in einer Umgebung von $(\lambda_C, x_t)$ mit
+$$ \gamma(\lambda_C) = 1 , \  \gamma'(\lambda_C) \neq 0$$
+Dann ist $(\lambda_C, x_t)$ ein station"arer Verzweigungspunkt des von $\Psi$ erzeugten dynamischen Systems.
+\end{satz}
+
+\begin{satz}
+Es gelten die Voraussetzungen des vorherigen Satzes. Es sei weiterhin $\gamma'(\lambda_C) > 0$. F"ur alle \emph{anderen} Eigenwerte $\mu \in \sigma(D_x \Psi(\lambda, x_t))$ gelte $|\mu|< 1$ f"ur alle $(\lambda, x_t)$ in der Umgebung um $(\lambda_C, x_t)$.\\
+Dann ist der Verzweigungspunkt $(\lambda_C, x_t)$ transkritisch und es gilt das \emph{Prinzip des Stabilit"atsaustausches}.
+\end{satz}
+
+Ebenso gelten die Kriterien f"ur die Verzweigungsrichtung im Verzweigunspunkt $(\lambda_c,0)$ w"ortlich wie im kontinuierlichen Fall , da der modifizierte Term $-x$ keinen Beitrag zu den Ableitungen der Ordnung $\geq 2$ liefert.
 
 \begin{beispiel}
 Sei $\lambda\in\mathbb{R}$
@@ -1395,16 +1397,18 @@ $\Rightarrow$ Die station"are Verzweigung bei $\lambda_c=0, x=0$ ist \emph{trans
 
 \[\Psi(\lambda,x)\leftrightarrow v(\lambda,x)=\Psi(\lambda,x)-x\]
 \[\operatorname{J}_x\Psi(\lambda,x)\leftrightarrow\operatorname{J}_x(\lambda,x)-\operatorname{id}\]
-Ein weiterer Instabilit"atsmechanismus im diskreten Fall ist: Ein algebraisch einfacher Eigenwert $\gamma(\lambda)$ von $\operatorname{J}_x\Psi(\lambda,0)$ wandert bei $\lambda=\lambda_c$ "uber $-1$ vom Inneren des Einheitskreises in der komplexen Ebene nach au"sen (alle anderen Eigenwerte sind strikt im Inneren f"ur $\lambda$ nahe $\lambda_c$)
-\[\gamma(\lambda_c)=-1, \gamma'(\lambda_c)<0\]
-\[\Rightarrow x=0\begin{cases} \text{asymptotisch stabil f"ur } \lambda<\lambda_c\\
-\text{instabil f"ur } \lambda>\lambda_c\]
+Ein weiterer Instabilit"atsmechanismus im diskreten Fall ist: Ein algebraisch einfacher Eigenwert $\gamma(\lambda)$ von $\operatorname{J}_x\Psi(\lambda,0)$ wandert bei $\lambda=\lambda_C$ "uber $-1$ vom Inneren des Einheitskreises in der komplexen Ebene nach au"sen (alle anderen Eigenwerte sind strikt im Inneren f"ur $\lambda$ nahe $\lambda_C$)
+\[\gamma(\lambda_C)=-1, \gamma'(\lambda_C)<0\]
+\begin{align*}
+\Rightarrow x=0\begin{cases} \text{asymptotisch stabil f"ur } \lambda<\lambda_C\\
+\text{instabil f"ur } \lambda>\lambda_C\end{cases}
+\end{align*}
 
 \begin{bemerkung}
-Es kann bei $\lambda=\lambda_c$ keine station"are Verzweigung von $(\lambda,0)$ auftreten, da die notwendige Bedingung 
+Es kann bei $\lambda=\lambda_C$ keine station"are Verzweigung von $(\lambda,0)$ auftreten, da die notwendige Bedingung 
 \[\operatorname{J}_x\Psi(\lambda,0)-\operatorname{id}\text{ singul"ar}\]
 nicht erf"ullt ist.\\
-Aber es zeigt sich, dass f"ur das durch $\Phi(\lambda,x):=\Psi(\lambda,\Psi(\lambda,x))$ induzierte System gegebenenfalls bei $\lambda=\lambda_c$ eine station"are Verzweigung auftritt.
+Aber es zeigt sich, dass f"ur das durch $\Phi(\lambda,x):=\Psi(\lambda,\Psi(\lambda,x))$ induzierte System gegebenenfalls bei $\lambda=\lambda_C$ eine station"are Verzweigung auftritt.
 \[\Phi(\lambda,0)=\Psi(\lambda,\underbrace{\Psi(\lambda,0)}_{=0})=0\ \forall\lambda\in\mathbb{R}\]
 $\Rightarrow (\lambda,0), \lambda\in\mathbb{R}$ ist ein Grundl"osungszweig trivialer Gleichgewichtspunkte für das $\Phi$-System
 \[\operatorname{J}_x\Phi(\lambda,x)=\operatorname{J}_x\Psi(\lambda,\Psi(\lambda,x))\operatorname{J}_x\Psi(\lambda,x))\]
@@ -1412,12 +1416,12 @@ $\Rightarrow (\lambda,0), \lambda\in\mathbb{R}$ ist ein Grundl"osungszweig trivi
 \[\gamma^2(\lambda) \text{ ist ein algebraisch einfacher Eigenwert von } \operatorname{J}_x\Phi(\lambda,0)=\operatorname{J}_x\Psi(\lambda,0)^2\]
 (mit den selben Eigenvektoren)\\
 Es gilt:
-\[\gamma^2(\lambda_c)=(-1)^2=1\]
+\[\gamma^2(\lambda_C)=(-1)^2=1\]
 \[\frac d {d\lambda}\gamma^2(\lambda)=2\gamma(\lambda)\gamma'(\lambda)\]
-\[\frac d {d\lambda}\gamma^2(\lambda)|_{\lambda=\lambda_c}=2\underbrace{\gamma(\lambda_c}_{=-1}\underbrace{\gamma'(\lambda_c)}_{<0}>0\]
-$\Rightarrow (\lambda_c,0)$ ist ein station"arer Verzweigungspunkt des $\Phi$-Systems\\
-jeder Fixpunkt (Gleichgewichtspunkt) von $\Phi$ nahe $\lambda=\lambda_c, x=0$ ist ein $2$-periodischer Punkt von $\Psi(\lambda,\cdot)$\\
-Diese tauchen paarweise auf und bilden jeweils einen $2$-periodischen Orbit des $\Psi(\lambda,\cdot)$-Systems, d.h. $(\lambda_c,0)$ ist ein Verzweigungspunkt, wo vom Grundl"osungszweig trivialer Gleichgewichtspunkte ein Zweig $2$-periodischer Orbits des $\Phi$-Systems abzweigt.\\
+\[\frac d {d\lambda}\gamma^2(\lambda)|_{\lambda=\lambda_C}=2\underbrace{\gamma(\lambda_C}_{=-1}\underbrace{\gamma'(\lambda_C)}_{<0}>0\]
+$\Rightarrow (\lambda_C,0)$ ist ein station"arer Verzweigungspunkt des $\Phi$-Systems\\
+jeder Fixpunkt (Gleichgewichtspunkt) von $\Phi$ nahe $\lambda=\lambda_C, x=0$ ist ein $2$-periodischer Punkt von $\Psi(\lambda,\cdot)$\\
+Diese tauchen paarweise auf und bilden jeweils einen $2$-periodischen Orbit des $\Psi(\lambda,\cdot)$-Systems, d.h. $(\lambda_C,0)$ ist ein Verzweigungspunkt, wo vom Grundl"osungszweig trivialer Gleichgewichtspunkte ein Zweig $2$-periodischer Orbits des $\Phi$-Systems abzweigt.\\
 Insbesondere gilt auch (unter den gemachten Voraussetzungen) das Prinzip des Stabilit"atsaustausches im Sinne der orbitalen (asymptotischen) Stabilit"at bzw. Instabilit"at der $2$-periodischen Orbits
 \end{bemerkung}
 
