@@ -1274,14 +1274,15 @@ Somit handelt es sich um eine \emph{superkritische Heugabelverzweigung} bei $(0,
 \subsection{Stabilit"atsanalyse in beliebiger Dimension}
 Man betrachte nun die Differentialgleichung 
 $$\dot x = v(x)$$
-mit einem Vektorfeld $v\in C^k(\RR \times \RR^n, \RR)$, $k\geq 2$.
+mit einem Vektorfeld $v\in C^k(\RR \times \RR^n, \RR)$, $k\geq 2$. Es bezeichne im Folgendem $\operatorname{J}_xv$ die \emph{Jacobi-Matrix} von v. Da wir uns in endlich-dimensionalen Vektorr"aumen befinden, werden wir gelegentlich die Jacobi-Matrix als \emph{totale Ableitung} $\operatorname{D}_xv$ schreiben.
 
 \begin{satz}[Station"are \emph{Verzweigung in einem einfachen Eigenwert 0} bzw.\ \emph{station"are \glqq Kodimension 1\grqq-Verzweigung}]
-Es habe $J_xv(\lambda,0)$ einen algebraisch und geometrisch einfachen Eigenwert $\mu(\lambda)$ mit $\mu(\lambda_C) = 0$, $\mu'(\lambda_C) > 0$ f"ur ein $\lambda_C \in \RR$. Die "ubrigen Eigenwerte von $J_xv(\lambda,0)$ haben einen Realteil ungleich 0. Dann ist $(\lambda_C, 0)$ ein station"arer Verzweigungspunkt.
+Es habe $\operatorname{J}_xv(\lambda,0)$ einen algebraisch und geometrisch einfachen Eigenwert $\mu(\lambda)$ mit $\mu(\lambda_C) = 0$, $\mu'(\lambda_C) > 0$ f"ur ein $\lambda_C \in \RR$. Die "ubrigen Eigenwerte von $\operatorname{J}_xv(\lambda,0)$ haben einen Realteil ungleich 0. Dann ist $(\lambda_C, 0)$ ein station"arer Verzweigungspunkt.
 
-Falls die "ubrigen Eigenwerte von $J_xv(\lambda,0)$ f"ur alle $\lambda\in\RR$ einen Realteil strikt kleiner als $0$ besitzen, so gilt das \emph{Prinzip des Stabilit"atsaustausches} wie im Falle $n = 1$.
+Falls die "ubrigen Eigenwerte von $\operatorname{J}x_v(\lambda,0)$ f"ur alle $\lambda\in\RR$ einen Realteil strikt kleiner als $0$ besitzen, so gilt das \emph{Prinzip des Stabilit"atsaustausches} wie im Falle $n = 1$.
 
-Sei ferner $\varphi(\lambda)$ ein Eigenvektor zum Eigenwert $\mu(\lambda)$ von $J_xv(\lambda,0)$ und $\tilde{\varphi} = \tilde{\varphi}(\lambda_C)$ ein Eigenvektor von $\left[J_xv(\lambda_C,0)\right]^T$ zum Eigenwert $\mu(\lambda_C) = 0$, $\left[J_xv(\lambda_C,0)\right]^T\tilde{\varphi} = 0$ mit $\langle\tilde{\varphi},\varphi(\lambda_C)\rangle > 0$. Dann folgt
+Sei ferner $\varphi(\lambda)$ ein Eigenvektor zum Eigenwert $\mu(\lambda)$ von $\operatorname{J}_xv(\lambda,0)$ und $\tilde{\varphi} = \tilde{\varphi}(\lambda_C)$ ein Eigenvektor von $\left[\operatorname{J}_xv(\lambda_C,0)\right]^T$ zum Eigenwert $\mu(\lambda_C) = 0$, $\left[\operatorname{J}_xv(\lambda_C,0)\right]^T\tilde{\varphi} = 0$ mit $\langle\tilde{\varphi},\varphi(\lambda_C)\rangle > 0$. \\
+Dann folgt
 \begin{enumerate}
 \item falls
 $\langle\tilde{\varphi},D_{xx}^2v(\lambda_C,0)(\varphi(\lambda_C),\varphi(\lambda_C))\rangle\neq 0$, so ist $(\lambda_C,0)$ ein transkritischer Verzweigungspunkt
@@ -1310,7 +1311,7 @@ v(\lambda,0,0) &= \begin{pmatrix}
 0\\
 0
 \end{pmatrix}\\
-J_xv(\lambda,0,0) &= \left(\begin{array}{cc}
+\operatorname{J}_xv(\lambda,0,0) &= \left(\begin{array}{cc}
 \lambda & 0\\
 0 & \lambda
 \end{array}\right)
@@ -1350,13 +1351,13 @@ Daher sind L"osungen des station"aren Verzweigungsproblems im diskreten Fall dur
 "aquivalent.
 
 \begin{satz}
-Sei $\Psi\colon\RR\times\RR^n\to\RR^n$ ein $C^2$-Diffeomorphismus. Sei $G\subseteq \RR\times\RR^n$ ein Grundl"osungszweig, $(\lambda_C, x_t)\in G$. Es habe $D_x \Psi(\lambda, x_t)$ einen algebraisch und geometrisch einfachen Eigenwert $\gamma(\lambda)$ f"ur alle $(\lambda, x_t)$ in einer Umgebung von $(\lambda_C, x_t)$ mit
+Sei $\Psi\colon\RR\times\RR^n\to\RR^n$ ein $C^2$-Diffeomorphismus. Sei $G\subseteq \RR\times\RR^n$ ein Grundl"osungszweig, $(\lambda_C, x_t)\in G$. Es habe $\operatorname{J}_x \Psi(\lambda, x_t)$ einen algebraisch und geometrisch einfachen Eigenwert $\gamma(\lambda)$ f"ur alle $(\lambda, x_t)$ in einer Umgebung von $(\lambda_C, x_t)$ mit
 $$ \gamma(\lambda_C) = 1 , \  \gamma'(\lambda_C) \neq 0$$
 Dann ist $(\lambda_C, x_t)$ ein station"arer Verzweigungspunkt des von $\Psi$ erzeugten dynamischen Systems.
 \end{satz}
 
 \begin{satz}
-Es gelten die Voraussetzungen des vorherigen Satzes. Es sei weiterhin $\gamma'(\lambda_C) > 0$. F"ur alle \emph{anderen} Eigenwerte $\mu \in \sigma(D_x \Psi(\lambda, x_t))$ gelte $|\mu|< 1$ f"ur alle $(\lambda, x_t)$ in der Umgebung um $(\lambda_C, x_t)$.\\
+Es gelten die Voraussetzungen des vorherigen Satzes. Es sei weiterhin $\gamma'(\lambda_C) > 0$. F"ur alle \emph{anderen} Eigenwerte $\mu \in \sigma(\operatorname{J}_x \Psi(\lambda, x_t))$ gelte $|\mu|< 1$ f"ur alle $(\lambda, x_t)$ in der Umgebung um $(\lambda_C, x_t)$.\\
 Dann ist der Verzweigungspunkt $(\lambda_C, x_t)$ transkritisch und es gilt das \emph{Prinzip des Stabilit"atsaustausches}.
 \end{satz}
 
@@ -1395,35 +1396,50 @@ $\Rightarrow \langle\tilde{\varphi},\varphi\rangle=\langle\varphi,\varphi\rangle
 $\Rightarrow$ Die station"are Verzweigung bei $\lambda_c=0, x=0$ ist \emph{transkritisch}
 \end{beispiel}
 
-\[\Psi(\lambda,x)\leftrightarrow v(\lambda,x)=\Psi(\lambda,x)-x\]
-\[\operatorname{J}_x\Psi(\lambda,x)\leftrightarrow\operatorname{J}_x(\lambda,x)-\operatorname{id}\]
-Ein weiterer Instabilit"atsmechanismus im diskreten Fall ist: Ein algebraisch einfacher Eigenwert $\gamma(\lambda)$ von $\operatorname{J}_x\Psi(\lambda,0)$ wandert bei $\lambda=\lambda_C$ "uber $-1$ vom Inneren des Einheitskreises in der komplexen Ebene nach au"sen (alle anderen Eigenwerte sind strikt im Inneren f"ur $\lambda$ nahe $\lambda_C$)
-\[\gamma(\lambda_C)=-1, \gamma'(\lambda_C)<0\]
+\subsection{Weiterer Instabilit"atsmechanismus f"ur Hom-Systeme}
+Wir haben bereits festgestellt, dass falls ein Eigenwert die komplexe Einheitskugel über $(1,0)$ von innen nach au"sen verl"asst, dann findet dort ein Stabilit"atswechsel statt. Dies konnte analog zum kontinuierlichem Fall hergeleitet werden. Nun ist es aber f"ur Hom-Systeme auch m"oglich, dass ein Eigenwert die komplexe Einheitskugel "uber $(-1,0)$ verl"asst. Das ist f"ur kontinuierliche Systeme nicht m"oglich. Wir werden diesen neuen Fall nun untersuchen. 
+
+
+Sei ein algebraisch und geometrisch einfacher Eigenwert $\gamma(\lambda)$ von $\operatorname{J}_x\Psi(\lambda,x_t)$ gegeben, der bei $\lambda=\lambda_C$ "uber $-1$ vom Inneren des Einheitskreises in der komplexen Ebene nach au"sen wandert. Dabei seien alle anderen Eigenwerte strikt im Inneren des Einheitskreises f"ur $\lambda$ nahe $\lambda_C$. Es gilt f"ur diesen Eigenwert $\gamma(\lambda)$ also
+\[\gamma(\lambda_C)=-1,  \ \gamma'(\lambda_C)<0\]
+Nach unserer obigen Theorie gilt somit 
 \begin{align*}
-\Rightarrow x=0\begin{cases} \text{asymptotisch stabil f"ur } \lambda<\lambda_C\\
+x=x_t\begin{cases} \text{asymptotisch stabil f"ur } \lambda<\lambda_C\\
 \text{instabil f"ur } \lambda>\lambda_C\end{cases}
 \end{align*}
 
 \begin{bemerkung}
-Es kann bei $\lambda=\lambda_C$ keine station"are Verzweigung von $(\lambda,0)$ auftreten, da die notwendige Bedingung 
-\[\operatorname{J}_x\Psi(\lambda,0)-\operatorname{id}\text{ singul"ar}\]
-nicht erf"ullt ist.\\
-Aber es zeigt sich, dass f"ur das durch $\Phi(\lambda,x):=\Psi(\lambda,\Psi(\lambda,x))$ induzierte System gegebenenfalls bei $\lambda=\lambda_C$ eine station"are Verzweigung auftritt.
-\[\Phi(\lambda,0)=\Psi(\lambda,\underbrace{\Psi(\lambda,0)}_{=0})=0\ \forall\lambda\in\mathbb{R}\]
-$\Rightarrow (\lambda,0), \lambda\in\mathbb{R}$ ist ein Grundl"osungszweig trivialer Gleichgewichtspunkte für das $\Phi$-System
+Es kann bei $\lambda=\lambda_C$ keine station"are Verzweigung von $(\lambda,x_t)$ auftreten, da die notwendige Bedingung 
+\[\operatorname{J}_x\Psi(\lambda,x_t)-\operatorname{id}\text{ singul"ar}\]
+nicht erf"ullt ist.
+\end{bemerkung}
+
+\begin{satz}[im Eindimensionalem]
+Sei $G\subseteq\RR\times\RR$ ein Grundl"osungszweig, $(\lambda_C, x_t) \in G$. Sei $U \subseteq \RR$, sodass $U\times\RR \subseteq G$ gilt. Weiter sei $\gamma(\lambda)$ ein algebraisch und geometrisch einfacher Eigenwert von $\operatorname{J}_x\Psi(\lambda, x_t)$. Es gelte
+$$ \gamma(\lambda_C) = -1, \ \gamma'(\lambda_C) < 0$$
+Sei $\lambda^*(x)$ der zugeh"orige nicht-triviale L"osungszweig.\\
+Dann sind alle $(x, \lambda^*(x))$ $2$-periodische Orbits des Hom-Systems. Die Stabilit"at der Orbits ist 
+\begin{itemize}
+\item orbital asymptotisch stabil, falls $(x-x_t){\lambda^*}'(x) > 0$
+\item instabil, falls $(x-x_t){\lambda^*}'(x) < 0$
+\end{itemize}
+\end{satz}
+
+\begin{beweis}
+Wir betrachten das durch $\Phi(\lambda,x):=\Psi(\lambda,\Psi(\lambda,x))$ induzierte diskrete System. Da $(\lambda_C, x_t)$ ein Gleichgewichtspunkt (bzw. im diskreten Fall ein Fixpunkt) ist, gilt
+\[\forall\lambda\in U: \Phi(\lambda,x_t)=\Psi(\lambda,\underbrace{\Psi(\lambda,x_t)}_{=x_t})=x_t\ \]
+Dann ist $(\lambda,x_t), \lambda\in U$ ein Grundl"osungszweig trivialer Gleichgewichtspunkte für das $\Phi$-System. F"ur die Jacobi-Matrix gilt
 \[\operatorname{J}_x\Phi(\lambda,x)=\operatorname{J}_x\Psi(\lambda,\Psi(\lambda,x))\operatorname{J}_x\Psi(\lambda,x))\]
-\[\Rightarrow \operatorname{J}_x\Phi(\lambda,0)=\operatorname{J}_x\Psi(\lambda,\Psi(\lambda,0))\operatorname{J}_x\Psi(\lambda,0)=\operatorname{J}_x\Psi(\lambda,0)^2\]
-\[\gamma^2(\lambda) \text{ ist ein algebraisch einfacher Eigenwert von } \operatorname{J}_x\Phi(\lambda,0)=\operatorname{J}_x\Psi(\lambda,0)^2\]
-(mit den selben Eigenvektoren)\\
-Es gilt:
+\[\Rightarrow \operatorname{J}_x\Phi(\lambda,x_t)=\operatorname{J}_x\Psi(\lambda,\Psi(\lambda,x_t))\operatorname{J}_x\Psi(\lambda,x_t)=(\operatorname{J}_x\Psi(\lambda,x_t))^2\]
+Daher ist $\gamma^2(\lambda)$ ein algebraisch und geometrisch einfacher Eigenwert von $\operatorname{J}_x\Phi(\lambda,x_t)=(\operatorname{J}_x\Psi(\lambda,x_t))^2$, mit den gleichen Eigenvektoren.
+Es gilt
 \[\gamma^2(\lambda_C)=(-1)^2=1\]
 \[\frac d {d\lambda}\gamma^2(\lambda)=2\gamma(\lambda)\gamma'(\lambda)\]
-\[\frac d {d\lambda}\gamma^2(\lambda)|_{\lambda=\lambda_C}=2\underbrace{\gamma(\lambda_C}_{=-1}\underbrace{\gamma'(\lambda_C)}_{<0}>0\]
-$\Rightarrow (\lambda_C,0)$ ist ein station"arer Verzweigungspunkt des $\Phi$-Systems\\
-jeder Fixpunkt (Gleichgewichtspunkt) von $\Phi$ nahe $\lambda=\lambda_C, x=0$ ist ein $2$-periodischer Punkt von $\Psi(\lambda,\cdot)$\\
-Diese tauchen paarweise auf und bilden jeweils einen $2$-periodischen Orbit des $\Psi(\lambda,\cdot)$-Systems, d.h. $(\lambda_C,0)$ ist ein Verzweigungspunkt, wo vom Grundl"osungszweig trivialer Gleichgewichtspunkte ein Zweig $2$-periodischer Orbits des $\Phi$-Systems abzweigt.\\
-Insbesondere gilt auch (unter den gemachten Voraussetzungen) das Prinzip des Stabilit"atsaustausches im Sinne der orbitalen (asymptotischen) Stabilit"at bzw. Instabilit"at der $2$-periodischen Orbits
-\end{bemerkung}
+\[\left. \frac d {d\lambda}\gamma^2(\lambda)\right |_{\lambda=\lambda_C}=2\underbrace{\gamma(\lambda_C)}_{=-1}\underbrace{\gamma'(\lambda_C)}_{<0}>0\]
+Daher ist $(\lambda_C,x_t)$ ein station"arer Verzweigungspunkt des $\Phi$-Systems. Jeder Fixpunkt (Gleichgewichtspunkt) von $\Phi$ nahe $\lambda=\lambda_C, x=x_t$ ist ein $2$-periodischer Punkt von $\Psi(\lambda,\cdot)$. Diese tauchen paarweise auf und bilden jeweils einen $2$-periodischen Orbit des $\Psi(\lambda,\cdot)$-Systems, d.h. $(\lambda_C,x_t)$ ist ein Verzweigungspunkt, bei dem, vom Grundl"osungszweig trivialer Gleichgewichtspunkte, ein Zweig $2$-periodischer Orbits des $\Phi$-Systems abzweigt. Insbesondere gilt auch (unter den gemachten Voraussetzungen) das Prinzip des Stabilit"atsaustausches im Sinne der orbitalen (asymptotischen) Stabilit"at bzw. Instabilit"at der $2$-periodischen Orbits
+\qed
+\end{beweis}
+Analog kann obiger Satz auch f"ur Systeme in beliebiger Dimension formuliert werden.
 
 %% VL 23.12.13
 
