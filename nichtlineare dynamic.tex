@@ -1425,5 +1425,39 @@ Diese tauchen paarweise auf und bilden jeweils einen $2$-periodischen Orbit des 
 Insbesondere gilt auch (unter den gemachten Voraussetzungen) das Prinzip des Stabilit"atsaustausches im Sinne der orbitalen (asymptotischen) Stabilit"at bzw. Instabilit"at der $2$-periodischen Orbits
 \end{bemerkung}
 
+%% VL 23.12.13
+
+\section{Hopf-Verzweigung f"ur kontinuierliche Systeme}
+
+
+\begin{satz}[Hopf-Verzweigung f"ur ebene Systeme]
+Sei $v\in C^k(\RR\times\RR^2, \RR^2)$ f"ur ein $k\geq 4$. Sei $G\subseteq \RR\times\RR^2$ ein Grundl"osungszweig. Es existiere ein $(\lambda_C, x_C) \in G$ sodass die Jacobi-Matrix $\operatorname{J}_x v(\lambda, x)$ f"ur alle $(\lambda, x_C)$ in einer Umgebung $U$ von $(\lambda_C, x_C)$ ein Paar komplex konjugierte Eigenwerte $\gamma_\pm(\lambda) = \alpha(\lambda) \pm i \beta(\lambda)$ besitzt. F"ur diese Eigenwerte gelte
+$$ \beta(\lambda_C) > 0, \ \alpha(\lambda_C) = 0, \ \alpha'(\lambda_C) > 0 $$
+Dann gilt
+\begin{enumerate}
+\item Es existiert $\varepsilon > 0, \ \lambda = \lambda^*(x_1) \in C^{k-3}((-\varepsilon, \varepsilon))$, sodass f"ur jedes $x_1 - x_C^1 > 0, \ |x_1 - x_C^1| < \varepsilon$ ein periodischer Orbit von $\dot x = v(\lambda^*(x_1), x)$ durch den Punkt $(x_1 + x_C^1, x_C^2) \in \RR^2$ existiert, welcher den Punkt $x_C$ uml"auft.
+\item $(\lambda_C, x_C)$ ist ein Verzweigungspunkt. Die trivialen Gleichgewichtspunkte sind die einzigen Gleichgewichtspunkte in einer Umgebung von $(\lambda_C, x_C)$. Gleiches gilt f"ur die periodischen Orbits.
+\item Es gilt das \emph{Prinzip des Stabilit"atsaustausches} zwischen trivialen Gleichgewichtspunkten und den Abzweigungen periodischer Orbits.
+\item Sei $v(\lambda, x) = \begin{pmatrix} v_1(\lambda, x) \\ v_2(\lambda, x) \end{pmatrix}$, wobei die Koordinaten $x_1, x_2$ so gew"ahlt sind, dass $\operatorname{J}_xv$ in reeller Jordan-Normalform ist f"ur $\lambda = \lambda_C$
+$$ \operatorname{J}_x v(\lambda_C, x_C) = \begin{pmatrix}
+\alpha(\lambda_C)  &\beta(\lambda_C) \\ -\beta(\lambda_C)& \alpha(\lambda_C)
+\end{pmatrix}$$
+Setze 
+\begin{align*}
+\begin{split}
+ a &= \left (\frac {1}{16}\left[\vphantom{\frac{1}{16}}\partial_{x_1x_1x_1}v_1 + \partial_{x_1x_2x_2}v_1 + \partial_{x_1x_1x_2}v_2 + \partial_{x_2x_2x_2}v_2\right] \right . \\
+ &+ \frac{1}{16\beta}\left[ \vphantom{\frac{1}{16}} \partial_{x_1x_2}v_1\left(\partial_{x_1x_1}v_1 + \partial_{x_2x_2}{v_1}\right) - \partial_{x_1x_2}v_2\left(\partial_{x_1x_1}v_2 + \partial_{x_2x_2}v_2\right) \right .\\
+ &- \left . \left . \partial_{x_1x_1}v_1\partial_{x_1x_1}v_2 + \partial_{x_2x_2}v_1\partial_{x_2x_2}v_2 \vphantom{\frac{1}{16}} \right] \right )(\lambda_C, x_C)
+\end{split} 
+\end{align*}
+Dann ist $(\lambda_C, x_C)$ 
+\begin{itemize}
+\item superkritisch und die periodischen Orbits sind orbital asymptotisch stabil, falls $a>0$.
+\item subkritisch und die periodischen Orbits sind orbital instabil, falls $a<0$.
+\end{itemize}
+\end{enumerate}
+\end{satz}
+
+
 
 \end{document}
