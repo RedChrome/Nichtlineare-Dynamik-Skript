@@ -1473,7 +1473,64 @@ Dann ist $(\lambda_C, x_C)$
 \end{itemize}
 \end{enumerate}
 \end{satz}
-
+\begin{proof}
+Wir konstruieren eine Poincar\'{e} Abbildung und weisen die hinreichenden Bedingungen f"ur einen periodischen Orbit nach. Sei o.B.d.A $x_C = 0$. Setze dann als Poincar\'{e}-Schnitt $\Sigma = \left \{ \left .(x_1, 0) \in \RR^2 \right | x_1 > 0\right \}$. Wir nehmen an, dass $x = \begin{pmatrix}x_1\\x_2\end{pmatrix}\in \RR^2$ derart transformiert ist, dass $\operatorname{J}_xv(\lambda, 0)$ in obiger reeller Jordan-Normalform vorliegt, also dass gilt
+\begin{align*}
+\begin{cases}
+&\dot x_1 = \alpha(\lambda) x_1 + \beta(\lambda) x_2 + \mathcal O(x_1^2+x_2^2) = v_1(\lambda, x)\\
+&\dot x_2 = -\beta(\lambda)x_1 + \alpha(\lambda)x_2 + \mathcal O(x_1^2+x_2^2) = v_2(\lambda, x)
+\end{cases}
+\end{align*}
+f"ur $x_1, x_2 \to 0$ gleichm"a"sig in $\lambda$. Transformieren in Polarkoordinaten lieft folgendes Differtialgleichungssystem
+\begin{align}\label{beweis_hopf_verz_polarkoordinaten}
+\begin{cases}
+&\dot r = \alpha(\lambda)r + \mathcal{O}(r^2) = g(\lambda;r,\theta)\\
+&\dot \theta = \beta(\lambda) + \mathcal{O}(r) = h(\lambda;r,\theta)
+\end{cases}
+\end{align}
+f"ur $r\to 0$ gleichm"a"sig in $\theta, \lambda$. Dabei ging eine Differentiationsordnung bei $\dot \theta$ verloren, da durch $r$ dividiert wurde, also $g,h \in C^{k-2}$. Sei 
+$$\phi(t;\lambda,r_0,\theta_0) = \begin{pmatrix}\phi^r(t;\lambda,r_0,\theta_0)\\ \phi^\theta(t;\lambda,r_0,\theta_0)\end{pmatrix}$$
+die zu \eqref{beweis_hopf_verz_polarkoordinaten} zugeh"orige Flussabbildung. Offensichtlich gilt $$\phi(t;\lambda,0,\theta_0) = \begin{pmatrix}0\\ \beta(\lambda)t+\theta_0\end{pmatrix}$$
+Zu Bestimmung der ersten R"uckkehrzeit $\tau(\lambda, r)$ der Orbits nach $\Sigma$ f"ur $(\lambda, r_0)$ in einer Umgebung von $(\lambda_C, 0)$ stellen wir fest, dass
+$$\phi^\theta\bigl(\tau(\lambda_C,0);\lambda_C,0,0\bigr) = 2\pi$$
+f"ur $\tau(\lambda_C, 0) = \frac{2p}{\beta(\lambda_C)}$. Ferner gilt
+$$\frac{\partial}{\partial t} \phi^\theta(t;\lambda,r_0,\theta_0) = \beta(\lambda) + \mathcal{O}(r_0)$$
+Daher ist $\frac{\partial}{\partial t}\phi^\theta(\tau(\lambda_C,0);\lambda_C,0,0) = \beta(\lambda_C) > 0$. \\
+Die Voraussetzungen f"ur den Satz von der impliziten Funktion sind erf"ullt und es existiert deswegen ein $\tau = \tau(\lambda,r_0) \in C^{k-2}$, welches die Gleichung
+$$\phi^\theta(\tau(\lambda, r_0);\lambda,r_0,0) = 2\pi$$
+l"ost, f"ur alle $\lambda,r$, sodass $|\lambda-\lambda_C|, \ |r|$ hinreichend klein ist. Dabei ist zudem $\tau(\lambda, r_0) \approx \frac{2\pi}{\beta(\lambda_C)}$ f"ur $(\lambda, r_0)$ hinreichend nahe bei $(\lambda_C, 0)$. Somit k"onnen wir eine Poincar\'{e}-Abbildung $P$ definieren
+$$ P_\lambda \colon \Sigma \to \Sigma,\ (r_0, 0) \mapsto \Bigl(\phi^r\bigl(\tau(\lambda, r_0);\lambda,r_0,0\bigr), 0\Bigr)$$
+wobei $P_\lambda\in C^{k-2}$ gilt. Es muss jetzt die hinreichende Bedingung f"ur einen Verzweigungspunkt bei $(\lambda_C, 0)$ nachgewiesen werden.\\
+Die Poincar\'{e}-Abbildung kann daher mit Hilfe der Integralgleichung folgenderma"sen dargestellt werden
+$$P_\lambda(r_0, 0) = \left(r_0 + \int_0^{\tau(\lambda, r_0)}{g\bigl(\lambda; \phi(t; \lambda, r_0, 0)\bigr) \mathrm dt}, 0\right)$$
+Differentieren liefert
+\begin{align*}
+\left(\partial_{r_0} P_\lambda(r_0, 0)\right)_1 = 1 + \int_0^{\tau(\lambda, r_0)}{\frac{\mathrm{d}}{\mathrm dr_0}g\bigl(\lambda; \phi(t; \lambda, r_0, 0)\bigr)\mathrm dt} \\+ \frac{\partial \tau(\lambda,r_0)}{\partial r_0}g\bigl(\lambda; \phi(\tau(\lambda, r_0); \lambda, r_0, 0)\bigr)
+\end{align*}
+Auswerten bei $r_0=0$, $\lambda$ nahe $\lambda_C$ liefert
+$$\left(\partial_{r_0} P_\lambda(r_0, 0)\right)_1 = 1 + \int_0^{\tau(\lambda, r_0)}{\frac{\mathrm{d}}{\mathrm dr_0}g\bigl(\lambda; \phi(t; \lambda, r_0, 0)\bigr)\mathrm dt} $$
+denn $\phi^r(\tau(\lambda, 0);\lambda, 0, 0) = 0$ und daher $g(\lambda; 0, 0) = 0$. Nun muss noch der Term unter dem Integral genauer untersucht werden. Es gilt f"ur $r_0=0$
+$$\frac{\mathrm d}{\mathrm dr_0} g(\lambda; \phi) = \frac{\partial g}{\partial r_0} \frac{\partial \phi}{\partial r_0} + \underbrace{\frac{\partial g}{\partial \theta_0}}_{=0}\frac{\partial \phi}{\partial r_0}$$
+Daher muss nur noch $\frac{\partial \phi^r}{\partial r_0}$ untersucht werden. Setze daf"ur $w = \frac{\partial \phi^r}{\partial r_0}(t;\lambda, 0,0)$. Es gilt
+\begin{align*}
+\dot w &= \frac{\partial g}{\partial r_0} w + \underbrace{\frac{\partial g}{\partial \theta}}_{=0} \frac{\partial \phi^\theta}{\partial r_0} \\
+ &=  \alpha(\lambda) w, \ w(0) = 1
+\end{align*}
+Dies ist eine lineare Differentialgleichung, dessen L"osung $w(\lambda, t) = e^{\alpha(\lambda)t}$ ist.
+Dies liefert nun an der Stelle $r_0 = 0$
+\begin{align*}
+\left(\partial_{r_0} P_\lambda(0, 0)\right)_1 &= 1 + \int_0^{\tau(\lambda, r_0)}{\frac{\mathrm{d}}{\mathrm dr_0}g\bigl(\lambda; \phi(t; \lambda, r_0, 0)\bigr)\mathrm dt}\\
+ &= 1 + \int_0^{\frac{2\pi}{\beta(\lambda)}}{\alpha(\lambda) e^{\alpha(\lambda) t} \mathrm dt} \\
+ &= \left .1 + e^{\alpha(\lambda)t}\right |_{0}^{\frac{2\pi}{\beta(\lambda)}} \\
+ &= 1 +  e^{2\pi\frac{\alpha(\lambda)}{\beta(\lambda)}} - 1 = e^{2\pi\frac{\alpha(\lambda)}{\beta(\lambda)}}
+\end{align*}
+Nach Voraussetzung ist $\alpha(\lambda_C) = 0$ und daher $\left(\partial_{r_0} P_{\lambda_C}(0, 0)\right)_1 = 1$. Das liefert die notwendinge Bedingung f"ur einen station"aren Verzweigungspunkt bei $(\lambda_C, 0)$. Die hinreichende Bedingung wird im Folgendem garantiert
+\begin{align*}
+\left(\partial_{r_0\lambda} P_{\lambda_C}(0, 0)\right)_1 &= \left . 2\pi e^{2 \pi \frac{\alpha(\lambda)}{\beta(\lambda)}} \frac{\alpha'(\lambda)\beta(\lambda)-\alpha(\lambda)\beta'(\lambda)}{\beta(\lambda)^2} \right |_{\lambda = \lambda_C} \\ 
+ &= 2\pi \frac{\alpha'(\lambda_C)}{\beta(\lambda_C)} > 0
+\end{align*}
+Deswegen ist $(\lambda_C, 0)$ ein station"arer Verzweigungspunkt f"ur das durch die Poincar\'{e}-Abbildung induzierte diskrete System. Das beweist die erste Aussage des Satzes.
+\end{proof}
 
 
 \end{document}
