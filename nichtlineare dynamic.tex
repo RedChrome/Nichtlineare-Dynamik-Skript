@@ -1532,5 +1532,69 @@ Nach Voraussetzung ist $\alpha(\lambda_C) = 0$ und daher $\left(\partial_{r_0} P
 Deswegen ist $(\lambda_C, 0)$ ein station"arer Verzweigungspunkt f"ur das durch die Poincar\'{e}-Abbildung induzierte diskrete System. Das beweist die erste Aussage des Satzes.
 \end{proof}
 
+\begin{beispiel}[Reibschwinger aus der Mechanik]
+Im Folgenden bezeichne $\delta>0$ den Dämpfungskoeffizienten, $k$ die Federkonstante im Sinne des Hook'schen Gesetzes und $x$ die Auslenkung des Körpers $m$ aus der Ruhelage ($x=0$). Ferner gelte das Coulomb'sche Reibungsgesetz mit $|R|=\mu(\nu)|N|$, wobei $\nu:=v-x$ die Relativgeschwindigkeit bezeichne.
+
+Voraussetzungen an $\mu(\nu)$ (Materialeigenschaften): Es existiert ein $\nu_0$, so dass
+\begin{itemize}
+\item
+$-\frac{\sqrt{4km}+\delta}{mg}<\mu'(0)<-\frac{\delta}{mg}$,
+\item
+$\mu'(\nu)<0$ f"ur ($0<\nu<\nu_0$)
+\item
+$\mu'(\nu_0)=0$
+\item
+$\mu'(\nu)\geq0$ f"ur ($\nu\geq\nu_0$)
+\item
+$\mu''(\nu)>0$ f"ur ($0\leq\nu$)
+\end{itemize}
+
+Ferner gelte $0<\delta^2<4km$ (\glqq kleine\grqq\ D"ampfung).
+
+Wir verwenden die Bandgeschwindigkeit $v$ als Verweigungsparameter. Nach Newton gilt f"ur den K"orper $m$ die Bewegungsgleichung $-m\ddot{x}-kx-\delta\dot{x}+\mu(v-\dot{x})\underbrace{mg}_{=|N|=|G|}=0$. Dies l"asst sich folgenderma"sen in ein 2-dimensionales System mit $x=\begin{pmatrix} x_1\\ x_2\end{pmatrix}$ umformulieren:
+\[
+\dot{x}=f(v,x):=\begin{pmatrix}
+x_2\\
+-\frac{k}{m}x_1-\frac{\delta}{m}x_2+\mu(v-x_2)g
+\end{pmatrix}
+\]
+$x\stackrel{!}{=}0$ liefert den Grudl"osungszweig $x(v)=\begin{pmatrix}
+\frac{\mu(v)gm}{k}\\
+0
+\end{pmatrix}$ f"ur alle $v\in\RR$.
+
+Durch die Translation $x(v)=\begin{pmatrix}
+\frac{\mu(v)gm}{k}+\xi_1\\
+\xi_2
+\end{pmatrix}$ erh"alt man 
+\[
+\dot{\xi}=f(v,\xi)=\begin{pmatrix}
+\xi_2\\
+-\frac{k}{m}(\frac{\mu(v)gm}{k}+\xi_1)-\frac{\delta}{m}\xi_2+\mu(v-\xi_2)g
+\end{pmatrix}
+\]
+mit dem Grundl"osungszweig $\xi=0$.
+
+Ausrechnen der Jakobi-Matrix ergibt
+\[
+J_\xi f(v,0)=\begin{pmatrix}
+0 & 1\\
+-\frac{k}{m} & -\frac{\delta}{m}-\mu'(v)g
+\end{pmatrix}
+\]
+mit Eigenwerten $\lambda_{1\slash2}(v)=\frac{1}{2m}\left\{-[\delta+mg\mu'(v)]\pm\sqrt{\underbrace{[\delta+mg\mu'(v)]-4km}_{\leq[\delta+mg\mu'(v)]^2}}\right\}$.
+
+F"ur $v\geq v_0$ ist wegen $\mu'(v)\geq0$ der Realteil der Eigenwerte negativ und der triviale Gleichgewichtspunkt $\xi=0$ asymptotisch stabil.
+
+F"ur $0<v\leq v_0$ ist $\lambda_{a\slash 2}(v)=\alpha(v)\pm i\beta(v)$ mit
+\begin{align*}
+\alpha(v)&=-\frac{Zähler}{2m}[\delta+mg\mu'(v)]\\
+\beta(v)&=\pm\frac{1}{2m}\sqrt{4km-[\delta+mg\mu'(v)]^2},
+\end{align*}
+wobei $4km-[\delta+mg\mu'(v)]^2>0$ wegen $\delta<\sqrt{4km}$, $\mu'(v)<0$ und der ersten und der letzten Voraussetzung an $\mu$ aus $-\sqrt{4km}<\delta+mg\mu'(v)<\sqrt{4km}$ folgt. Weiterhin ist $\alpha(c)>0$ genau dann, wenn $\mu'(c)<\frac{\delta}{mg}$. Da somit $\alpha(0)>0$, folgt wegen $\alpha(v_0)\leq$ aus dem Zwischenwertsatz die Existenz eines $0<v_c<v_0$ mit $\alpha(v_c)=0$. Außerdem gilt $\alpha'(v_c)=-\frac{1}{2}g\mu''(v_c)<0$ und der Satz über die Hopf-Verzweigungen ist anwendbar.
+
+Weiterhin kann der Parameter $a=\ldots=\ldots-\frac{1}{16}g\mu'''(v_c)$ bestimmt werden, welcher das entgegengesetzte Vorzeichen von $\mu'''(v_c)$ trägt. Damit l"asst sich ableiten, ob die Hopf-Verzweigung bez"uglich zunehmender Bahngeschwindigkeit $v$ sub- bzw.\ superkritisch ist. 
+\end{beispiel}
+
 
 \end{document}
