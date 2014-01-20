@@ -1599,5 +1599,123 @@ wobei $4km-[\delta+mg\mu'(v)]^2>0$ wegen $\delta<\sqrt{4km}$, $\mu'(v)<0$ und de
 Weiterhin kann der Parameter $a=\ldots=\ldots-\frac{1}{16}g\mu'''(v_c)$ bestimmt werden, welcher das entgegengesetzte Vorzeichen von $\mu'''(v_c)$ trägt. Damit l"asst sich ableiten, ob die Hopf-Verzweigung bez"uglich zunehmender Bahngeschwindigkeit $v$ sub- bzw.\ superkritisch ist. 
 \end{beispiel}
 
+%----------------------------------------------------------------------------
+
+\chapter{Chaos (deterministisch)}
+
+Wir betrachten im Folgenden abstrakte diskrete dynamische Systeme:\\
+\((X,d)\) metrischer Raum, \(\Phi:X\to X \) erzeugender Homöomorphismus.
+
+\section{Bernoilli-Shift-System}
+
+\begin{definition}
+Es sei 
+	\[\Sigma_2 := \{a = (...a_{-l}a_{-(l-1)}...a_{-1}a_0a_1...a_{l-1}a_l...) | a_k \in \{0,1\}\} \]
+	Raum der doppelt-unedlichen Folgen zweier Symbole \(0,1\) mit der Metrik 
+		\begin{align*}d: \Sigma_2\times\Sigma_2 \to \mathbb{R}, \qquad
+		&d(a,b)= \sum_{k \in\mathbb{Z}} \delta_k2^{-|k|} = \sum_{k\in \mathbb{Z}} (a_k-b_k)2^{|k|} \\
+		&\text{mit } \delta_k = \begin{cases} 0 & a_k=b_k \\ 1 & a_k\not= b_k \end{cases}
+		\end{align*}
+\end{definition}
+\(d\) ist Metrik:
+\begin{enumerate}
+	\item Definitheit: \(d(a,b) \geq 0\), \(d(a,b) = 0 \Leftrightarrow a=b\)
+	\item Symmetrie: \(d(a,b)= d(b,a)\)
+	\item Dreiecksungleichung: \(d(a,b) \leq d(a,c) + d(c,b)\)
+\end{enumerate}
+Somit ist \((\Sigma_2, d)\) ein metrischer Raum.
+
+\begin{description}
+	\item[Bemerkung] Zwei Folgen \(a.b \in \Sigma_2\) sind nahe benachbart im Sinne dieser Metrik, falls sie einen relativ großen gemeinsamen zentrlen Abschnitt \((a_{-l}...a_0...a_l) = (b_{-l}...b_0....b_l)\) haben
+\end{description}
+
+\begin{definition}[Bernoulli-Shift-Abbildung]
+Es sei 
+	\[\sigma:\Sigma_2 \to \Sigma_2, \qquad a=(...a_{-l}...\underline{a_0}...a_l...) \mapsto (...a_{-(l-1)}...\underline{a_1}...a_{l+1}...) \]
+(= Shift der Folgenglieder um eine Stelle nach links)
+
+\end{definition}
+
+\begin{description}
+	\item[Bemerkung] \(\sigma\) ist bijektiv mit \(\sigma^{-1}= \) "`Shift der Folgenglieder um eine Stelle nach rechts"'\\
+	\(\sigma,\sigma^{-1}\) sind stetig bzgl. der von \(d\) erzeugten Topologie\\
+	\(\Rightarrow \sigma\) ist ein Homöomorphismus und erzeugt somit ein diskretes dynamisches System \((\Sigma_2,\sigma)\).
+\end{description}
+
+\subsection{Analyse des dynamsichen Verhaltens}
+
+\begin{enumerate}
+	\item{Gleichgewichtspunkte:}
+		\begin{align*}
+			&\sigma(a)=a \\
+			& \Rightarrow e_1=(...0...), e_2=(...1...)
+		\end{align*}
+		Sind die einzigen Gleichgewichtspunkte
+	\item{Periodische Orbits:} Jede Folge der Form
+		\[p=(...p_0p_1...p_np_0p_1...p_np_0p_1...p_n...) \]
+		mit der endlichen erzeugenden Symbolsequenz \(p_0p_1...p_n\), welche vorwärts und rückwärts beliebig oft aneinander zu setzen ist, ist ein \((n+1)\) periodische Punkt in \(\Sigma_2\)\\
+		\(\Rightarrow\) zugehöriger Orbit \(\Gamma_p\) ist \((n+1)\) periodisch
+	\item{Nicht-periodische Orbits} bspw. homo- und heterokline Orbits\\
+		\(h_1 := (...0a_{-l}a_{-(l-1)}...a_0...a_{\tilde{l}-1}a_{\tilde{l}}0...)\) ist homokliner Punkt bzgl. des leichgewichts \(e_1\), denn \(\lim_{k\to\pm\infty} d(\sigma^k(h_1),e_1) = 0\)\\
+		Entspr. \(h_2=(...1a_{-l}a_{-(l-1)}...a_0...a_{\tilde{l}-1}a_{\tilde{l}}1...)\) homokliner Punkt bzgl. des Gleichgewichts \(e_2\)\\
+		\(\Rightarrow \Gamma_{h_1}, \Gamma_{h_2}\) sind homokline Orbits\\
+		Ferner ist \(h_3:=(...0a_{-l}a_{-(l-1)}...a_0...a_{\tilde{l}-1}a_{\tilde{l}}1...)\) heterokliner Punkt bzgl. \(e_1\) und \(e_2\), d.h. 
+		\[\lim_{k\to\infty} d(\sigma^k(h_3),e_2) = 0, \lim_{k\to -\infty} d(\sigma^k(h_3),e_1)=0\]
+		\(\Rightarrow \Gamma_{h_3}\) ist heterokliner Orbit bzgl. der Gleichgewichte \(e_1\) und \(e_2\).
+		\item{Sensitive Abhängigkeit von den Anfangszuständen }(Schmetterlingseffekt) (siehe unter Bemerkung)
+\end{enumerate}
+
+\begin{description}
+	\item[Bemerkung] Die Menge aller periodischen Punkte (Orbits) ist dicht in \(\Sigma_2\):\\
+	Sei \(a\in \Sigma_2\) beliebig. Wähle je nach Vorgabe eines maximalen Abstands einen entsprechend langen Zentralabschnitt von \(a\) und wiederhole in zu beiden Seiten beliebig oft und definiere dadurch einen periodischen Punkt \(p_a\)\\
+	\(\Rightarrow \sigma^k(p_a)\) ist für ein \(k>0\) dem Punkt \(a\) entsprechend der Vorgabe des max. Abstands nahe.
+\end{description}
+
+\begin{definition}
+Wir sagen, das System \((X,\Phi)\) hat die Eigenschaft der sensitiven Abhängigkeit von den Anfangszuständen, falls es eine Sensitivitätsvariante \(\lambda > 0\) gibt, sodass zu jedem \(a \in \sigma_2, \epsilon >0\) ein \(b \in \Sigma_2\) mit \(\d(a,b) < \epsilon\) und ein \(N\in \mathbb{N}\) existieren, mit 
+	\[\d(\sigma^N(a),\sigma^N(b)) \geq \lambda\]
+\end{definition}
+
+\begin{lemma}
+\((\Sigma_2,\sigma)\) hat die Eigenschaft der sensitiven Abhängigkeit von den Anfangswerten
+\end{lemma}
+\begin{beweis}
+Denn mit \(\lambda = 1\) gilt: \\
+Seien \(a\in\Sigma_2, \epsilon\) beliebig. Wähle \(b\) sodass abhängig von \(\epsilon\) \(b\) einen hinreichend großen zentralen Abschnitt gemeinsam mit \(a\) hat und rechts davon wenigstens für ein k gilt: \(a_k\not= b_k\)
+\end{beweis}
+
+\begin{beispiel}
+Sei \(X = (0,\infty), \Phi:X\to X, x\mapsto (1+\mu)x \qquad (\mu>0)\)\\
+\(d(x,y) = |x-y|\) \\
+	\(\Rightarrow\) expandierende Abbildung\\
+	\(\Rightarrow\) Das System \((X,\Phi)\) hat die Eigenschaft der sensitiven Abhängigkeit von den Anfangszuständen, denn für jedes Paar \(x,y\in X\) existiert \(N\in\mathbb{N}\) mit
+		\[d(\Phi^N(x),\Phi^N(y))= |\Phi^N(x)-\phi^N(y)| = (1-\mu)^N|x-y| \geq \lambda\]
+		Alle Orbits dieses Systems werden mit zunehmender Zeit gegen \(\infty\) gehen, es liegt also ein reguläres = nicht chaotisches Verhalten vor.
+\end{beispiel}
+ 
+Um ein solches System von der Klasse der chaotischen Systeme auszuschließen, führen wir den Begriff der Transitivität ein:
+\begin{definition}[Transitivität]
+Ein System \((X,\Phi)\) wie oben heißt transitiv, falls es für jedes Paar offener Mengen (Umgebungen) \(U,V\subset X\) ein \(N\in\mathbb{N}\) ex, sodass 
+	\[\Phi^N(U)\cap V \not= \emptyset\]
+\end{definition}
+
+\begin{lemma}
+Ein System \((X,\Phi)\), welches wenigstens einen Orbit \(\Gamma\) besitzt, der dicht in \(X\) liegt, ist trnasitiv.
+\end{lemma}
+\begin{beweis}
+Sei \(\Gamma_{x_0}\) ein dichter Orbit, \(U,V,\subset X \) offene Mengen. Dann exisiteren \(N_1, N_2 \in \mathbb{N}\), sodass \(\Phi^{N_1}(x_0) \in U, \Phi^{N_2}(x_0) \in V (oBdA\  N_1 \leq N_2)\) \\
+\[\Rightarrow \Phi^{N-2}(x_0) ) \Phi^{N_2-N_1}(\underbrace{\Phi^{N_1}(x_0)}_{\in U}) \in V \]
+\[\Rightarrow \Phi^{N_2-N_2} (U) \cap V \not= \emptyset \]
+\end{beweis}
+
+\begin{lemma}
+Das Bernoulli-Shift-System ist transitiv, denn es besitzt einen dichten Orbit
+\end{lemma}
+\begin{beweis}
+Konstruktion eines dichten Orbits \(\Gamma_a \subset \Sigma_2\): \\
+Für jede Wahl der Länge eines Folgenabschnitts ex. endlich viele Symbolkombinationen von 0 und 1. Wir geben eine Folge von Längen vor, die gegen \(\infty\) strebt, z.B. 1,2,3,4,... und Reihen beginnend mit der Länge 1, gefolgt von der Länge 2, usw., jeweils alle Symbolkombinationen hintereinander (nach rechts). Nach links setzen wir die so konstruierte Folge beliebig fort. \(\Rightarrow\) Behauptung
+\end{beweis}
+
+
 
 \end{document}
