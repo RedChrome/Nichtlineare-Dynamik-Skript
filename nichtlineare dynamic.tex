@@ -1224,7 +1224,7 @@ f"ur $x<0$ haben $\gamma(x)$ und $(\lambda^*)'(x)$ das gleiche Vorzeichen,
 \item
 f"ur $x>0$ haben $\gamma(x)$ und $(\lambda^*)'(x)$ entgegengesetztes Vorzeichen
 \end{itemize}
-Die Gleichgewichtspunkte entlang des nicht-trivialen L"osungszweiges sind somit asymptotisch stabil, wo sich jener f"ur $x>0$ nach rechts wendet ($(\lambda^*)'>0$) und instabil, wo sich jener nach links wendet ($(\lambda^*)'(x)<0$), umgekehrt für \(x<0\).
+Die Gleichgewichtspunkte entlang des nicht-trivialen L"osungszweiges sind somit asymptotisch stabil, wo sich jener f"ur $x>0$ nach rechts wendet ($(\lambda^*)'>0$) und instabil, wo sich jener nach links wendet ($(\lambda^*)'(x)<0$), umgekehrt f"ur \(x<0\).
 \qed
 \end{beweis}
 \begin{figure}[htpb]
@@ -1383,7 +1383,7 @@ $\Rightarrow$ Grundl"osungszweig trivialer (Fix-) Gleichgewichtspunkte\\
 Eigenwerte $\gamma(\lambda)=1+\lambda$
 \[\Rightarrow \gamma(0)=1, \gamma'(\lambda)=1>0\ \forall \lambda\in\mathbb{R}\]
 \[\mu=\frac 1 2\ \forall \lambda\in\mathbb{R} \Rightarrow |\mu|<1\]
-$\Rightarrow (\lambda_c,0)$ ist ein station"arer Verzweigungspunkt $(\lambda_c =0, x=0)$ und es gilt das Prinzip des Stabilitätsaustausches\\
+$\Rightarrow (\lambda_c,0)$ ist ein station"arer Verzweigungspunkt $(\lambda_c =0, x=0)$ und es gilt das Prinzip des Stabilit"atsaustausches\\
 Der Eigenvektor zu $\gamma(\lambda)=1+\lambda$ ist $\varphi(\lambda)=(1,0)\ \forall \lambda\in\mathbb{R}$\\
 insbesondere $\varphi =\varphi(\lambda_c)=\varphi(0)=(1,0)$\\
 Ferner gilt: $\operatorname{J}_x\Psi(\lambda,0)^{\operatorname{T}}=\operatorname{J}_x\Psi(\lambda,0)$ symmetrische Matrix\\
@@ -1397,7 +1397,7 @@ $\Rightarrow$ Die station"are Verzweigung bei $\lambda_c=0, x=0$ ist \emph{trans
 \end{beispiel}
 
 \subsection{Weiterer Instabilit"atsmechanismus f"ur Hom-Systeme}
-Wir haben bereits festgestellt, dass falls ein Eigenwert die komplexe Einheitskugel über $(1,0)$ von innen nach au"sen verl"asst, dann findet dort ein Stabilit"atswechsel statt. Dies konnte analog zum kontinuierlichem Fall hergeleitet werden. Nun ist es aber f"ur Hom-Systeme auch m"oglich, dass ein Eigenwert die komplexe Einheitskugel "uber $(-1,0)$ verl"asst. Das ist f"ur kontinuierliche Systeme nicht m"oglich. Wir werden diesen neuen Fall nun untersuchen. 
+Wir haben bereits festgestellt, dass falls ein Eigenwert die komplexe Einheitskugel "uber $(1,0)$ von innen nach au"sen verl"asst, dann findet dort ein Stabilit"atswechsel statt. Dies konnte analog zum kontinuierlichem Fall hergeleitet werden. Nun ist es aber f"ur Hom-Systeme auch m"oglich, dass ein Eigenwert die komplexe Einheitskugel "uber $(-1,0)$ verl"asst. Das ist f"ur kontinuierliche Systeme nicht m"oglich. Wir werden diesen neuen Fall nun untersuchen. 
 
 
 Sei ein algebraisch und geometrisch einfacher Eigenwert $\gamma(\lambda)$ von $\operatorname{J}_x\Psi(\lambda,x_t)$ gegeben, der bei $\lambda=\lambda_C$ "uber $-1$ vom Inneren des Einheitskreises in der komplexen Ebene nach au"sen wandert. Dabei seien alle anderen Eigenwerte strikt im Inneren des Einheitskreises f"ur $\lambda$ nahe $\lambda_C$. Es gilt f"ur diesen Eigenwert $\gamma(\lambda)$ also
@@ -1428,7 +1428,7 @@ Dann sind alle $(x, \lambda^*(x))$ $2$-periodische Orbits des Hom-Systems. Die S
 \begin{beweis}
 Wir betrachten das durch $\Phi(\lambda,x):=\Psi(\lambda,\Psi(\lambda,x))$ induzierte diskrete System. Da $(\lambda_C, x_t)$ ein Gleichgewichtspunkt (bzw. im diskreten Fall ein Fixpunkt) ist, gilt
 \[\forall\lambda\in U: \Phi(\lambda,x_t)=\Psi(\lambda,\underbrace{\Psi(\lambda,x_t)}_{=x_t})=x_t\ \]
-Dann ist $(\lambda,x_t), \lambda\in U$ ein Grundl"osungszweig trivialer Gleichgewichtspunkte für das $\Phi$-System. F"ur die Jacobi-Matrix gilt
+Dann ist $(\lambda,x_t), \lambda\in U$ ein Grundl"osungszweig trivialer Gleichgewichtspunkte f"ur das $\Phi$-System. F"ur die Jacobi-Matrix gilt
 \[\operatorname{J}_x\Phi(\lambda,x)=\operatorname{J}_x\Psi(\lambda,\Psi(\lambda,x))\operatorname{J}_x\Psi(\lambda,x))\]
 \[\Rightarrow \operatorname{J}_x\Phi(\lambda,x_t)=\operatorname{J}_x\Psi(\lambda,\Psi(\lambda,x_t))\operatorname{J}_x\Psi(\lambda,x_t)=(\operatorname{J}_x\Psi(\lambda,x_t))^2\]
 Daher ist $\gamma^2(\lambda)$ ein algebraisch und geometrisch einfacher Eigenwert von $\operatorname{J}_x\Phi(\lambda,x_t)=(\operatorname{J}_x\Psi(\lambda,x_t))^2$, mit den gleichen Eigenvektoren.
@@ -1533,7 +1533,7 @@ Deswegen ist $(\lambda_C, 0)$ ein station"arer Verzweigungspunkt f"ur das durch 
 \end{proof}
 
 \begin{beispiel}[Reibschwinger aus der Mechanik]
-Im Folgenden bezeichne $\delta>0$ den Dämpfungskoeffizienten, $k$ die Federkonstante im Sinne des Hook'schen Gesetzes und $x$ die Auslenkung des Körpers $m$ aus der Ruhelage ($x=0$). Ferner gelte das Coulomb'sche Reibungsgesetz mit $|R|=\mu(\nu)|N|$, wobei $\nu:=v-x$ die Relativgeschwindigkeit bezeichne.
+Im Folgenden bezeichne $\delta>0$ den D"ampfungskoeffizienten, $k$ die Federkonstante im Sinne des Hook'schen Gesetzes und $x$ die Auslenkung des Körpers $m$ aus der Ruhelage ($x=0$). Ferner gelte das Coulomb'sche Reibungsgesetz mit $|R|=\mu(\nu)|N|$, wobei $\nu:=v-x$ die Relativgeschwindigkeit bezeichne.
 
 Voraussetzungen an $\mu(\nu)$ (Materialeigenschaften): Es existiert ein $\nu_0$, so dass
 \begin{itemize}
@@ -1591,33 +1591,33 @@ F"ur $v\geq v_0$ ist wegen $\mu'(v)\geq0$ der Realteil der Eigenwerte negativ un
 
 F"ur $0<v\leq v_0$ ist $\lambda_{a\slash 2}(v)=\alpha(v)\pm i\beta(v)$ mit
 \begin{align*}
-\alpha(v)&=-\frac{Zähler}{2m}[\delta+mg\mu'(v)]\\
+\alpha(v)&=-\frac{Z"ahler}{2m}[\delta+mg\mu'(v)]\\
 \beta(v)&=\pm\frac{1}{2m}\sqrt{4km-[\delta+mg\mu'(v)]^2},
 \end{align*}
-wobei $4km-[\delta+mg\mu'(v)]^2>0$ wegen $\delta<\sqrt{4km}$, $\mu'(v)<0$ und der ersten und der letzten Voraussetzung an $\mu$ aus $-\sqrt{4km}<\delta+mg\mu'(v)<\sqrt{4km}$ folgt. Weiterhin ist $\alpha(c)>0$ genau dann, wenn $\mu'(c)<\frac{\delta}{mg}$. Da somit $\alpha(0)>0$, folgt wegen $\alpha(v_0)\leq$ aus dem Zwischenwertsatz die Existenz eines $0<v_c<v_0$ mit $\alpha(v_c)=0$. Außerdem gilt $\alpha'(v_c)=-\frac{1}{2}g\mu''(v_c)<0$ und der Satz über die Hopf-Verzweigungen ist anwendbar.
+wobei $4km-[\delta+mg\mu'(v)]^2>0$ wegen $\delta<\sqrt{4km}$, $\mu'(v)<0$ und der ersten und der letzten Voraussetzung an $\mu$ aus $-\sqrt{4km}<\delta+mg\mu'(v)<\sqrt{4km}$ folgt. Weiterhin ist $\alpha(c)>0$ genau dann, wenn $\mu'(c)<\frac{\delta}{mg}$. Da somit $\alpha(0)>0$, folgt wegen $\alpha(v_0)\leq$ aus dem Zwischenwertsatz die Existenz eines $0<v_c<v_0$ mit $\alpha(v_c)=0$. Au"serdem gilt $\alpha'(v_c)=-\frac{1}{2}g\mu''(v_c)<0$ und der Satz "uber die Hopf-Verzweigungen ist anwendbar.
 
-Weiterhin kann der Parameter $a=\ldots=\ldots-\frac{1}{16}g\mu'''(v_c)$ bestimmt werden, welcher das entgegengesetzte Vorzeichen von $\mu'''(v_c)$ trägt. Damit l"asst sich ableiten, ob die Hopf-Verzweigung bez"uglich zunehmender Bahngeschwindigkeit $v$ sub- bzw.\ superkritisch ist. 
+Weiterhin kann der Parameter $a=\ldots=\ldots-\frac{1}{16}g\mu'''(v_c)$ bestimmt werden, welcher das entgegengesetzte Vorzeichen von $\mu'''(v_c)$ tr"agt. Damit l"asst sich ableiten, ob die Hopf-Verzweigung bez"uglich zunehmender Bahngeschwindigkeit $v$ sub- bzw.\ superkritisch ist. 
 \end{beispiel}
 
 %----------------------------------------------------------------------------
 
 \chapter{Chaos (deterministisch)}
 
-Wir betrachten im Folgenden abstrakte diskrete dynamische Systeme:\\
-\((X,d)\) metrischer Raum, \(\Phi:X\to X \) erzeugender Homöomorphismus.
+Wir betrachten im Folgenden abstrakte diskrete dynamische Systeme. Sei dazu
+\((X,d)\) ein metrischer Raum, \(\phi:X\to X \) ein erzeugender Hom"oomorphismus.
 
 \section{Bernoilli-Shift-System}
 
 \begin{definition}
 Es sei 
-	\[\Sigma_2 := \{a = (...a_{-l}a_{-(l-1)}...a_{-1}a_0a_1...a_{l-1}a_l...) | a_k \in \{0,1\}\} \]
-	Raum der doppelt-unedlichen Folgen zweier Symbole \(0,1\) mit der Metrik 
+	\[\Sigma_2 := \left\{a = (...a_{-l}a_{-(l-1)}...a_{-1}a_0a_1...a_{l-1}a_l...) | a_k \in \{0,1\}\right\} \]
+	der Raum der doppelt-unedlichen Folgen zweier Symbole \(0,1\) mit der Metrik 
 		\begin{align*}d: \Sigma_2\times\Sigma_2 \to \mathbb{R}, \qquad
-		&d(a,b)= \sum_{k \in\mathbb{Z}} \delta_k2^{-|k|} = \sum_{k\in \mathbb{Z}} (a_k-b_k)2^{|k|} \\
+		&d(a,b)= \sum_{k \in\mathbb{Z}} \delta_k2^{-|k|} = \sum_{k\in \mathbb{Z}} |a_k-b_k|2^{-|k|} \\
 		&\text{mit } \delta_k = \begin{cases} 0 & a_k=b_k \\ 1 & a_k\not= b_k \end{cases}
 		\end{align*}
 \end{definition}
-\(d\) ist Metrik:
+\(d\) ist eine Metrik, denn es gilt
 \begin{enumerate}
 	\item Definitheit: \(d(a,b) \geq 0\), \(d(a,b) = 0 \Leftrightarrow a=b\)
 	\item Symmetrie: \(d(a,b)= d(b,a)\)
@@ -1626,94 +1626,125 @@ Es sei
 Somit ist \((\Sigma_2, d)\) ein metrischer Raum.
 
 \begin{description}
-	\item[Bemerkung] Zwei Folgen \(a.b \in \Sigma_2\) sind nahe benachbart im Sinne dieser Metrik, falls sie einen relativ großen gemeinsamen zentrlen Abschnitt \((a_{-l}...a_0...a_l) = (b_{-l}...b_0....b_l)\) haben
+	\item[Bemerkung] Zwei Folgen \(a.b \in \Sigma_2\) sind nahe benachbart im Sinne dieser Metrik, falls sie einen relativ gro"sen gemeinsamen zentralen Abschnitt besitzen, d.h. f"ur ein hinreichend gro"ses $l\in\mathbb{N}$ gilt
+	$$ a_k = b_k \mbox{ f"ur } k = -l, \ldots, l$$	
 \end{description}
 
 \begin{definition}[Bernoulli-Shift-Abbildung]
 Es sei 
 	\[\sigma:\Sigma_2 \to \Sigma_2, \qquad a=(...a_{-l}...\underline{a_0}...a_l...) \mapsto (...a_{-(l-1)}...\underline{a_1}...a_{l+1}...) \]
-(= Shift der Folgenglieder um eine Stelle nach links)
+der Shift der Folgenglieder um eine Stelle nach links
 
 \end{definition}
 
 \begin{description}
-	\item[Bemerkung] \(\sigma\) ist bijektiv mit \(\sigma^{-1}= \) "`Shift der Folgenglieder um eine Stelle nach rechts"'\\
-	\(\sigma,\sigma^{-1}\) sind stetig bzgl. der von \(d\) erzeugten Topologie\\
-	\(\Rightarrow \sigma\) ist ein Homöomorphismus und erzeugt somit ein diskretes dynamisches System \((\Sigma_2,\sigma)\).
+	\item[Bemerkung] \(\sigma\) ist bijektiv. Die Umkehrabbildung ist dabei der Shift der Folgenglieder um eine Stelle nach rechts. \(\sigma,\sigma^{-1}\) sind stetig bzgl. der von \(d\) erzeugten Topologie. Daher ist $\sigma$ ein Hom"oomorphismus und erzeugt somit ein diskretes dynamisches System \((\Sigma_2,\phi_\sigma)\).
 \end{description}
 
-\subsection{Analyse des dynamsichen Verhaltens}
-
+\subsection{Analyse des dynamischen Verhaltens}
+Im Folgendem untersuchen wir das Verhalten des diskreten dynamischen Systems $(\Sigma_2, \phi_\sigma)$, wobei $\phi_\sigma$ definiert ist als
+\begin{align*}
+	\phi_\sigma\colon\mathbb{Z}\times\Sigma_2, \ (k, a) \mapsto 
+	\begin{cases}
+		\sigma^{k}(a) &\mbox{, falls } k \geq 0 \\
+		(\sigma^{-1})^{k}(a) &\mbox{, sonst}
+	\end{cases}
+\end{align*}
 \begin{enumerate}
 	\item{Gleichgewichtspunkte:}
+	Es gilt f"ur Gleichgewichtspunkte
+	$$ \forall k \in \mathbb{Z}: \phi_\sigma(k, a) = a $$
+	Daher gilt $a_k = a_0$ f"ur alle $k \in \mathbb{Z}$. Die einzigen Gleichgewichtspunkte sind also 
 		\begin{align*}
-			&\sigma(a)=a \\
-			& \Rightarrow e_1=(...0...), e_2=(...1...)
+			e_1=(\ldots 0\ldots 0\ldots),\  e_2=(\ldots 1\ldots 1\ldots)
 		\end{align*}
-		Sind die einzigen Gleichgewichtspunkte
 	\item{Periodische Orbits:} Jede Folge der Form
-		\[p=(...p_0p_1...p_np_0p_1...p_np_0p_1...p_n...) \]
-		mit der endlichen erzeugenden Symbolsequenz \(p_0p_1...p_n\), welche vorwärts und rückwärts beliebig oft aneinander zu setzen ist, ist ein \((n+1)\) periodische Punkt in \(\Sigma_2\)\\
-		\(\Rightarrow\) zugehöriger Orbit \(\Gamma_p\) ist \((n+1)\) periodisch
+		\[p=(\ldots p_0p_1\ldots p_np_0p_1\ldots p_np_0p_1\ldots p_n\ldots) \]
+		mit der endlichen erzeugenden Symbolsequenz \(p_0p_1...p_n\), welche vorw"arts und r"uckw"arts beliebig oft aneinander zu setzen ist, ist ein \((n+1)\) periodische Punkt des dynamischen Systems.
+		Der zugeh"origer Orbit \(\Gamma_p\) ist \((n+1)\) periodisch
+		
 	\item{Nicht-periodische Orbits} bspw. homo- und heterokline Orbits\\
-		\(h_1 := (...0a_{-l}a_{-(l-1)}...a_0...a_{\tilde{l}-1}a_{\tilde{l}}0...)\) ist homokliner Punkt bzgl. des leichgewichts \(e_1\), denn \(\lim_{k\to\pm\infty} d(\sigma^k(h_1),e_1) = 0\)\\
-		Entspr. \(h_2=(...1a_{-l}a_{-(l-1)}...a_0...a_{\tilde{l}-1}a_{\tilde{l}}1...)\) homokliner Punkt bzgl. des Gleichgewichts \(e_2\)\\
-		\(\Rightarrow \Gamma_{h_1}, \Gamma_{h_2}\) sind homokline Orbits\\
-		Ferner ist \(h_3:=(...0a_{-l}a_{-(l-1)}...a_0...a_{\tilde{l}-1}a_{\tilde{l}}1...)\) heterokliner Punkt bzgl. \(e_1\) und \(e_2\), d.h. 
+		\begin{align*}
+			h_1 := (\ldots 0a_{-l}a_{-(l-1)}\ldots a_0\ldots a_{\tilde{l}-1}a_{\tilde{l}}0\ldots ) \\
+		  		h_2:=(\ldots 1a_{-l}a_{-(l-1)}\ldots a_0\ldots a_{\tilde{l}-1}a_{\tilde{l}}1\ldots )
+		\end{align*}
+		 sind homokline Punkte bzgl. des Gleichgewichtspunkts \(e_1\) bzw. \(e_2\), denn \(\lim_{k\to\pm\infty} d(\sigma^k(h_{1/2}),e_{1/2}) = 0\). Daher sind \(\Gamma_{h_1}, \Gamma_{h_2}\) homokline Orbits. Ferner ist 
+		 \[h_3:=(\ldots 0a_{-l}a_{-(l-1)}\ldots a_0\ldots a_{\tilde{l}-1}a_{\tilde{l}}1\ldots )\] 
+		 ein heterokliner Punkt bzgl. \(e_1\) und \(e_2\), d.h. 
 		\[\lim_{k\to\infty} d(\sigma^k(h_3),e_2) = 0, \lim_{k\to -\infty} d(\sigma^k(h_3),e_1)=0\]
-		\(\Rightarrow \Gamma_{h_3}\) ist heterokliner Orbit bzgl. der Gleichgewichte \(e_1\) und \(e_2\).
-		\item{Sensitive Abhängigkeit von den Anfangszuständen }(Schmetterlingseffekt) (siehe unter Bemerkung)
+		Somit ist \( \Gamma_{h_3}\) ein heterokliner Orbit bzgl. der Gleichgewichte \(e_1\) und \(e_2\).
 \end{enumerate}
 
-\begin{description}
-	\item[Bemerkung] Die Menge aller periodischen Punkte (Orbits) ist dicht in \(\Sigma_2\):\\
-	Sei \(a\in \Sigma_2\) beliebig. Wähle je nach Vorgabe eines maximalen Abstands einen entsprechend langen Zentralabschnitt von \(a\) und wiederhole in zu beiden Seiten beliebig oft und definiere dadurch einen periodischen Punkt \(p_a\)\\
-	\(\Rightarrow \sigma^k(p_a)\) ist für ein \(k>0\) dem Punkt \(a\) entsprechend der Vorgabe des max. Abstands nahe.
-\end{description}
+\begin{lemma}
+Die Menge $\Gamma$ aller periodischen Punkte ist dicht in $\Sigma_2$.
+\end{lemma}
+\begin{beweis}
+Sei $a\in \Sigma_2$, $\varepsilon > 0$ beliebig. W"ahle ein $l\in\mathbb{N}$ hinreichend gro"s, sodass 
+$$ \sum_{k = -\infty}^{-l}{2^{k}} + \sum_{k=l}^{\infty}{2^{-k}} = \sum_{k=l}^{\infty}2^{1-k}< \varepsilon$$ 
+Definiere nun einen $(2l+1)$ periodischen Punkt $p \in \Gamma$ durch
+$$ p = (\ldots a_{-l}\ldots a_{l} a_{-l} \ldots a_{l} \ldots )$$
+Damit gilt
+\begin{align*}
+	d(a, p) &= \sum_{k = -\infty}^{\infty}{|a_k - p_k| 2^{-|k|}} = \sum_{k = -\infty}^{-l}{|a_k-p_k|2^{k}} + \sum_{k=l}^{\infty}{|a_k-p_k|2^{-k}}\\
+	&\leq \sum_{k = -\infty}^{-l}{2^{k}} + \sum_{k=l}^{\infty}{2^{-k}} < \varepsilon
+\end{align*}
+\qed
+\end{beweis}
 
 \begin{definition}
-Wir sagen, das System \((X,\Phi)\) hat die Eigenschaft der sensitiven Abhängigkeit von den Anfangszuständen, falls es eine Sensitivitätsvariante \(\lambda > 0\) gibt, sodass zu jedem \(a \in \sigma_2, \epsilon >0\) ein \(b \in \Sigma_2\) mit \(\d(a,b) < \epsilon\) und ein \(N\in \mathbb{N}\) existieren, mit 
-	\[\d(\sigma^N(a),\sigma^N(b)) \geq \lambda\]
+Wir sagen, das System \((X,\phi)\) hat die Eigenschaft der sensitiven Abh"angigkeit von den Anfangszust"anden, falls es eine Sensitivit"atskonstante \(\Lambda > 0\) gibt, sodass zu jedem \(a \in X, \varepsilon >0\) ein \(b \in X\) mit \(d(a,b) < \varepsilon\) und ein \(N\in \mathbb{N}\) existieren, mit 
+	\[d\bigl(\phi(N, a), \phi(N, b)\bigr) \geq \Lambda\]
 \end{definition}
 
 \begin{lemma}
-\((\Sigma_2,\sigma)\) hat die Eigenschaft der sensitiven Abhängigkeit von den Anfangswerten
+Das dynamische System \((\Sigma_2,\phi_\sigma)\) hat die Eigenschaft der sensitiven Abh"angigkeit von den Anfangswerten.
 \end{lemma}
 \begin{beweis}
-Denn mit \(\lambda = 1\) gilt: \\
-Seien \(a\in\Sigma_2, \epsilon\) beliebig. Wähle \(b\) sodass abhängig von \(\epsilon\) \(b\) einen hinreichend großen zentralen Abschnitt gemeinsam mit \(a\) hat und rechts davon wenigstens für ein k gilt: \(a_k\not= b_k\)
+W"ahle \(\Lambda = 1\). Seien \(a\in\Sigma_2, \varepsilon > 0\) beliebig. Es sei wieder $l\in\mathbb{N}$ hinreichend gro"s, sodass 
+$$ \sum_{k = -\infty}^{-l}{2^{k}} + \sum_{k=l}^{\infty}{2^{-k}} = \sum_{k=l}^{\infty}2^{1-k}< \varepsilon$$ 
+Definiere $b \in \Sigma_2$ durch
+
+$$ b = (\ldots b_{-(l+1)}a_{-l}\ldots a_{l} b_{l+1} \ldots) $$
+wobei $b_k \in \left \{ 0,1 \right \}$ beliebig gew"ahlt sind und $b_{l+1} \neq a_{l+1}$. Dann gilt
+\begin{align*}
+d\bigl(&\phi_\sigma(l+1, a), \phi_\sigma(l+1, b)\bigr) = \sum_{k=-\infty}^{\infty}{\left|\left(\sigma^{l+1}(a)\right)_k - \left(\sigma^{l+1}(b)\right)_k\right|2^{-|k|}} \\
+&= \sum_{k \in \mathbb{Z} \setminus \{0\}}{\left|\left(\sigma^{l+1}(a)\right)_k - \left(\sigma^{l+1}(b)\right)_k\right|2^{-|k|}} + \left|\left(\sigma^{l+1}(a)\right)_0 - \left(\sigma^{l+1}(b)\right)_0\right| \\
+ &=\sum_{k \in \mathbb{Z} \setminus \{0\}}{\left|\left(\sigma^{l+1}(a)\right)_k - \left(\sigma^{l+1}(b)\right)_k\right|2^{-|k|}} + \underbrace{|a_{l+1} - b_{l+1}|}_{ = 1} \geq 1 
+\end{align*}
+\qed
 \end{beweis}
 
 \begin{beispiel}
-Sei \(X = (0,\infty), \Phi:X\to X, x\mapsto (1+\mu)x \qquad (\mu>0)\)\\
-\(d(x,y) = |x-y|\) \\
-	\(\Rightarrow\) expandierende Abbildung\\
-	\(\Rightarrow\) Das System \((X,\Phi)\) hat die Eigenschaft der sensitiven Abhängigkeit von den Anfangszuständen, denn für jedes Paar \(x,y\in X\) existiert \(N\in\mathbb{N}\) mit
-		\[d(\Phi^N(x),\Phi^N(y))= |\Phi^N(x)-\phi^N(y)| = (1-\mu)^N|x-y| \geq \lambda\]
-		Alle Orbits dieses Systems werden mit zunehmender Zeit gegen \(\infty\) gehen, es liegt also ein reguläres = nicht chaotisches Verhalten vor.
+Betrachte \(X = (0,\infty), \psi:X\to X, x\mapsto (1+\mu)x \qquad (\mu>0)\)\\
+mit der Standard-Metrik \(d(x,y) = |x-y|\). Das dynamische System ist dann gegeben durch $(X, \phi_\psi)$ mit $\phi_\psi(k, x) = (1+\mu)^k x$. Daher ist $\phi_\psi$ eine exponentielle Abbildung in $k$. Ferner hat \((X,\phi_\psi)\) die Eigenschaft der sensitiven Abh"angigkeit von den Anfangszust"anden, denn f"ur jedes Paar \(x,y\in X, x\neq y\) existiert ein \(N\in\mathbb{N}\) mit
+		\[d\bigl(\phi_\psi(N, x),\phi_\psi(N, y)\bigr) = (1+\mu)^N|x-y| \geq \lambda\]
+		Alle Orbits dieses Systems werden mit zunehmender Zeit gegen \(\infty\) gehen, es liegt also ein regul"ares bzw. nicht chaotisches Verhalten vor.
 \end{beispiel}
- 
-Um ein solches System von der Klasse der chaotischen Systeme auszuschließen, führen wir den Begriff der Transitivität ein:
-\begin{definition}[Transitivität]
-Ein System \((X,\Phi)\) wie oben heißt transitiv, falls es für jedes Paar offener Mengen (Umgebungen) \(U,V\subset X\) ein \(N\in\mathbb{N}\) ex, sodass 
-	\[\Phi^N(U)\cap V \not= \emptyset\]
+
+
+Um solche System von der Klasse der chaotischen Systeme auszuschlie"sen, f"uhren wir den Begriff der Transitivit"at ein
+\begin{definition}[Transitivit"at]
+Ein dynamisches System \((X,\phi)\) hei"st \emph{transitiv}, falls es f"ur jedes Paar offener Mengen \(U,V\subset X\) ein \(N\in\mathbb{N}\) existiert, sodass 
+	\[\phi(N, U)\cap V \not= \emptyset\]
 \end{definition}
 
 \begin{lemma}
-Ein System \((X,\Phi)\), welches wenigstens einen Orbit \(\Gamma\) besitzt, der dicht in \(X\) liegt, ist trnasitiv.
+Sei \((X,\phi)\) ein dynamisches System,  \(\Gamma \subset X\) ein Orbit, der dicht in \(X\) ist. Dann ist \((X,\phi)\) transitiv.
 \end{lemma}
 \begin{beweis}
-Sei \(\Gamma_{x_0}\) ein dichter Orbit, \(U,V,\subset X \) offene Mengen. Dann exisiteren \(N_1, N_2 \in \mathbb{N}\), sodass \(\Phi^{N_1}(x_0) \in U, \Phi^{N_2}(x_0) \in V (oBdA\  N_1 \leq N_2)\) \\
-\[\Rightarrow \Phi^{N-2}(x_0) ) \Phi^{N_2-N_1}(\underbrace{\Phi^{N_1}(x_0)}_{\in U}) \in V \]
-\[\Rightarrow \Phi^{N_2-N_2} (U) \cap V \not= \emptyset \]
+Sei \(\Gamma_{x_0}\) ein dichter Orbit, \(U,V,\subset X \) offene Mengen. Dann existieren \(N_1, N_2 \in \mathbb{N}\), sodass \(\Phi^{N_1}(x_0) \in U, \Phi^{N_2}(x_0) \in V \) \\
+\[\Rightarrow \Phi^{N_2}(x_0) = \Phi^{N_2-N_1}(\underbrace{\Phi^{N_1}(x_0)}_{\in U}) \in V \]
+\[\Rightarrow \Phi^{N_2-N_1} (U) \cap V \not= \emptyset \]
+\qed
 \end{beweis}
 
 \begin{lemma}
-Das Bernoulli-Shift-System ist transitiv, denn es besitzt einen dichten Orbit
+Das Bernoulli-Shift-System $(\Sigma_2, \phi_\sigma)$ ist transitiv, denn es besitzt einen dichten Orbit
 \end{lemma}
 \begin{beweis}
-Konstruktion eines dichten Orbits \(\Gamma_a \subset \Sigma_2\): \\
-Für jede Wahl der Länge eines Folgenabschnitts ex. endlich viele Symbolkombinationen von 0 und 1. Wir geben eine Folge von Längen vor, die gegen \(\infty\) strebt, z.B. 1,2,3,4,... und Reihen beginnend mit der Länge 1, gefolgt von der Länge 2, usw., jeweils alle Symbolkombinationen hintereinander (nach rechts). Nach links setzen wir die so konstruierte Folge beliebig fort. \(\Rightarrow\) Behauptung
+Wir konstruieren einen dichten Orbit \(\Gamma_a \subset \Sigma_2\): \\
+F"ur jede Wahl der L"ange eines Folgenabschnitts existieren endlich viele Symbolkombinationen von 0 und 1. Wir geben eine Folge von L"angen vor, die gegen \(\infty\) strebt, z.B. 1,2,3,4,... und Reihen beginnend mit der L"ange 1, gefolgt von der L"ange 2, usw., jeweils alle Symbolkombinationen hintereinander (nach rechts). Nach links setzen wir die so konstruierte Folge beliebig fort. Damit folgt die Behauptung
+\qed
 \end{beweis}
 
 
