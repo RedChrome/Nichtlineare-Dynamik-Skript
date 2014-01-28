@@ -1748,48 +1748,63 @@ F"ur jede Wahl der L"ange eines Folgenabschnitts existieren endlich viele Symbol
 \end{beweis}
 
 % Vorlesung 27.01.14
-
+\section{Definition von Chaos}
+Wir wollen, dass ein chaotisches System unter einer topologischen Konjugation chaotisch bleibt. Folgendes Beispiel zeigt, dass die sensitive Abh"angigkeit von Anfangsdaten unter solchen transformationen nicht erhalten bleiben muss.
 \begin{beispiel}
 Sei $(X,d)$ ein metrischer Raum mit $X=(0,\infty), d(x,y)=|x-y|, \mu>0, \Phi(x)=(1+\mu)x$.\\
-Betrachte $(X,\Phi)$, so wie $(X,\Psi)$ mit $\Psi(x)=\frac x {1+\mu}$\\
-$\Rightarrow\ $ jeder Orbit von $(X,\Psi)$ n"ahert sich asymptotisch $x=0$ an, und damit keine sensitive Abh"angigkeit von Anfangsdaten im Gegensatz zu $(X,\Phi)$. Aber beide Systeme sind topologisch konjugiert bzgl. des Hom"oomorphismus $h:X\rightarrow X, x\mapsto \frac 1 x$
+Betrachte $(X,\phi_\Phi)$, so wie $(X,\phi_\Psi)$ mit $\Psi(x)=\frac x {1+\mu}$\\
+$\Rightarrow\ $ jeder Orbit von $(X,\phi_\Psi)$ n"ahert sich asymptotisch $x=0$ an, und damit keine sensitive Abh"angigkeit von Anfangsdaten im Gegensatz zu $(X,\phi_\Phi)$. Aber beide Systeme sind topologisch konjugiert bzgl. des Hom"oomorphismus $h:X\rightarrow X, x\mapsto \frac 1 x$
 \[\Phi(h(x))=(1+\mu)h(x)=\frac{1+\mu} x, h(\Psi(x))=\frac 1 {\Psi(x)}=\frac 1 {\frac x {1+\mu}} =\frac{1+\mu} x\]
 \[\Rightarrow\ h(\Psi(x))=\Phi(h(x))\]
 \end{beispiel}
 
-\begin{definition}[Devaney 1989]
-Ein diskretes dynamisches System $(X,\Phi)$ wie oben mit $X$ unendliche Menge heißt (im deterministischen Sinn) chaotisch, falls es transitiv ist und falls die periodischen Orbits (Punkte) dicht in $X$ liegen.
+\begin{definition}[Chaos - Devaney 1989]
+Ein diskretes dynamisches System $(X,\phi)$ mit $|X| = \infty$ heißt (\emph{im deterministischen Sinn}) \emph{chaotisch}, falls es transitiv ist und falls die periodischen Orbits (Punkte) dicht in $X$ liegen.
 \end{definition}
 
 \begin{bemerkung}
-Sei $X$ endlich, $(X,\Phi)$ transitiv $\Rightarrow\ X=\Gamma_{x_0}$ besteht aus einem einzigen periodischen Orbit, d.h. $(X,\Phi)$ ist nicht chaotisch. Denn sei $\varepsilon >0$ hinreichend klein, so dass $x_j\notin\operatorname{B}_{\varepsilon}(x_k)$ f"ur $k\neq j$.\\
-Transitivit"at: Es gibt ein $N\in\mathbb{N}$, so dass
-\[\Phi^N(\operatorname{B}_{\varepsilon}(x_0))\cap \operatorname{B}_{\varepsilon}(x_j)\neq\emptyset\ \forall j\neq 0\]
-\[\Rightarrow\ \Phi^N(x_0)=x_j \Rightarrow\ x_j\in\Gamma_{x_0}\]
+Sei $|X|<\infty$ und $(X,\phi)$ transitiv. Dann besteht $X$ nur aus einem einzigen periodischen Orbit, d.h. $X=\Gamma_{x_0}$. Dieses Verhalten ist f"ur uns nicht chaotisch. Denn sei $\varepsilon > 0$ hinreichend klein, so dass $x_j\notin\operatorname{B}_{\varepsilon}(x_k)$ f"ur $k\neq j$.
+Die Transitivit"at impliziert, dass es ein $N\in\mathbb{N}$ gibt, so dass
+\[\forall j\neq 0: \phi(N, \operatorname{B}_{\varepsilon}(x_0))\cap \operatorname{B}_{\varepsilon}(x_j)\neq\emptyset\ \]
+\[\Rightarrow\ \phi(N, x_0)=x_j \Rightarrow\ x_j\in\Gamma_{x_0}\]
 $\Rightarrow\ X=\Gamma_{x_0}$ periodisch, da endlich.
 \end{bemerkung}
 
 \begin{lemma}
-Sei $(X,\Phi)$ chaotisch. Dann hat $(X,\Phi)$ die Eigenschaft der sensitiven Abh"angigkeit von den Anfangsdaten.
+Sei $(X,\Phi)$ chaotisch. Dann hat $(X,\phi)$ die Eigenschaft der sensitiven Abh"angigkeit von den Anfangsdaten.
 \end{lemma}
 \begin{beweis}
 Es existiert ein $\Lambda>0$, so dass zu jedem $x\in X$ ein periodischer Orbit $\Gamma_p\subset X$ existiert, so dass der Abstand von $x$ zu $\Gamma_p \operatorname{dist}(x,\Gamma_p):=\inf_{y\in\Gamma_p} d(x,y)$ mindestens $4\Lambda$ ist. Denn es existieren mindestens zwei periodische Orbits $\Gamma_p$ und $\Gamma_q, p,q\in X$, da $X$ unendlich. Sei deren Abstand (minimaler Abstand von den Punkten des einen zu den Punkten des anderen) $8\Lambda$. Dreiecksungleichung $\Rightarrow\ x$ kann nicht sowohl von $\Gamma_p$ als auch von $\Gamma_q$ einen Abstand von $<4\Lambda$ haben.\\
-Sei $x\in X$ beliebig und $\Gamma_p$ ein periodischer Orbit mit $\operatorname{dist}(x,\Gamma_p)\geq 4\Lambda$. Sei $0<\varepsilon <\Lambda$ beliebig. Dichtheit des periodischen Oribts $\Rightarrow\ $ es existiert ein $n$-periodischer Punkt $q\in\operatorname{B}_{\epsilon}(x)$ f"ur ein $n\in\mathbb{N}$. Sei $\delta >0$ hinreichend klein, so dass $\Phi^j(\operatorname{B}_{\delta}(x_p))\subset\operatorname{B}_{\delta}(\Gamma_p)$ f"ur $0\leq j\leq n$ und alle $x_p\in\Gamma_p$.
-Transitivit"at: es existiert ein $l\in\mathbb{N}$, so dass $\Phi^l(\operatorname{B}_{\epsilon}(x))\cap\operatorname{B}_{\delta}(p)\neq\emptyset$, d.h. es existiert ein $y\in\operatorname{B}_{\epsilon}(x)$, so dass $\Phi^l(y)\in\operatorname{B}_{\delta}(p)\Rightarrow\ $ w"ahle $0\leq j<n$ (minimal), so dass $l+j\in n\mathbb{N}$ wobei $n$ die Periode von $q$ ist.\\
+Sei $x\in X$ beliebig und $\Gamma_p$ ein periodischer Orbit mit $\operatorname{dist}(x,\Gamma_p)\geq 4\Lambda$. Sei $0<\varepsilon <\Lambda$ beliebig. Dichtheit des periodischen Oribts $\Rightarrow\ $ es existiert ein $n$-periodischer Punkt $q\in\operatorname{B}_{\epsilon}(x)$ f"ur ein $n\in\mathbb{N}$. Sei $\delta >0$ hinreichend klein, so dass $\phi(j, \operatorname{B}_{\delta}(x_p))\subset\operatorname{B}_{\delta}(\Gamma_p)$ f"ur $0\leq j\leq n$ und alle $x_p\in\Gamma_p$.
+Transitivit"at: es existiert ein $l\in\mathbb{N}$, so dass $\phi(l, \operatorname{B}_{\epsilon}(x))\cap\operatorname{B}_{\delta}(p)\neq\emptyset$, d.h. es existiert ein $y\in\operatorname{B}_{\epsilon}(x)$, so dass $\phi(l, y)\in\operatorname{B}_{\delta}(p)\Rightarrow\ $ w"ahle $0\leq j<n$ (minimal), so dass $l+j\in n\mathbb{N}$ wobei $n$ die Periode von $q$ ist.\\
 Mehrfache Dreiecksungleichung (nach unten):
-\[d(\Phi^{l+j}(q),\Phi^{l+j}(y))\geq\underbrace{\operatorname{dist}(x,\Gamma_p)}_{\geq 4\Lambda}-\underbrace{d(x,\underbrace{\Phi^{l+j}(q)}_{=q})}_{<\varepsilon<\Lambda}-\underbrace{\operatorname{dist}(\Phi^{l+j}(y),\Gamma_p)}_{<\Lambda}\geq 2\Lambda\]
+\begin{align*}
+d(\phi(l+j, q)&,\phi(l+j, y))\\
+&\geq\underbrace{\operatorname{dist}(x,\Gamma_p)}_{\geq 4\Lambda}-\underbrace{d(x,\underbrace{\phi(l+j, q)}_{=q})}_{<\varepsilon<\Lambda}-\underbrace{\operatorname{dist}(\phi(l+j, y),\Gamma_p)}_{<\Lambda}\\
+&\geq 2\Lambda
+\end{align*}
 Dreiecksungleichung (nach oben):
-\[d(\Phi^{l+j}(x),\Phi^{l+j}(q))\geq\Lambda\text{ oder } d(\Phi^{l+j}(x),\Phi^{l+j}(y))\geq\Lambda\]
+\[d(\phi({l+j}, x),\phi({l+j},q))\geq\Lambda\text{ oder } d(\phi({l+j}, x),\phi({l+j},y))\geq\Lambda\]
 Sonst
-\[d(\Phi^{l+j}(q),\Phi^{l+j}(y))\leq\underbrace{d(\Phi^{l+j}(q),\Phi^{l+j}(x))}_{<\Lambda}+\underbrace{d(\Phi^{l+j}(x),\Phi^{l+j}(y))}_{<\Lambda}<2\Lambda\]
+\begin{align*}
+d(\phi(l+j, q)&,\phi(l+j, y))\\
+&\leq\underbrace{d(\phi(l+j, q),\phi(l+j,x))}_{<\Lambda}+\underbrace{d(\phi(l+j, x),\phi(l+j,y))}_{<\Lambda}\\
+&<2\Lambda
+\end{align*}
 Da $x,\varepsilon$ beliebig, folgt sensitive Abh"angigkeit von Anfangsdaten mit Sensibilit"atskonstanten $\Lambda$. \qed
 \end{beweis}
 
-\begin{beispiel}
-\begin{enumerate}
-\item Bernoulli-Shift-Dynamik $(\Sigma_2,\Phi_\sigma)$ ist chaotisch, denn dieses System besitzt wie gezeigt einen dichten Orbit ($\Rightarrow$ Transitivit"at) und die periodischen Orbits liegen dicht in $\Sigma_2$
+\begin{lemma}
+Der eingef"uhre Chaosbegriff ist invariant unter topologischen Konjugationen.
+\end{lemma}
 
-\item Hier betrachten wir Systeme, die von nicht notwendigerweise invertierbaren Abbildungen $\Phi:X\rightarrow X$ erzeugt werden, "Vorw"artsdynamik"', z.B. die Zeltabbildung als erzeugende Abbildung in $I=\mathbb{R}, \mu\in\mathbb{R}, \mu>0: T_{\mu}:= \frac{\mu} 2 (1-|2x-1|)$
+\section{Beispiele chaotischer Systeme}
+\subsection{Bernoulli-Shift-System}
+Die Bernoulli-Shift-Dynamik $(\Sigma_2,\phi_\sigma)$ ist chaotisch, denn dieses System besitzt wie bereits gezeigt einen dichten Orbit ($\Rightarrow$ Transitivit"at) und die periodischen Orbits liegen dicht in $\Sigma_2$.
+
+\subsection{\glqq Zelt\grqq-Abbildung}
+Hier betrachten wir Systeme, die von nicht notwendigerweise invertierbaren Abbildungen $\Phi:X\rightarrow X$ erzeugt werden. Daher k"onnen wir nur die \glqq Vorw"artsdynamik"' solcher Systeme untersuchen. Dies stellt f"ur uns im Hinblick auf den Chaos solcher Systeme keine Einschr"ankung dar, da all unsere Ergebnisse diese Eigenschaft nicht vorausgesetzt haben. \\
+Die Zeltabbildung als erzeugende Abbildung in $I=\mathbb{R}, \mu\in\mathbb{R}, \mu>0: T_{\mu}:= \frac{\mu} 2 (1-|2x-1|)$
 $\mu=2: T_2:[0,1]\rightarrow[0,1], d(x,y)=|x-y|$ st"uckweise lineare Abbildung
 \[T_2^2=T_2\circ T_2,
 T_2^n=
@@ -1804,13 +1819,10 @@ Transitivit"at: F"ur alle $x\in[0,1]$ und $\varepsilon>0$ gibt es $n,j\in\mathbb
 \[\Rightarrow T_2^n(\operatorname{B}_{\varepsilon}(x))\subset T_2^n(I_{n,j})=[0,1]=X\]
 \[\Rightarrow T_2^n(\operatorname{B}_{\varepsilon}(x))\cap V\neq\emptyset\]
 f"ur entsprechendes $n\in\mathbb{N}$\\
-$\Rightarrow$ das "Semisystem" $([0,1],T_2)$ ist chaotisch. Die Invertierbarkeit des erzeugenden Hom"oomorphismus wurde zuvor im Zusammenhang von Chaos nirgends benutzt.
+Daher ist das \glqq Semisystem"'  $([0,1],T_2)$ chaotisch.
 
-\item Sei $\mu\in\mathbb{R}, 0<\mu\leq 4, L_{\mu}:[0,1]\rightarrow[0,1], x\mapsto\mu x(1-x)$ polynomial, $C^{\infty}$-glatt\\
+\subsection{Logistische Abbildung}
+Sei $\mu\in\mathbb{R}, 0<\mu\leq 4, L_{\mu}:[0,1]\rightarrow[0,1], x\mapsto\mu x(1-x)$ polynomial, $C^{\infty}$-glatt\\
 $L_\mu$ beschreibt exponentielles Wachstum mit S"attigungsgrenze.\\
-$\mu=4: ([0,1],L_4)$ ist chaotisch. Topologische Konjugation zu $([0,1],T_2)$ mittels konjugiertem Hom"oomorphismus $h(x)=\sin^2(\frac{\pi x} 2)\Rightarrow h(T_2(x))=L_4(h(x))$ f"ur alle $x\in[0,1]$\\
-Der eingef"uhrte Chaosbegriff bleibt unter topologischer Konjugation erfüllt.
-\end{enumerate}
-\end{beispiel}
-
+$\mu=4: ([0,1],L_4)$ ist chaotisch. Topologische Konjugation zu $([0,1],T_2)$ mittels konjugiertem Hom"oomorphismus $h(x)=\sin^2(\frac{\pi x} 2)\Rightarrow h(T_2(x))=L_4(h(x))$ f"ur alle $x\in[0,1]$
 \end{document}
