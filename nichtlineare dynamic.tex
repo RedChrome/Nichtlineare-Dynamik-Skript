@@ -46,7 +46,7 @@
 Wir behandeln zwei Arten von dynamischen Systemen:
 \begin{enumerate}
 \item \emph{kontinuierliches dynamisches System}: Es gibt eine kontinulierliche Zeitvariable $t\in\mathbb{R}$
-\item \emph{diskretes dynamisches System}: Es gibt eine kontinulierliche Zeitvariable $t\in\mathbb{Z}$
+\item \emph{diskretes dynamisches System}: Es gibt eine diskrete Zeitvariable $t\in\mathbb{Z}$
 \end{enumerate}
 Im folgenden bezeichnet $T$ entweder $\mathbb{R}$ oder $\mathbb{Z}$, je nachdem, welches dynamische System im Kontext verwendet wird.
 
@@ -71,7 +71,7 @@ Durch ein dynamischen Systems $(X,\phi)$ wird jedem Zustand $x\in X$ ein \emph{O
 $$\Gamma_x := \left \{\left. y \in X \right | \exists t\in T: \phi(t,x) = y\right \}$$ 
 Ein \emph{Phasendiagramm} ist die Skizze des Orbits $\Gamma_x$ f"ur einige $x \in X$.
 \begin{description}
-\item[Bemerkung]Durch jeden Punkt $x\in X$ verl"auft genau ein Orbit $\Gamma_x$. Insbesondere k"onnen sich Orbits nicht traversal (selbst) schneiden.
+\item[Bemerkung]Durch jeden Punkt $x\in X$ verl"auft genau ein Orbit $\Gamma_x$. Insbesondere k"onnen sich Orbits nicht transversal (selbst) schneiden.
 \end{description}
 \end{definition}
 \subsection{Eigenschaften der Flussabbildung $\phi$}
@@ -92,7 +92,7 @@ $$\dot x= v(x)$$
 wobei $v\colon\mathbb{R}^n\to\mathbb{R}^n$ ein Vektorfeld ist. Durch das zugeh"orige AWP $x(0) = x_0$ wird die L"osung $x(t) = \phi(t, x_0)$ festgelegt, falls $v$ hinreichende Struktur besitzt. Falls $v$ beispielsweise lokal Lipschitz-stetig ist, liefert Picard-Lindel"of eine lokal eindeutige L"osung. 
 Dies induziert ein dynamisches System $(X, \phi)$, wobei $X = \mathbb{R}^n$, bzw. $X$ das Definitionsgebiet des Vektorfeldes ist.
 \begin{lemma}
-Die durch dieses AWP induziert $\phi$ gen"ugt den Eigenschaften einer Flussabbildung
+Die durch dieses AWP induzierte Abbildung $\phi$ gen"ugt den Eigenschaften einer Flussabbildung
 \end{lemma}
 \begin{beweis}
 Sei $\phi(t, x)$ die \emph{Fundamentall"osung} der Differentialgleichung
@@ -296,7 +296,7 @@ Definiere \( \tilde{U} := \{ x \in B_{\varepsilon} (x_G)\ |\ V(x) < m \} \not= \
 \end{beispiel}
 
 \subsubsection{Direkte Methode f"ur Hom-Systeme} 
-Direkte Methode von Lyapunov funktioniert entsprechend des GDG-Falls wobei in der Definition einer Lyapunov-Funktion die Bedingng 3) zu ersetzen ist durch: 
+Direkte Methode von Lyapunov funktioniert entsprechend des GDG-Falls (wobei in der Definition einer Lyapunov-Funktion die Bedingung 3) zu ersetzen ist durch: 
 	\[\forall x \in U: V(\Psi(x)) \stackrel{(<)} \leq V(x)\  \]
 wobei \(\Psi\) der erzeugende Hom"oomorphismus des Hom-Systems sei.
 
@@ -424,7 +424,7 @@ solange keine ung"ultige Rechenoperation durchgef"uhrt wird.
 	\end{figure}
 \subsubsection{1. Fall: $\lambda < 0$} 
 $x = 0$ wird \emph{stabiler Knoten 3. Art} genannt.
-\subsubsection{2. Fall: $\lambda < 0$}
+\subsubsection{2. Fall: $\lambda > 0$}
 $ x = 0 $ wird \emph{instabiler Knoten 3. Art} genannt.
 
 \subsection{Jordannormalform ist in keiner Diagonalform} 
@@ -492,7 +492,7 @@ Der Wert der Summe liegt in \(U\), da $U$ abgeschlossen und sie Grenzwert ist vo
 \end{description}
 
 \begin{corollar}
-	Alle Eigenr"ame \(E_j\) (bzw. verallgemeinerte Eigenr"aume), sowie deren direkte Summen sind kanonisch invariante Unervektorr"aume des Systems
+	Alle Eigenr"ame \(E_j\) (bzw. verallgemeinerte Eigenr"aume), sowie deren direkte Summen sind kanonisch invariante Untervektorr"aume des Systems
 		\[\dot{x} = Ax, \qquad A \in \RR^{n\times n} \]
 	\underline{Speziell:} Ist \(\RR^n = \oplus_{j=1}^{N} E_j \) eine direkte Summe von (relativ niedrig dimensionierten) Eigenr"aumen von \(A\), dann ist das urspr"ungliche System \(\dot{x}=Ax\) das direkte Produkt der Teilsysteme auf den \(E_j\).
 	Falls sich die Teilsysteme vollst"andig analysieren bzw. klassifizieren lassen, dann auch das urspr"ungliche System \(\dot{x} = Ax\) im \(\RR^n\)
@@ -564,7 +564,7 @@ $x=0$ wird \emph{Zentrum} genannt. Ist $a = 1$, so ist jeder Punkt $x\in\RR$ ein
 
 \begin{description}
 \item[Bemerkung]
-	Jeder der bzgl. der linearen Abbildung \(x\mapsto Ax \) invarianter Unterverktorraum \(U\) ist invariant bzgl. des von \(\psi(x) = Ax \) erzeugten dynamische Systems.
+	Jeder der bzgl. der linearen Abbildung \(x\mapsto Ax \) invariante Untervektorraum \(U\) ist invariant bzgl. des von \(\psi(x) = Ax \) erzeugten dynamische Systems.
 \end{description}
 
 %-----------------------------------------------------------------------------------------------
