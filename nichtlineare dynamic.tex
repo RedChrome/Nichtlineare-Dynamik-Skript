@@ -1825,4 +1825,46 @@ Daher ist das \glqq Semisystem"'  $([0,1],T_2)$ chaotisch.
 Sei $\mu\in\mathbb{R}, 0<\mu\leq 4, L_{\mu}:[0,1]\rightarrow[0,1], x\mapsto\mu x(1-x)$ polynomial, $C^{\infty}$-glatt\\
 $L_\mu$ beschreibt exponentielles Wachstum mit S"attigungsgrenze.\\
 $\mu=4: ([0,1],L_4)$ ist chaotisch. Topologische Konjugation zu $([0,1],T_2)$ mittels konjugiertem Hom"oomorphismus $h(x)=\sin^2(\frac{\pi x} 2)\Rightarrow h(T_2(x))=L_4(h(x))$ f"ur alle $x\in[0,1]$
+
+\subsection{Weiterf"uhrende Untersuchungen der Zeltabbildung}
+Wir betrachten im Folgenden wieder das \glqq semi\grqq-dynamische System, welches durch die Zeltabbildung $T_\mu$ induziert wird. F"ur $\mu = 2$ haben wir gesehen, dass dies ein chaotisches System erzeugt. Nun wollen wir das entsprechende System f"ur $\mu > 2$ untersuchen. Die Zeltabbildung ist definiert durch
+$$ T_\mu\colon \RR \to \RR, \ x\mapsto \frac \mu 2(1-|2x-1|) = \begin{cases} \mu x , &x\leq \frac 12 \\ \mu(1-x) , &x\geq \frac 12\end{cases}$$
+Wir betrachten nun das \glqq semi\grqq-dynamische System $(\RR, \phi_{T})$, welches durch $T_\mu$ erzeugt wird. Offensichtlich gilt f"ur alle $x\in\RR\setminus[0,1]$, dass $\lim_{n\to\infty}{\phi_T(n, x)} = -\infty$ . Daher kann dieses System nicht transitiv, und somit nicht chaotisch sein. Aber es existieren Startwerte in $[0,1]$, sodass die Einschr"ankung auf eine geeignete Teilmenge von $[0,1]$ des Flusses ein chaotisches System liefert.
+
+Wir untersuchen zun"achst die invarianten Teilmengen. Es bezeichne $\Lambda_i\subset[0,1]$ diejenige Menge, die unter $i$-facher Anwendung von $T_\mu$ in $[0,1]$ abgebildet wird, d.h. $\phi_T(i, \Lambda_i) = T_\mu^i(\Lambda_i) \subset [0,1]$. Es l"asst sich leicht per Induktion zeigen, dass die $\Lambda_i$ folgende rekursive Struktur besitzen
+$$\Lambda_i = \frac 1\mu \Lambda_{i-1} \cup 1 - \frac 1\mu \Lambda_{i-1}$$
+f"ur alle $i \in \mathbb{N}$ und als Initialmenge definieren wir $\Lambda_0 := [0,1]$. Eine invariante Teilmenge ist nun der Durchschnitt aller $\Lambda_i$
+$$ \Lambda := \bigcap_{n\in\mathbb{N}_0} \Lambda_n$$
+Offensichtlich gilt $\Lambda_i \supset \Lambda_{i+1}$ sowie $\Lambda_i \neq \emptyset$ f"ur alle $i\in\mathbb{N}_0$. Aufgrund der rekursiven Struktur sind alle $\Lambda_i$ kompakt. Wenden wir nun die endliche Durchschnitteigenschaft des $\RR$ auf $\bigcap_{n\in\mathbb{N}_0} \Lambda_n$ an, so folgt, dass 
+$\Lambda \neq \emptyset$ kompakt ist.
+\begin{lemma}
+Das System $(\Lambda, \phi_T)$ ist chaotisch f"ur $\mu > 2$.
+\end{lemma}
+\begin{beweis}
+Der Beweis erfolgt mittels der \emph{Methode der symbolischen Dynamik}. Dazu zeigen wir, dass $(\Lambda, \phi_T)$ topologisch konjugiert zu $(\tilde\Sigma_2, \phi_\sigma)$ ist, wobei 
+$$\tilde\Sigma_2 := \{0,1\}^\mathbb{N} = \left\{\left .s=(s_0, s_1, \ldots)\right| \forall i \in \mathbb{N}: s_i\in\{0,1\} \right \}$$
+der Raum der einfach unendlichen Folgen von zwei Symbolen ist und $\sigma$ der entsprechende Bernoulli-Shift ist. $\sigma$ ist bez"uglich der Metrik $d\colon\tilde\Sigma_2 \times \tilde\Sigma_2 \to \RR, \ (x,y) \mapsto \sum_{k=0}^{\infty}{2^{-k}|x_k-y_k|}$ stetig. Dieses modifizierte Bernoulli-Shift System $(\tilde\Sigma_2, \phi_\sigma)$ ist chaotisch, denn man kann jede unendliche doppel Folge mit einer einfachen Folge identifizieren.
+Wir konstruieren nun einen Hom"oomorphismus, der die topologische Konjugation der beiden Systeme liefert. Dazu setzen wir
+$$ I := [0,1], \ I_0 := \frac 1\mu I, \ I_1 := 1-\frac 1\mu I$$
+und definieren rekursiv
+\begin{align*}
+I_{0,s_0,\ldots,s_n} &:= \frac 1\mu I_{s_0,\ldots, s_n}\subset I_0\\
+I_{1,s_0,\ldots,s_n} &:= 1-\frac 1\mu I_{s_0,\ldots, s_n}\subset I_1
+\end{align*}
+Damit folgt
+$$ \Lambda_n = \bigcup_{s_j\in\{0,1\}}{I_{s_0,\ldots,s_{n-1}}}$$
+Nach Konstruktion gilt $|I_{s_0,\ldots,s_n}| = \mu^{-n-1}$ sowie $T_\mu(I_{s_0,\ldots,s_n}) = I_{s_1,\ldots, s_n}$
+Definiere nun den Hom"oomorphismus
+$$h \colon \Lambda\to \tilde\Sigma_2, \ x \mapsto s = (s_0,s_1,\ldots), \ s_n = \begin{cases}0, &T_\mu^n(x) \in I_0 \\ 1, &T_\mu^n(x)\in I_1\end{cases}$$
+Daher gilt
+$$ x\in I_{s_0,\ldots,s_n} \cap \Lambda \Leftrightarrow h(x)_k = s_k, \ 0\leq k\leq n$$
+und es ergibt sich 
+$$ h \circ T_\mu = \sigma \circ h$$
+Es m"ussen jetzt nur noch die Eigenschaften eines Hom"oomorphismus nachgewiesen werden.
+Wir weisen zuerst die Bijektivit"at nach. Sei dazu ein $s\in \tilde\Sigma_2$ beliebig. Betrachte dann
+$I_s := \bigcap_{n\in\mathbb{N}_0}I_{s_0,\ldots, s_n}$. $I_s \neq \emptyset$ nach analogem Argument wie bei $\Lambda$. Daher existiert ein $x_s \in I_s$ und dieses erf"ullt $h(x_s) = s$. Folglich ist $h$ surjektiv. Da $|I_{s_0,\ldots,s_n}| = \mu^{-n-1} \to 0$ f"ur $n\to\infty$ und $I_{s_0,\ldots,s_n}\supset I_{s_0,\ldots,s_{n+1}}$ folgt nach dem Intervallschachtelungsprinzip, dass genau ein $x_s\in I_s$ exitiert. Daher ist $h$ injektiv.
+Nun zeigen wir, dass $h$ stetig ist. to be continued...
+\qed
+\end{beweis}
+
 \end{document}
