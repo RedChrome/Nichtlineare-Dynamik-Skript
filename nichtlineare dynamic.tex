@@ -1794,7 +1794,7 @@ d(\phi(l+j, q)&,\phi(l+j, y))\\
 Da $x,\varepsilon$ beliebig, folgt sensitive Abh"angigkeit von Anfangsdaten mit Sensibilit"atskonstanten $\Lambda$. \qed
 \end{beweis}
 
-\begin{lemma}
+\begin{lemma}\label{chaos_invariant_top_konj}
 Der eingef"uhre Chaosbegriff ist invariant unter topologischen Konjugationen.
 \end{lemma}
 
@@ -1863,7 +1863,15 @@ $$ h \circ T_\mu = \sigma \circ h$$
 Es m"ussen jetzt nur noch die Eigenschaften eines Hom"oomorphismus nachgewiesen werden.
 Wir weisen zuerst die Bijektivit"at nach. Sei dazu ein $s\in \tilde\Sigma_2$ beliebig. Betrachte dann
 $I_s := \bigcap_{n\in\mathbb{N}_0}I_{s_0,\ldots, s_n}$. $I_s \neq \emptyset$ nach analogem Argument wie bei $\Lambda$. Daher existiert ein $x_s \in I_s$ und dieses erf"ullt $h(x_s) = s$. Folglich ist $h$ surjektiv. Da $|I_{s_0,\ldots,s_n}| = \mu^{-n-1} \to 0$ f"ur $n\to\infty$ und $I_{s_0,\ldots,s_n}\supset I_{s_0,\ldots,s_{n+1}}$ folgt nach dem Intervallschachtelungsprinzip, dass genau ein $x_s\in I_s$ exitiert. Daher ist $h$ injektiv.
-Nun zeigen wir, dass $h$ stetig ist. to be continued...
+
+Nun zeigen wir, dass $h$ stetig ist. Sei dazu $\varepsilon > 0$, $x\in\Lambda$ beliebig. W"ahle $l\in\mathbb{N}$ so gro"s, dass $\sum_{k=l}^{\infty}{2^{-k}} < \varepsilon$. Es liegt $x\in I_{s_0,\ldots,s_l}$ mit geeigneten $s_i \in \{0,1\}$. Nun gilt f"ur alle $y \in \Lambda$ mit $d(x, y) = |x- y| < \mu^{-l-2} =: \delta$, dass $y \in I_{s_0, \ldots, s_l}$. Daher stimmen die ersten $l$ Folgenglieder von $h(x)$ und $h(y)$ "uberein und es folgt, dass
+$$ d(h(x), h(y)) = d(s^x, s^y) = \sum_{k=0}^{\infty}{2^{-k}|s^x_k - s^y_k|} \leq \sum_{k=l}^{\infty}{2^{-k}} < \varepsilon$$
+Es muss jetzt noch gezeigt werden, dass $h^{-1}$ ebenfalls stetig ist, damit $h$ ein Hom"oomorphismus ist. Sei $\varepsilon > 0$, $x \in \tilde\Sigma_2$ beliebig. Man w"ahle ein $l \in \mathbb{N}$ derart, dass $\mu^{-l-1} < \varepsilon$. Setze $\delta \leq \sum_{k=l+1}{2^{-k}}$. Dann gilt f"ur alle $y\in\tilde\Sigma_2$ mit $d(x,y) < \delta$, dass $x_k = y_k$ f"ur $0\leq k\leq l$.
+Folglich gilt 
+$$h^{-1}(x),  h^{-1}(y) \in I_{s_0, \ldots, s_l}$$
+mit geeigneten $s_i \in \{0,1\}$. Da $|I_{s_0, \ldots, s_l}| = \mu^{-l-1} < \varepsilon$ folgt, dass $h^{-1}$ stetig ist.
+
+Wir haben also einen Hom"oomorphismus $h$ gefunden, sodass $(\Lambda, \phi_T)$ und $(\tilde\Sigma_2, \phi_\sigma)$ topologisch konjugiert zueinander sind. Da $(\tilde\Sigma_2, \phi_\sigma)$ ein chaotisches System ist, ist nach \eqref{chaos_invariant_top_konj} $(\Lambda, \phi_T)$ auch ein chaotisches System. 
 \qed
 \end{beweis}
 
