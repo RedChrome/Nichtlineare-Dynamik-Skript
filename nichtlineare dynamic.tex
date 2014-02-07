@@ -499,16 +499,16 @@ Der Wert der Summe liegt in \(U\), da $U$ abgeschlossen und sie Grenzwert ist vo
 \end{corollar}
 
 \begin{definition}
-	Spezielle (verallgemeinerte) Eigenr"aume von \(A\) und damit invariante Untervektorr"aume von \(\dot{x}=Ax\) : 
+	Spezielle (verallgemeinerte) Eigenr"aume (Hauptr"aume) von \(A\) und damit invariante Untervektorr"aume von \(\dot{x}=Ax\). Es bezeichne $r(\lambda)$ die algebraische Vielfachheit des Eigenwertes $\lambda$ von $A$:
 	\begin{itemize} 
 		\item stabiler Unterraum von \(\dot{x}=Ax\)
-			$$E^s := \left\{\left. v\in \RR^n \right| (A-\lambda \operatorname{id})(v) = 0 \land \operatorname{Re}(\lambda) < 0\right\}$$ 
+			$$E^s := \left\{\left. v\in \RR^n \right| (A-\lambda \operatorname{id})^{r(\lambda)}(v) = 0 \land \operatorname{Re}(\lambda) < 0\right\}$$ 
 			Dies ist der verallgemeinterte Eigenraum zu allen Eigenwerten $\lambda$ von $A$ mit $\operatorname{Re}\lambda < 0$.
 		\item instabiler Unterraum von \(\dot{x}=Ax\)
-		$$E^u := \left\{\left. v\in \RR^n \right| (A-\lambda \operatorname{id})(v) = 0 \land \operatorname{Re}(\lambda) > 0\right\}$$ 
+		$$E^u := \left\{\left. v\in \RR^n \right| (A-\lambda \operatorname{id})^{r(\lambda)}(v) = 0 \land \operatorname{Re}(\lambda) > 0\right\}$$ 
 			Dies ist der verallgemeinterte Eigenraum zu allen Eigenwerten $\lambda$ von $A$ mit $\operatorname{Re}\lambda > 0$.
 		\item Zentrums-Unterraum von \(\dot{x}=Ax\)
-		$$E^c := \left\{\left. v\in \RR^n \right| (A-\lambda \operatorname{id})(v) = 0 \land \operatorname{Re}(\lambda) = 0\right\}$$ 
+		$$E^c := \left\{\left. v\in \RR^n \right| (A-\lambda \operatorname{id})^{r(\lambda)}(v) = 0 \land \operatorname{Re}(\lambda) = 0\right\}$$ 
 			Dies ist der verallgemeinterte Eigenraum zu allen Eigenwerten $\lambda$ von $A$ mit $\operatorname{Re}\lambda = 0$.
 	\end{itemize}
 \end{definition}
